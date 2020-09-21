@@ -1,0 +1,69 @@
+h2 {
+  font-family: $font-brand;
+  font-size: 40px;
+}
+
+.section {
+  position: relative;
+
+  .heading-draw {
+    margin-top: 80px;
+    margin-bottom: 60px;
+
+    @media only screen and (max-width: 768px) {
+      margin-bottom: 40px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    font-size: 32px;
+    padding: 0;
+  }
+}
+
+.heading-draw {
+  max-height: 200px;
+}
+
+$colors: $color-primary, darken($color-primary, 3%),  white;
+$max: length($colors);
+$dash: 70;
+$dash-gap: 10;
+$dash-space: $dash * ($max - 1) + $dash-gap * $max;
+$time: 20s;
+$time-step: $time/$max;
+
+.heading-text {
+  fill: none;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-dasharray: $dash $dash-space;
+  stroke-dashoffset: 0;
+  -webkit-animation: stroke $time infinite linear;
+  animation: stroke $time infinite linear;
+  font-family: 'Arial Black';
+  font-size: 80px;
+  text-transform: uppercase;
+  opacity: 0.75;
+  
+  @for $item from 1 through $max {
+    &:nth-child(#{$max}n + #{$item}) {
+      $color: nth($colors, $item);
+      stroke: $color;
+      -webkit-animation-delay: -($time-step * $item);
+      animation-delay: -($time-step * $item);
+    }
+  }
+}
+
+@-webkit-keyframes stroke {
+  100% {
+    stroke-dashoffset: -($dash + $dash-gap) * $max;
+  }
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: -($dash + $dash-gap) * $max;
+  }
+}

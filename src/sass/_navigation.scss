@@ -1,0 +1,89 @@
+nav {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 24px 96px;
+  transition: 0.5s all ease-in-out;
+  background: transparent;
+  z-index: 10;
+  -webkit-animation: $initial-load;
+  animation: $initial-load;
+  animation-delay: 0.25s;
+
+  @media only screen and (max-width: 768px) {
+    padding: 24px 56px;
+  }
+
+  @media only screen and (max-width: 500px) {
+    padding: 24px 40px;
+  }
+
+  @media only screen and (max-width: 375px) {
+    padding: 24px;
+  }
+
+  ul, li {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    display: flex;
+  }
+
+  li {
+    margin-left: 80px;
+    list-style: none;
+    
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    @media only screen and (max-width: 768px) {
+      margin-left: 40px;
+    }
+
+    @media only screen and (max-width: 500px) {
+      margin-left: 24px;
+    }
+
+    @media only screen and (max-width: 400px) {
+      margin-left: 16px;
+    }
+  }
+
+  a {
+    padding-bottom: 3px;
+    transition: 0.5s all;
+    border-bottom: 1px solid transparent;
+    opacity: 0.6;
+    color: $color-accent;
+    font-size: 18px;
+    text-transform: uppercase;
+
+    &:hover {
+      border-bottom: 1px solid $color-accent;
+    }
+
+    @media only screen and (max-width: 550px) {
+      font-size: 14px;
+    }
+
+    @media only screen and (max-width: 500px) {
+      font-size: 13px;
+    }
+  }
+}
+
+.nav--scrolled {
+  background: rgba(255,255,255,0.2);
+
+  a {
+    color: $color-neutral;
+
+    &:hover {
+      border-bottom: 1px solid $color-neutral;
+    }
+  }
+}

@@ -62,8 +62,9 @@ nav {
     font-size: 18px;
     text-transform: uppercase;
 
-    &:hover {
-      border-bottom: 1px solid $color-accent;
+    @media only screen and (max-width: 768px) {
+      transition: none;
+      border-bottom: 0;
     }
 
     @media only screen and (max-width: 550px) {
@@ -73,6 +74,15 @@ nav {
     @media only screen and (max-width: 500px) {
       font-size: 13px;
     }
+
+    &:hover {
+      border-bottom: 1px solid $color-accent;
+
+      @media only screen and (max-width: 768px) {
+        transition: none;
+        border-bottom: 0;
+      }
+    }
   }
 }
 
@@ -80,10 +90,10 @@ nav {
   background: rgba(255,255,255,0.2);
 
   a {
-    color: $color-neutral;
+    color: $color-muted;
 
     &:hover {
-      border-bottom: 1px solid $color-neutral;
+      border-bottom: 1px solid $color-muted;
     }
   }
 }

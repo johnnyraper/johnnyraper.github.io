@@ -32,10 +32,10 @@ a {
   }
 
   p {
-    margin: 0 0 24px;
-    padding: 0 96px 56px;
+    margin-bottom: 0;
+    padding: 0 96px;
     font-family: $font-brand;
-    font-size: 72px;
+    font-size: 54px;
     line-height: 1.1em;
 
     // Includes media queries:
@@ -52,6 +52,16 @@ a {
   }
 
   &-skills {
+    display: flex;
+    flex-direction: column;
+    padding-top: 56px;
+    padding-bottom: 96px;
+  }
+
+  &-portfolio {
+    display: flex;
+    flex-direction: column;
+    padding-top: 56px;
     padding-bottom: 72px;
   }
 
@@ -59,7 +69,7 @@ a {
     padding: 56px 96px;
 
     @media only screen and (max-width: 768px) {
-      padding: 32px 56px;
+      padding: 32px 56px 72px;
     }
 
     @media only screen and (max-width: 500px) {
@@ -97,10 +107,6 @@ a {
     p {
       color: $color-primary;
     }
-
-    .highlight {
-      color: lighten($color-primary, 25%);
-    }
   }
 
   &--dark {
@@ -116,7 +122,7 @@ a {
   }
 
   &--neutral {
-    background-color: #4a6143;
+    background-color: #39582e;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='199' viewBox='0 0 100 199'%3E%3Cg fill='%2363805a' fill-opacity='0.4'%3E%3Cpath d='M0 199V0h1v1.99L100 199h-1.12L1 4.22V199H0zM100 2h-.12l-1-2H100v2z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
 
     p {
@@ -124,12 +130,21 @@ a {
       font-family: $font-body;
     }
   }
+}
 
+// Article
+.portfolio {
+  margin-top: 56px;
 }
 
 .main-container {
   display: flex;
   height: 100vh;
+
+  @media only screen and (max-width: 1599px) {
+    background-color: #000;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='199' viewBox='0 0 100 199'%3E%3Cg fill='%231c1c1c' fill-opacity='1'%3E%3Cpath d='M0 199V0h1v1.99L100 199h-1.12L1 4.22V199H0zM100 2h-.12l-1-2H100v2z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+  }
 
   &__introduction {
     flex: 1;
@@ -153,23 +168,23 @@ a {
     }
   }
 
-  @media only screen and (max-width: 1599px) {
-    background-color: #000;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='199' viewBox='0 0 100 199'%3E%3Cg fill='%231c1c1c' fill-opacity='1'%3E%3Cpath d='M0 199V0h1v1.99L100 199h-1.12L1 4.22V199H0zM100 2h-.12l-1-2H100v2z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
-  }
-
   h1 {
+    max-width: 70%;
     margin: 0 0 96px;
     -webkit-animation: $initial-load;
     animation: $initial-load;
     color: $color-primary;
     font-family: $font-brand;
-    font-size: 115px;
+    font-size: 100px;
     line-height: 1em;
     animation-delay: 0.75s;
 
-    @media only screen and (max-width: 1920px) {
+    @media only screen and (max-width: 2350px) {
       font-size: 90px;
+    }
+
+    @media only screen and (max-width: 1920px) {
+      max-width: none;
     }
 
     @media only screen and (max-width: 1599px) {

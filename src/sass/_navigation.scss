@@ -3,7 +3,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 24px 96px;
+  padding: 16px 96px;
   transition: 0.5s all ease-in-out;
   background: transparent;
   z-index: 10;
@@ -49,7 +49,7 @@ nav {
     }
 
     @media only screen and (max-width: 400px) {
-      margin-left: 16px;
+      margin-left: 12px;
     }
   }
 
@@ -87,7 +87,7 @@ nav {
 }
 
 .nav--scrolled {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.7);
 
   a {
     color: $color-muted;

@@ -56,6 +56,19 @@ a {
     flex-direction: column;
     padding-top: 56px;
     padding-bottom: 96px;
+
+    p {
+      font-family: Lato, Roboto, Arial;
+      font-size: 32px;
+      letter-spacing: -0.2px;
+      line-height: 1.3em;
+
+      @media only screen and (max-width: 768px) {
+        font-size: 24px;
+        line-height: 1.2em;
+      }
+
+    }
   }
 
   &-portfolio {
@@ -210,6 +223,11 @@ a {
     display: block;
     position: absolute;
     bottom: 96px;
+
+    @media only screen and (max-width: 1366px) {
+      bottom: 48px;
+      max-width: 100px;
+    }
     
     @media only screen and (max-width: 500px) {
       bottom: 60px;

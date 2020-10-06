@@ -54,16 +54,22 @@ a {
   &-skills {
     display: flex;
     flex-direction: column;
-    padding-top: 56px;
+    padding-top: 72px;
     padding-bottom: 96px;
 
     p {
+      max-width: 80%;
       font-family: Lato, Roboto, Arial;
       font-size: 32px;
       letter-spacing: -0.2px;
       line-height: 1.3em;
 
+      &:first-of-type {
+        margin-top: 56px;
+      }
+
       @media only screen and (max-width: 768px) {
+        max-width: none;
         font-size: 24px;
         line-height: 1.2em;
       }
@@ -74,8 +80,8 @@ a {
   &-portfolio {
     display: flex;
     flex-direction: column;
-    padding-top: 56px;
-    padding-bottom: 72px;
+    padding-top: 72px;
+    padding-bottom: 96px;
   }
 
   &-contact {
@@ -147,7 +153,7 @@ a {
 
 // Article
 .portfolio {
-  margin-top: 56px;
+  margin-top: 72px;
 }
 
 .main-container {

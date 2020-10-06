@@ -1,11 +1,10 @@
 .portfolio {
-  $porfolio-width: 1400px;
-
   display: grid;
   place-items: center;
   
   h2 {
     margin: 16px 0 24px;
+    max-width: 800px;
 
     @media only screen and (max-width: 1366px) {
       margin: 8px 0 16px;
@@ -17,9 +16,8 @@
   }
 
   img {
-    transition: all 1s ease-in-out;
+    transition: all 0.5s ease-in-out;
     border: 0;
-    filter: none;
 
     @media only screen and (max-width: 768px) {
       transition: none;
@@ -27,8 +25,7 @@
 
     &:hover {
       transform: scale(1.05);
-      transition: all 1s ease-in-out;
-      filter: sepia(100%);
+      transition: all 0.5s ease-in-out;
 
       @media only screen and (max-width: 768px) {
         transform: none;
@@ -56,34 +53,37 @@
     display: grid;
     grid-auto-columns: 1fr;
     grid-auto-flow: column;
-    max-width: $porfolio-width;
   }
 
   &__description {
-    padding: 40px;
+    padding: 50px;
     background: white;
     color: $color-primary;
+
+    @media only screen and (max-width: 1366px) {
+      padding: 40px;
+    }
 
     @media only screen and (max-width: 1100px) {
       display: none;
     }
 
     p {
+      max-width: 800px;
       margin: 16px 0;
       padding: 0;
       color: lighten($color-muted, 20%);
       font-family: $font-body;
-      font-size: 18px;
-      line-height: 1.4em;
+      font-size: 24px;
+      line-height: 1.3em;
 
-      @media only screen and (max-width: 1366px) {
-        font-size: 16px;
+      @media only screen and (max-width: 1599px) {
+        font-size: 18px;
       }
     }
   }
 
   &__more {
-    max-width: $porfolio-width;
     margin: 0 auto;
     padding: 64px 0 0;
 

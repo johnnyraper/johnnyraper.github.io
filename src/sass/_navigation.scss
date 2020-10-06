@@ -2,11 +2,11 @@ nav {
   display: flex;
   position: fixed;
   top: 0;
+  z-index: 50;
   width: 100%;
   padding: 16px 96px;
   transition: 0.5s all ease-in-out;
-  background: transparent;
-  z-index: 10;
+  background: rgba(255,255,255,0.7);
   -webkit-animation: $initial-load;
   animation: $initial-load;
   animation-delay: 0.25s;
@@ -86,14 +86,14 @@ nav {
   }
 }
 
-.nav--scrolled {
-  background: rgba(255,255,255,0.7);
+// .nav--scrolled {
+//   background: rgba(255,255,255,0.7);
 
-  a {
-    color: $color-muted;
+//   a {
+//     color: $color-muted;
 
-    &:hover {
-      border-bottom: 1px solid $color-muted;
-    }
-  }
-}
+//     &:hover {
+//       border-bottom: 1px solid $color-muted;
+//     }
+//   }
+// }

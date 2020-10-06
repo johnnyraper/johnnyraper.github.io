@@ -41,11 +41,6 @@ a {
     // Includes media queries:
     @include responsive-paragraph-rules();
   }
-  
-  // &:not(.section-auto-scale) {
-  //   display: grid;
-  //   place-content: center;
-  // }
 
   &-home {
     display: grid;
@@ -154,13 +149,17 @@ a {
 }
 
 .portrait-container {
+  margin-top: 75px;
+  margin-left: 60px;
+  
   img {
-    height: 100vh;
     -webkit-animation: $initial-load;
     animation: $initial-load;
-  }
 
-  @media only screen and (max-width: 1599px) {
-    display: none;
+    position: relative;
+    z-index: 25;
+    border-radius: 50%;
+    width: 300px;
+    transform: scale(-1, 1);
   }
 }

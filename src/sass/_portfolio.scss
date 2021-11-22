@@ -1,114 +1,225 @@
 .portfolio {
-  display: grid;
-  place-items: center;
-  
-  h2 {
-    margin: 16px 0 24px;
-    max-width: 800px;
+  &__group {
+    justify-content: center;
 
-    @media only screen and (max-width: 1366px) {
-      margin: 8px 0 16px;
+    @media screen and (min-width: 1024px) {
+      display: flex;
+      margin-bottom: 160px;
+    }
+
+    &--reduced-spacing {
+      margin-bottom: $grid-7x;
+    }
+
+    &--increased-spacing-mobile {
+      margin-top: $grid-10x;
+
+      @media screen and (min-width: 1024px) {
+        margin-top: 0;
+      }
     }
   }
-  
-  a {
-    display: block;
+
+  &__image-title {
+    margin: $grid-8x 0 $grid-4x;
   }
 
-  img {
-    transition: all 0.5s ease-in-out;
-    border: 0;
+  &__image {
+    @media screen and (min-width: 1024px) {
+      position: relative;
+    }
+  }
 
-    @media only screen and (max-width: 768px) {
-      transition: none;
+  &__image-container {
+    @media screen and (min-width: 1024px) {
+      display: flex;
+      position: relative;
+      flex-direction: column;
+      justify-content: space-between;
+      max-width: 60%;
+    }
+
+    &--reduced {
+      @media screen and (min-width: 1024px) {
+        max-width: 40%;
+      }
     }
 
     &:hover {
-      transform: scale(1.05);
-      transition: all 0.5s ease-in-out;
+      .portfolio__overlay {
+        opacity: 0.85;
+      }
+    }
 
-      @media only screen and (max-width: 768px) {
-        transform: none;
-        transition: none;
-        filter: none;
+    a {
+      border-bottom: none;
+    }
+  }
+
+  &__overlay {
+    display: none;
+
+    @media screen and (min-width: 1024px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #fafafa;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      transition: $transition;
+
+      p {
+        display: inline-block;
+        padding: $grid-4x;
+        font-size: 20px;
+        line-height: 1.55;
+        color: $color-accent;
+
+        @media screen and (min-width: 1200px) {
+          font-size: 36px;
+          max-width: 80%;
+        }
       }
     }
   }
-  
 
-  &__image {
-    background: white;
-    overflow: hidden;
+  &__summary {
+    font-family: $font-body;
 
-    @media only screen and (max-width: 1100px) {
-      margin: 16px 40px;
+    @media screen and (min-width: 1024px) {
+      width: 40%;
     }
 
-    @media only screen and (max-width: 375px) {
-      margin: 16px 24px;
-    }
-  }
-
-  &__item {
-    display: grid;
-    grid-auto-columns: 1fr;
-    grid-auto-flow: column;
-  }
-
-  &__description {
-    padding: 50px;
-    background: white;
-    color: $color-primary;
-
-    @media only screen and (max-width: 1366px) {
-      padding: 40px;
+    &--left {
+      @media screen and (min-width: 1024px) {
+        padding-right: $grid-7x;
+      }
     }
 
-    @media only screen and (max-width: 1100px) {
-      display: none;
+    &--right {
+      @media screen and (min-width: 1024px) {
+        padding-left: $grid-7x;
+      }
+    }
+
+    h2 {
+      margin: $grid-4x 0;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1.55;
+      color: $color-accent;
     }
 
     p {
-      max-width: 800px;
-      margin: 16px 0;
+      font-size: 20px;
+      line-height: 1.55;
+
+      @media screen and (min-width: 1024px) {
+        max-width: 80%;
+      }
+    }
+
+    a {
+      display: inline-block;
+      margin: $grid-4x 0 $grid-6x;
       padding: 0;
-      color: lighten($color-muted, 20%);
-      font-family: $font-body;
-      font-size: 24px;
-      line-height: 1.3em;
+      font-size: 20px;
+      transition: $transition;
+      transform: translate(0, 0);
 
-      @media only screen and (max-width: 1599px) {
-        font-size: 18px;
+      @media screen and (min-width: 1024px) {
+        margin: $grid-12x 0 0;
+      }
+
+      &:hover {
+        display: inline-block;
+        padding-left: $grid-3x;
       }
     }
   }
 
-  &__more {
-    padding: 64px 0 0;
-    max-width: 80%;
+  &__article {
+    display: flex;
+    flex-direction: column;
 
-    @media only screen and (max-width: 768px) {
-      max-width: none;
+    @media screen and (min-width: 768px) {
+      padding-top: $grid-6x;
     }
 
-    p {
-      font-size: 40px;
-      line-height: 1.1em;
+    h3 {
+      margin: $grid-5x 0 $grid-2x;
+      font-size: 26px;
+      color: $color-accent;
 
-      // Includes media queries:
-      @include responsive-paragraph-rules();
+      @media screen and (min-width: 768px) {
+        margin: $grid-8x 0 $grid-4x;
+      }
     }
 
-    &-intro {
-      display: block;
-      margin-bottom: 24px;
-      font-family: $font-body;
-      font-size: 24px;
-      letter-spacing: -0.2px;
+    h2 {
+      margin: 0;
+
+      @media screen and (min-width: 768px) {
+        margin: $grid-6x 0;
+      }
     }
   }
-}
 
-.divider {
-  opacity: 0.5;
+  &__article-image {
+    margin: $grid-4x auto;
+    max-width: 100%;
+
+    @media screen and (min-width: 768px) {
+      margin: $grid-5x auto;
+    }
+
+    @media screen and (min-width: 1200px) {
+      margin: $grid-8x auto;
+    }
+
+    @media screen and (min-width: 1800px) {
+      max-width: 1600px;
+    }
+
+    &--1400w {
+      max-width: 100%;
+
+      @media screen and (min-width: 1600px) {
+        max-width: 1400px;
+      }
+    }
+  }
+
+  &__two-columns {
+    margin: auto;
+    max-width: 1600px;
+    display: flex;
+    align-items: flex-start;
+
+    .portfolio__article-image {
+      width: 40%;
+    }
+
+    &--hero-left {
+      .portfolio__article-image {
+        &:first-of-type {
+          width: 50%;
+        }
+        &:last-of-type {
+          width: 25%;
+        }
+      }
+    }
+  }
+
+  &__callout {
+    font-family: $font-fancy;
+    font-size: 32px;
+    color: $color-accent;
+    margin: $grid-7x auto;
+  }
 }

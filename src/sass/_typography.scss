@@ -1,68 +1,46 @@
+h1 {
+  font-size: 64px;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 100px;
+  }
+}
+
 h2 {
-  font-family: $font-brand;
+  margin: $grid-6x 0;
   font-size: 40px;
+  font-family: $font-body;
 
-  @media only screen and (max-width: 1366px) {
-    font-size: 36px;
+  &.heading--extra-spacing {
+    margin: $grid-6x 0 $grid-12x;
+    color: $color-accent;
   }
 }
 
-.section {
-  position: relative;
+h3 {
+  margin: $grid-8x 0 $grid-4x;
+  font-size: 32px;
+  font-family: $font-body;
+}
 
-  .heading-draw {
-    display: grid;
-    place-items: center;
-  }
+h4 {
+  margin: $grid-4x 0 $grid-2x;
+  font-size: 20px;
+  font-family: $font-body;
+}
 
-  @media only screen and (max-width: 768px) {
-    font-size: 32px;
+p,
+ol,
+li {
+  font-size: 20px;
+  line-height: 1.55;
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+    line-height: 1.55;
   }
 }
 
-.heading-draw {
-  max-height: 200px;
-}
-
-$colors: $color-primary, darken($color-primary, 3%),  white;
-$max: length($colors);
-$dash: 70;
-$dash-gap: 10;
-$dash-space: $dash * ($max - 1) + $dash-gap * $max;
-$time: 20s;
-$time-step: $time/$max;
-
-.heading-text {
-  fill: none;
-  stroke-width: 2;
-  stroke-linejoin: round;
-  stroke-dasharray: $dash $dash-space;
-  stroke-dashoffset: 0;
-  -webkit-animation: stroke $time infinite linear;
-  animation: stroke $time infinite linear;
-  font-family: 'Arial Black';
-  font-size: 80px;
-  text-transform: uppercase;
-  opacity: 0.75;
-  
-  @for $item from 1 through $max {
-    &:nth-child(#{$max}n + #{$item}) {
-      $color: nth($colors, $item);
-      stroke: $color;
-      -webkit-animation-delay: -($time-step * $item);
-      animation-delay: -($time-step * $item);
-    }
-  }
-}
-
-@-webkit-keyframes stroke {
-  100% {
-    stroke-dashoffset: -($dash + $dash-gap) * $max;
-  }
-}
-
-@keyframes stroke {
-  100% {
-    stroke-dashoffset: -($dash + $dash-gap) * $max;
-  }
+ol {
+  margin: $grid-5x 0;
 }

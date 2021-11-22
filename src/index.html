@@ -15,250 +15,174 @@
     <!-- Generated from the HTML / Sass Jumpstart: https://github.com/5t3ph/html-sass-jumpstart -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Johnny Raper | User Interface Developer | London</title>
+    <title>Johnny Raper | UX / UI Designer and UI Developer | London</title>
     <meta
       name="keywords"
-      content="Frontend, Front-end, Developer, UI, User Interface, Software, Engineering, HTML, Sass, CSS, JavaScript, Angular, Material, Responsive, BEM, Website, Development, London, UK, Remote"
+      content="UX, UI, User Interface, User Interface Design, User Experience, User Experience Design, Frontend, Front-end, Developer, Software, Engineering, HTML, Sass, CSS, Responsive, BEM, Website, Development, London, UK, Remote"
     />
     <meta
       name="description"
-      content="Johnny Raper is a creative Web Developer living in London. He creates semantic websites and applications with love, craft and care."
+      content="Johnny Raper is a creative UX/UI designer and frontend developer living in London. He creates beautiful digital experiences with love, craft and care."
     />
     <link href="css/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Rosario:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <header>
-      <nav class="main-navigation">
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+    <main>
+      <header class="header">
+        <div class="logo">
+          <a href="index.html" class="logo__link">
+            <div class="cube-container">
+              <div class="cube">
+                <div class="cube__face cube__front">
+                  <span>JR</span>
+                </div>
+                <div class="cube__face cube__back">
+                  <span>UX</span>
+                </div>
+                <div class="cube__face cube__top">
+                  <span>UI</span>
+                </div>
+                <div class="cube__face cube__bottom">
+                  <span>Frontend</span>
+                </div>
+                <div class="cube__face cube__left">
+                  <span>Designer</span>
+                </div>
+                <div class="cube__face cube__right">
+                  <span>London</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <nav>
+          <ul class="navigation">
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
 
-    <section id="home" class="section section--dark section-home">
-      <div class="main-container">
-        <div class="main-container__introduction">
-          <h1>
-            Hello. I'm a <span class="highlight">User Interface Developer</span> based in London.
-          </h1>
-          <div class="main-container__cta">
-            <a
-              href="#portfolio"
-              class="button-base button-outline button-hover-slide button-hover-fill button-rounded button-background"
-              >View my portfolio</a
-            >
+      <section class="section section__hero u-gutter">
+        <div class="section__intro">
+          <div class="section__intro-content section__intro-content--home">
+            <h1>Johnny Raper</h1>
+            <p>
+              I'm a user experience and product designer and I create brave and intuitive
+              software applications.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--highlight u-gutter" id="portfolio">
+        <div class="portfolio__group scrollFade">
+          <div class="portfolio__image-container">
+            <a href="portfolio-rafinex.html">
+              <img
+                class="portfolio__image"
+                src="assets/rafinex/rafinex-portfolio-pieces.png"
+                alt=""
+              />
+              <div class="portfolio__overlay">
+                <p>Open project</p>
+              </div>
+            </a>
           </div>
 
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            width="200"
-            height="150"
-            viewBox="0 0 200 150"
-          >
-            <image
-              class="main-container__logo"
-              width="200"
-              height="150"
-              xlink:href="data:img/png;base64,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"
-            />
-          </svg>
-        </div>
-        <div class="portrait-container">
-          <img src="assets/portrait.jpg" alt="Portrait" />
-        </div>
-      </div>
-    </section>
-
-    <section id="portfolio" class="section section--light section-auto-scale section-portfolio">
-      <svg class="heading-draw" viewBox="0 0 600 120">
-        <symbol id="heading-portfolio">
-          <text text-anchor="middle" x="50%" y="50%" dy=".35em">Portfolio</text>
-        </symbol>
-        <use class="heading-text" xlink:href="#heading-portfolio"></use>
-        <use class="heading-text" xlink:href="#heading-portfolio"></use>
-        <use class="heading-text" xlink:href="#heading-portfolio"></use>
-        <use class="heading-text" xlink:href="#heading-portfolio"></use>
-        <use class="heading-text" xlink:href="#heading-portfolio"></use>
-      </svg>
-
-      <article class="portfolio">
-        <div class="portfolio__item">
-          <div class="portfolio__image">
-            <a
-              href="https://frontend.cloudnc.com"
-              target="_blank"
-              title="Visit CloudNC website (previous version)"
-              ><img src="assets/portfolio-cloudnc.jpg" alt="CloudNC"
-            /></a>
+          <div class="portfolio__summary portfolio__summary--right">
+            <h2>Rafinex Möbius</h2>
+            <p>UX, UI design and frontend development for Rafinex's SaaS product: Möbius.</p>
+            <a href="portfolio-rafinex.html">Find out more &rarr;</a>
           </div>
-          <div class="portfolio__description">
+        </div>
+
+        <div
+          class="
+            portfolio__group
+            portfolio__group--increased-spacing-mobile
+            portfolio__group--reduced-spacing
+            scrollFade
+          "
+        >
+          <div class="portfolio__summary portfolio__summary--left">
             <h2>CloudNC</h2>
             <p>
-              At CloudNC I was responsible for the UI, layout and styling for internal products, one
-              of which was a complex software application. Sitting behind the frontend was an engine
-              that took a 3D file and generated the most quick and efficient machining toolpaths
-              from all possible permutations. This was then sent to the frontend for rendering in an
-              interactive 3D simulation.
+              Frontend development with a blend of UX and UI design across three major projects.
             </p>
-            <p>
-              When joining the team I built out the design and implementation of the public,
-              customer facing website, which involved coding web components in Angular and HTML,
-              flavoured with view encapsulated Sass / CSS.
-            </p>
+            <a href="portfolio-cloudnc.html">Find out more &rarr;</a>
+          </div>
+
+          <div class="portfolio__image-container">
+            <a href="portfolio-cloudnc.html">
+              <img
+                class="portfolio__image"
+                src="assets/cloudnc/cloudnc-portfolio-pieces.png"
+                alt=""
+              />
+              <div class="portfolio__overlay">
+                <p>Open project</p>
+              </div>
+            </a>
           </div>
         </div>
-        <div class="portfolio__item">
-          <div class="portfolio__description">
-            <h2>QBE Europe</h2>
-            <p>
-              Working in conjuction with an Umbraco Developer, Technical Director and Account
-              Director, I worked as the sole Frontend Developer on this project. I created reusable
-              HTML/Sass templates and components that could be easily integrated with the CMS, and
-              ensured backwards compatibility for older browsers was implemented to maintain a
-              pleasant experience for the less modern user.
-            </p>
-          </div>
-          <div class="portfolio__image">
-            <a href="https://qbeeurope.com" target="_blank" title="Visit QBE website"
-              ><img src="assets/portfolio-qbe.jpg" alt="QBE Europe"
-            /></a>
-          </div>
-        </div>
-        <div class="portfolio__item">
-          <div class="portfolio__image">
-            <a href="https://jackperfume.co.uk" target="_blank" title="Visit Jack Perfume website"
-              ><img src="assets/portfolio-jackperfume.jpg" alt="Jack Perfume"
-            /></a>
-          </div>
-          <div class="portfolio__description">
-            <h2>Jack Perfume</h2>
-            <p>
-              Richard E. Grant is not only an actor, he is a man of many talents. Jack Perfume is
-              his fragrance creation, and I build the product website using Shopify, HTML and Sass.
-              The homepage uses looping animations to cycle through boxed and unboxed views of the
-              product, as well as illustrating the product spinning on its axis.
-            </p>
-          </div>
-        </div>
-        <div class="portfolio__item">
-          <div class="portfolio__description">
-            <h2>Kallo</h2>
-            <p>
-              I worked with one other developer to build Kallo's revamped website, which sits on a
-              WordPress backend. It uses a multitude of Sass mixins and shared, reusable components
-              which keep things lightweight and fast. This ensured new pages and features could be
-              developed quickly and presented to the client.
-            </p>
-          </div>
-          <div class="portfolio__image">
-            <a href="https://kallo.com" target="_blank" title="Visit Kallo website"
-              ><img src="assets/portfolio-kallo.jpg" alt="Kallo"
-            /></a>
-          </div>
-        </div>
-        <div class="portfolio__item">
-          <div class="portfolio__image">
-            <img
-              src="assets/portfolio-freud.jpg"
-              title="Anna Freud National Centre &ndash; website version no longer live"
-              alt="Anna Freud National Centre &ndash; website version no longer live"
-            />
-          </div>
-          <div class="portfolio__description">
-            <h2>Anna Freud National Centre</h2>
-            <p>
-              I helped create the website for children's charity, Anna Freud National Centre. While
-              the version I worked has since been redeveloped, I took advantage of using the BEM
-              (Block, Element Modifier) methodology to implement page templates and accompanying
-              Sass / CSS.
-            </p>
-          </div>
-        </div>
-      </article>
-      <div class="portfolio__more">
+      </section>
+
+      <section class="section section--highlight section__tight u-gutter">
         <p>
-          <span class="portfolio__more-intro">Additional clients include:</span>
-          <span class="highlight">GSK</span>
-          <span class="divider">/</span>
-          <span class="highlight">KPMG</span>
-          <span class="divider">/</span>
-          <span class="highlight">Land Securities</span>
-          <span class="divider">/</span>
-          <span class="highlight">Microsoft XBOX</span>
-          <span class="divider">/</span>
-          <span class="highlight">O2</span>
-          <span class="divider">/</span>
-          <span class="highlight">Paymentsense</span>
-          <span class="divider">/</span>
-          <span class="highlight">The Premier League</span>
-          <span class="divider">/</span>
-          <span class="highlight">The Society of Authors</span>
-          <span class="divider">/</span>
-          <span class="highlight">SAP Banking</span>
-          <span class="divider">/</span>
-          <span class="highlight">Shazam</span>
-          <span class="divider">/</span>
-          <span class="highlight">Yeo Valley</span>
-          &hellip;and many more.
+          I've been fortunate enough to work on some of the most exciting brands worldwide. A
+          selection of my web development work is shown below:
         </p>
-      </div>
-    </section>
 
-    <section id="skills" class="section section--dark section-auto-scale section-skills">
-      <svg class="heading-draw" viewBox="0 0 600 120">
-        <symbol id="heading-skills">
-          <text text-anchor="middle" x="50%" y="50%" dy=".35em">Skills</text>
-        </symbol>
-        <use class="heading-text" xlink:href="#heading-skills"></use>
-        <use class="heading-text" xlink:href="#heading-skills"></use>
-        <use class="heading-text" xlink:href="#heading-skills"></use>
-        <use class="heading-text" xlink:href="#heading-skills"></use>
-        <use class="heading-text" xlink:href="#heading-skills"></use>
-      </svg>
-      <p>
-        With an affinity for crafting beautiful user experiences, my skills are deeply founded in
-        <span class="highlight">elicitation of user requirements, UX, UI design</span> and
-        <span class="highlight">frontend implementation</span>. Working across these domains, I use
-        <span class="highlight">Sketch, Figma and Photoshop</span> and program in
-        <span class="highlight">HTML</span> and <span class="highlight">Sass</span> with additional
-        <span class="highlight">JavaScript</span>.
-      </p>
+        <div class="portfolio__group scrollFade">
+          <div class="portfolio__summary portfolio__summary--left">
+            <h2>QBE Insurance Europe</h2>
+            <p>HTML, Sass and some JavaScript development for QBE Insurance Europe.</p>
+            <a href="https://qbeeurope.com/">Visit website &rarr;</a>
+          </div>
 
-      <p>
-        In my most recent role, I achieved success through the
-        <span class="highlight">design and implementation of three major pieces of work</span>
-        spanning nearly three years, one of which <span class="highlight">I led and managed</span> ensuring imposed deadlines were adhered to.
-      </p>
+          <div class="portfolio__image-container portfolio__image-container--reduced">
+            <img class="portfolio__image" src="assets/portfolio-qbe.jpg" alt="" />
+          </div>
+        </div>
 
-      <p>
-        Each of these pieces used <span class="highlight">Angular Material</span> with implementation
-        of <span class="highlight">custom theming</span> and
-        <span class="highlight">markdown typography</span> rules to achieve consistency in using common, shared styles.
-      </p>
+        <div class="portfolio__group portfolio__group--increased-spacing-mobile scrollFade">
+          <div class="portfolio__summary portfolio__summary--left">
+            <h2>Kallo</h2>
+            <p>HTML, Sass and WordPress development for Kallo.</p>
+            <a href="https://kallo.com">Visit website &rarr;</a>
+          </div>
 
-      <p>
-        Usability and intuitive experiences are key to the entire process of a project/product, and so I always build with the end user
-        considerations in mind.
-      </p>
-    </section>
+          <div class="portfolio__image-container portfolio__image-container--reduced">
+            <img class="portfolio__image" src="assets/portfolio-kallo.jpg" alt="" />
+          </div>
+        </div>
+      </section>
 
-    <section id="contact" class="section section--neutral section-auto-scale section-contact">
-      <h2>Get in touch with Johnny</h2>
-      <p>
-        If you'd like to say hello, please
-        <a href="mailto:johnnyraper@googlemail.com">send me an email</a>. Or find me on
-        <a href="https://twitter.com/johnnyrappsta" target="_blank">Twitter</a> and
-        <a href="https://www.linkedin.com/in/johnnyraper/" target="_blank">LinkedIn</a>.
-      </p>
-      <p>Lovingly crafted by Johnny Raper | Last updated: October 2020</p>
-    </section>
-
-    <script src="js/jquery-3.5.1.min.js"></script>
+      <section class="section section--highlight section__footer u-gutter" id="contact">
+        <footer>
+          <h2>Get in touch</h2>
+          <p>
+            If you'd like a quote for a project, require more information, or just fancying saying hello, feel
+            free to
+            <a href="mailto:johnnyraper@googlemail.com">send me an email</a>.
+          </p>
+          <p>
+            Alternatively you can contact me via
+            <a href="https://twitter.com/johnnyrappsta" target="_blank">Twitter</a> and
+            <a href="https://www.linkedin.com/in/johnnyraper/" target="_blank">LinkedIn</a>.
+          </p>
+        </footer>
+      </section>
+    </main>
     <script src="js/scripts.js"></script>
   </body>
 </html>

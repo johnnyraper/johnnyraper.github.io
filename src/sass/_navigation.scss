@@ -1,99 +1,19 @@
-nav {
-  display: flex;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 16px 96px;
-  transition: 0.5s all ease-in-out;
-  background: transparent;
-  z-index: 10;
-  -webkit-animation: $initial-load;
-  animation: $initial-load;
-  animation-delay: 0.25s;
-
-  @media only screen and (max-width: 768px) {
-    padding: 24px 56px;
-  }
-
-  @media only screen and (max-width: 500px) {
-    padding: 24px 40px;
-  }
-
-  @media only screen and (max-width: 375px) {
-    padding: 24px;
-  }
-
-  ul, li {
-    margin: 0;
-    padding: 0;
-  }
-
-  ul {
+.navigation {
+  @media screen and (min-width: 500px) {
     display: flex;
+    align-items: center;
   }
 
   li {
-    margin-left: 80px;
+    margin: $grid-2x 0;
     list-style: none;
-    
-    &:first-of-type {
-      margin-left: 0;
+
+    @media screen and (min-width: 500px) {
+      margin: 0 $grid-2x;
     }
 
-    @media only screen and (max-width: 768px) {
-      margin-left: 40px;
-    }
-
-    @media only screen and (max-width: 500px) {
-      margin-left: 24px;
-    }
-
-    @media only screen and (max-width: 400px) {
-      margin-left: 12px;
-    }
-  }
-
-  a {
-    padding-bottom: 3px;
-    transition: 0.5s all;
-    border-bottom: 1px solid transparent;
-    opacity: 0.6;
-    color: $color-accent;
-    font-size: 18px;
-    text-transform: uppercase;
-
-    @media only screen and (max-width: 768px) {
-      transition: none;
-      border-bottom: 0;
-    }
-
-    @media only screen and (max-width: 550px) {
-      font-size: 14px;
-    }
-
-    @media only screen and (max-width: 500px) {
-      font-size: 13px;
-    }
-
-    &:hover {
-      border-bottom: 1px solid $color-accent;
-
-      @media only screen and (max-width: 768px) {
-        transition: none;
-        border-bottom: 0;
-      }
-    }
-  }
-}
-
-.nav--scrolled {
-  background: rgba(255,255,255,0.7);
-
-  a {
-    color: $color-muted;
-
-    &:hover {
-      border-bottom: 1px solid $color-muted;
+    @media screen and (min-width: 600px) {
+      margin: 0 $grid-3x;
     }
   }
 }

@@ -1,13 +1,29 @@
+/*-------------------------------
+    GRID
+-------------------------------*/
 
-$color-accent: #D0DB97;
-$color-primary: #417731;
-$color-muted: #333;
+$grid: 8px;
+$grid-half: $grid * 0.5; // 4px
+$grid-2x: $grid * 2; // 16px
+$grid-3x: $grid * 3; // 24px
+$grid-4x: $grid * 4; // 32px
+$grid-5x: $grid * 5; // 40px
+$grid-6x: $grid * 6; // 48px
+$grid-7x: $grid * 7; // 56px
+$grid-8x: $grid * 8; // 64px
+$grid-9x: $grid * 9; // 72px
+$grid-10x: $grid * 10; // 80px
+$grid-11x: $grid * 11; // 88px
+$grid-12x: $grid * 12; // 96px
+$grid-13x: $grid * 13; // 104px
 
-// Animation – duration of each home fade transition
-$duration: 2s;
+// ACTUAL COLOURS
 
-// Fade animation
-$initial-load: fade-in $duration cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+$color-white: #ffffff;
+$color-accent: #5e0ede;
+$color-primary: #121212;
 
-$font-body: Lato, Roboto, Arial;
-$font-brand: Albra, Georgia;
+$transition: 0.3s all;
+
+$font-fancy: "El Messiri", sans-serif;
+$font-body: "Rosario", serif;

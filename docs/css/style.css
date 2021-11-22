@@ -211,7 +211,14 @@ ol {
   height: 70px;
   font-family: "Rosario", serif;
   font-size: 14px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  outline: 1px solid transparent;
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0);
   transform-style: preserve-3d;
+  transform: rotateZ(2deg);
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform: rotateZ(2deg);
   animation: cube-rotation 90s infinite linear;
 }
 .cube > div {

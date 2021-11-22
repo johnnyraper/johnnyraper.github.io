@@ -212,14 +212,17 @@ ol {
   font-family: "Rosario", serif;
   font-size: 14px;
   backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
   outline: 1px solid transparent;
   box-shadow: 0 0 1px rgba(255, 255, 255, 0);
   transform-style: preserve-3d;
-  transform: rotateZ(2deg);
-  -webkit-transform-style: preserve-3d;
-  -webkit-transform: rotateZ(2deg);
   animation: cube-rotation 90s infinite linear;
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transform-style: preserve-3d;
+  -moz-backface-visibility: hidden;
+  -moz-transform: translate3d(0, 0, 0);
+  -moz-transform-style: preserve-3d;
 }
 .cube > div {
   display: flex;
@@ -227,7 +230,6 @@ ol {
   width: 100%;
   height: 100%;
   opacity: 0.6;
-  background: linear-gradient(135deg, #b68df8, white 100%);
   border: 1px solid #5e0ede;
   color: #5e0ede;
   box-sizing: border-box;
@@ -235,6 +237,13 @@ ol {
 .cube__face {
   align-items: center;
   justify-content: center;
+}
+.cube__face::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  outline: 1px solid #5e0ede;
+  filter: blur(0.5px);
 }
 .cube__front {
   transform: translateZ(35px);
@@ -264,10 +273,10 @@ ol {
 
 @keyframes cube-rotation {
   from {
-    transform: rotateX(0deg) rotateY(0deg);
+    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
   }
   to {
-    transform: rotateX(360deg) rotateY(360deg);
+    transform: translate3d(0, 0, 0) rotateX(360deg) rotateY(360deg);
   }
 }
 html,

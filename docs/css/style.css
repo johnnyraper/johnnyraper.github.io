@@ -74,9 +74,9 @@ select {
     scroll-behavior: initial;
   }
 }
-/*-------------------------------
+/* -------------------------------
     GRID
--------------------------------*/
+------------------------------- */
 h1 {
   font-size: 64px;
 }
@@ -88,8 +88,8 @@ h1 {
 
 h2 {
   margin: 48px 0;
-  font-size: 40px;
   font-family: "Rosario", serif;
+  font-size: 40px;
 }
 h2.heading--extra-spacing {
   margin: 48px 0 96px;
@@ -98,14 +98,14 @@ h2.heading--extra-spacing {
 
 h3 {
   margin: 64px 0 32px;
-  font-size: 32px;
   font-family: "Rosario", serif;
+  font-size: 32px;
 }
 
 h4 {
   margin: 32px 0 16px;
-  font-size: 20px;
   font-family: "Rosario", serif;
+  font-size: 20px;
 }
 
 p,
@@ -128,30 +128,30 @@ ol {
 }
 
 .u-gutter {
-  padding-left: 32px;
   padding-right: 32px;
+  padding-left: 32px;
 }
 @media only screen and (min-width: 768px) {
   .u-gutter {
-    padding-left: 48px;
     padding-right: 48px;
+    padding-left: 48px;
   }
 }
 @media only screen and (min-width: 1024px) {
   .u-gutter {
-    padding-left: 100px;
     padding-right: 100px;
+    padding-left: 100px;
   }
 }
 
 .u-border-soft {
   border: 1px solid #eee;
-  box-shadow: 0px 5px 5px 0px rgba(51, 51, 51, 0.1);
+  box-shadow: 0 5px 5px 0 rgba(51, 51, 51, 0.1);
 }
 
 .u-reading {
-  margin: auto;
   max-width: 700px;
+  margin: auto;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -168,7 +168,7 @@ ol {
   margin-bottom: 80px;
 }
 
-/*--- ScrollFade Specific ---*/
+/* --- ScrollFade Specific --- */
 .scrollFade {
   opacity: 1;
   pointer-events: all;
@@ -206,43 +206,43 @@ ol {
 
 .cube {
   position: relative;
-  margin: 0 auto;
   width: 70px;
   height: 70px;
+  margin: 0 auto;
+  animation: cube-rotation 90s infinite linear;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  outline: 1px solid transparent;
   font-family: "Rosario", serif;
   font-size: 14px;
-  backface-visibility: hidden;
-  outline: 1px solid transparent;
   box-shadow: 0 0 1px rgba(255, 255, 255, 0);
-  transform-style: preserve-3d;
-  animation: cube-rotation 90s infinite linear;
   will-change: transform;
   -webkit-backface-visibility: hidden;
-  -webkit-transform: translate3d(0, 0, 0);
-  -webkit-transform-style: preserve-3d;
   -moz-backface-visibility: hidden;
-  -moz-transform: translate3d(0, 0, 0);
-  -moz-transform-style: preserve-3d;
+  backface-visibility: hidden;
 }
 .cube > div {
   display: flex;
   position: absolute;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
-  opacity: 0.6;
   border: 1px solid #5e0ede;
+  opacity: 0.6;
   color: #5e0ede;
-  box-sizing: border-box;
 }
 .cube__face {
   align-items: center;
   justify-content: center;
 }
 .cube__face::before {
-  content: "";
   position: absolute;
-  inset: 0;
   outline: 1px solid #5e0ede;
+  content: "";
+  inset: 0;
   filter: blur(0.5px);
 }
 .cube__front {
@@ -290,18 +290,18 @@ html {
 }
 
 body {
-  background-color: #ffffff;
+  background-color: #fff;
   color: #121212;
   font-family: "Rosario", serif;
 }
 
 a {
   display: inline-block;
-  line-height: 1.5;
-  color: #5e0ede;
-  text-decoration: none;
   transition: 0.3s all;
   border-bottom: 1px solid #d5bdfb;
+  color: #5e0ede;
+  line-height: 1.5;
+  text-decoration: none;
 }
 a:active, a:visited {
   color: #5e0ede;
@@ -333,8 +333,8 @@ header {
 @media screen and (min-width: 768px) {
   header {
     position: fixed;
-    padding: 48px;
     width: 100%;
+    padding: 48px;
     z-index: 10;
   }
 }
@@ -382,22 +382,22 @@ video {
   }
 }
 .section--highlight {
-  background: #ffffff;
   border-top: 1px dotted #5e0ede;
+  background: #fff;
 }
 .section__intro {
-  max-width: 1200px;
   display: grid;
   align-items: stretch;
   justify-content: center;
+  max-width: 1200px;
   margin: 32px auto 0;
   color: #121212;
 }
 @media screen and (min-width: 768px) {
   .section__intro {
-    margin: 0 auto;
-    min-height: 80vh;
     align-items: center;
+    min-height: 80vh;
+    margin: 0 auto;
   }
 }
 .section__intro h1 {
@@ -459,8 +459,8 @@ video {
   padding-bottom: 0;
 }
 .section__tight > p {
-  margin: 100px 0;
   max-width: 700px;
+  margin: 100px 0;
 }
 @media screen and (min-width: 768px) {
   .section__wide {
@@ -485,9 +485,9 @@ video {
   margin-top: 100px;
   padding-top: 170px;
   background: #f4edfe;
-  color: #ffffff;
-  background-size: 10px 10px;
   background-image: repeating-linear-gradient(135deg, #eadffd 0, #eadffd 1px, #f4edfe 0, #f4edfe 50%);
+  background-size: 10px 10px;
+  color: #fff;
 }
 @media screen and (min-width: 768px) {
   .section__footer {
@@ -496,8 +496,8 @@ video {
 }
 .section__footer h2,
 .section__footer p {
-  color: #121212;
   max-width: 600px;
+  color: #121212;
 }
 .section__footer p {
   font-size: 20px;
@@ -507,9 +507,9 @@ video {
 }
 
 .disciplines {
-  column-count: 2;
   max-width: 700px;
   padding: 0;
+  column-count: 2;
   list-style-type: none;
 }
 .disciplines li {
@@ -594,29 +594,29 @@ video {
 @media screen and (min-width: 1024px) {
   .portfolio__overlay {
     display: flex;
-    align-items: center;
-    justify-content: center;
     position: absolute;
     top: 0;
     left: 0;
-    background: #fafafa;
-    opacity: 0;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100%;
     transition: 0.3s all;
+    background: #fafafa;
+    opacity: 0;
   }
   .portfolio__overlay p {
     display: inline-block;
     padding: 32px;
+    color: #5e0ede;
     font-size: 20px;
     line-height: 1.55;
-    color: #5e0ede;
   }
 }
 @media screen and (min-width: 1024px) and (min-width: 1200px) {
   .portfolio__overlay p {
-    font-size: 36px;
     max-width: 80%;
+    font-size: 36px;
   }
 }
 .portfolio__summary {
@@ -639,10 +639,10 @@ video {
 }
 .portfolio__summary h2 {
   margin: 32px 0;
+  color: #5e0ede;
   font-size: 20px;
   font-weight: 400;
   line-height: 1.55;
-  color: #5e0ede;
 }
 .portfolio__summary p {
   font-size: 20px;
@@ -657,9 +657,9 @@ video {
   display: inline-block;
   margin: 32px 0 48px;
   padding: 0;
-  font-size: 20px;
-  transition: 0.3s all;
   transform: translate(0, 0);
+  transition: 0.3s all;
+  font-size: 20px;
 }
 @media screen and (min-width: 1024px) {
   .portfolio__summary a {
@@ -681,8 +681,8 @@ video {
 }
 .portfolio__article h3 {
   margin: 40px 0 16px;
-  font-size: 26px;
   color: #5e0ede;
+  font-size: 26px;
 }
 @media screen and (min-width: 768px) {
   .portfolio__article h3 {
@@ -698,8 +698,8 @@ video {
   }
 }
 .portfolio__article-image {
-  margin: 32px auto;
   max-width: 100%;
+  margin: 32px auto;
 }
 @media screen and (min-width: 768px) {
   .portfolio__article-image {
@@ -725,10 +725,10 @@ video {
   }
 }
 .portfolio__two-columns {
-  margin: auto;
-  max-width: 1600px;
   display: flex;
   align-items: flex-start;
+  max-width: 1600px;
+  margin: auto;
 }
 .portfolio__two-columns .portfolio__article-image {
   width: 40%;
@@ -740,10 +740,10 @@ video {
   width: 25%;
 }
 .portfolio__callout {
+  margin: 56px auto;
+  color: #5e0ede;
   font-family: "El Messiri", sans-serif;
   font-size: 32px;
-  color: #5e0ede;
-  margin: 56px auto;
 }
 
 /*# sourceMappingURL=style.css.map */

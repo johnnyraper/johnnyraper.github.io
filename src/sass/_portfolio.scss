@@ -61,27 +61,27 @@
 
     @media screen and (min-width: 1024px) {
       display: flex;
-      align-items: center;
-      justify-content: center;
       position: absolute;
       top: 0;
       left: 0;
-      background: #fafafa;
-      opacity: 0;
+      align-items: center;
+      justify-content: center;
       width: 100%;
       height: 100%;
       transition: $transition;
+      background: #fafafa;
+      opacity: 0;
 
       p {
         display: inline-block;
         padding: $grid-4x;
+        color: $color-accent;
         font-size: 20px;
         line-height: 1.55;
-        color: $color-accent;
 
         @media screen and (min-width: 1200px) {
-          font-size: 36px;
           max-width: 80%;
+          font-size: 36px;
         }
       }
     }
@@ -108,10 +108,10 @@
 
     h2 {
       margin: $grid-4x 0;
+      color: $color-accent;
       font-size: 20px;
       font-weight: 400;
       line-height: 1.55;
-      color: $color-accent;
     }
 
     p {
@@ -127,9 +127,9 @@
       display: inline-block;
       margin: $grid-4x 0 $grid-6x;
       padding: 0;
-      font-size: 20px;
-      transition: $transition;
       transform: translate(0, 0);
+      transition: $transition;
+      font-size: 20px;
 
       @media screen and (min-width: 1024px) {
         margin: $grid-12x 0 0;
@@ -152,8 +152,8 @@
 
     h3 {
       margin: $grid-5x 0 $grid-2x;
-      font-size: 26px;
       color: $color-accent;
+      font-size: 26px;
 
       @media screen and (min-width: 768px) {
         margin: $grid-8x 0 $grid-4x;
@@ -170,8 +170,8 @@
   }
 
   &__article-image {
-    margin: $grid-4x auto;
     max-width: 100%;
+    margin: $grid-4x auto;
 
     @media screen and (min-width: 768px) {
       margin: $grid-5x auto;
@@ -195,10 +195,10 @@
   }
 
   &__two-columns {
-    margin: auto;
-    max-width: 1600px;
     display: flex;
     align-items: flex-start;
+    max-width: 1600px;
+    margin: auto;
 
     .portfolio__article-image {
       width: 40%;
@@ -217,9 +217,9 @@
   }
 
   &__callout {
+    margin: $grid-7x auto;
+    color: $color-accent;
     font-family: $font-fancy;
     font-size: 32px;
-    color: $color-accent;
-    margin: $grid-7x auto;
   }
 }

@@ -406,7 +406,7 @@ video {
 }
 @media screen and (min-width: 1200px) {
   .section__intro h1 {
-    font-size: 130px;
+    font-size: 110px;
   }
 }
 .section__intro-content p {
@@ -450,7 +450,7 @@ video {
 }
 @media screen and (min-width: 1200px) {
   .section__about h1 {
-    font-size: 130px;
+    font-size: 110px;
     line-height: 1.1;
   }
 }
@@ -477,9 +477,8 @@ video {
   }
 }
 @media screen and (min-width: 768px) {
-  .section .column__indent {
+  .section .column__content {
     max-width: 700px;
-    margin-left: 60px;
   }
 }
 .section__footer {

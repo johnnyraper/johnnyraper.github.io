@@ -125,7 +125,7 @@ video {
       font-size: 50px;
 
       @media screen and (min-width: 1200px) {
-        font-size: 130px;
+        font-size: 110px;
       }
     }
   }
@@ -173,7 +173,7 @@ video {
       line-height: 1.2;
 
       @media screen and (min-width: 1200px) {
-        font-size: 130px;
+        font-size: 110px;
         line-height: 1.1;
       }
     }
@@ -205,10 +205,9 @@ video {
       max-width: 50%;
     }
 
-    &__indent {
+    &__content {
       @media screen and (min-width: 768px) {
         max-width: 700px;
-        margin-left: 60px;
       }
     }
   }

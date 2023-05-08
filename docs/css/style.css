@@ -410,13 +410,13 @@ video {
   }
 }
 .section__intro-content p {
-  max-width: 650px;
   font-family: "El Messiri", sans-serif;
   font-size: 28px;
   line-height: 1.35;
 }
 @media screen and (min-width: 768px) {
   .section__intro-content p {
+    max-width: 800px;
     font-size: 40px;
     line-height: 1.35;
   }

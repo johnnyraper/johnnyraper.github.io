@@ -132,12 +132,12 @@ video {
 
   &__intro-content {
     p {
-      max-width: 650px;
       font-family: $font-fancy;
       font-size: 28px;
       line-height: 1.35;
 
       @media screen and (min-width: 768px) {
+        max-width: 800px;
         font-size: 40px;
         line-height: 1.35;
       }
@@ -183,7 +183,7 @@ video {
     padding-top: 0;
     padding-bottom: 0;
 
-    > p {
+    >p {
       max-width: 700px;
       margin: 100px 0;
     }
@@ -216,13 +216,11 @@ video {
     margin-top: 100px;
     padding-top: 170px;
     background: lighten($color-accent, 50%);
-    background-image: repeating-linear-gradient(
-      135deg,
-      lighten($color-accent, 47%) 0,
-      lighten($color-accent, 47%) 1px,
-      lighten($color-accent, 50%) 0,
-      lighten($color-accent, 50%) 50%
-    );
+    background-image: repeating-linear-gradient(135deg,
+        lighten($color-accent, 47%) 0,
+        lighten($color-accent, 47%) 1px,
+        lighten($color-accent, 50%) 0,
+        lighten($color-accent, 50%) 50%);
     background-size: 10px 10px;
     color: $color-white;
 

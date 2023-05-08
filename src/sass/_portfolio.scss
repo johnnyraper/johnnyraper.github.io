@@ -47,7 +47,8 @@
 
     &:hover {
       .portfolio__overlay {
-        opacity: 0.85;
+        opacity: 0.95;
+        border: 1px dotted $color-accent;
       }
     }
 
@@ -209,6 +210,7 @@
         &:first-of-type {
           width: 50%;
         }
+
         &:last-of-type {
           width: 25%;
         }

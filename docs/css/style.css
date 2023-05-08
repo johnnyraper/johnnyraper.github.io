@@ -583,7 +583,8 @@ video {
   }
 }
 .portfolio__image-container:hover .portfolio__overlay {
-  opacity: 0.85;
+  opacity: 0.95;
+  border: 1px dotted #5e0ede;
 }
 .portfolio__image-container a {
   border-bottom: none;

@@ -182,6 +182,15 @@ ol {
   margin-bottom: 0;
 }
 
+.u-separator {
+  padding: 0 8px;
+  font-size: 20px;
+}
+
+.u-unlinked {
+  margin-bottom: 48px;
+}
+
 /* --- ScrollFade Specific --- */
 .scrollFade {
   opacity: 1;

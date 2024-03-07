@@ -7,8 +7,9 @@
       margin-bottom: 160px;
     }
 
-    &--reduced-spacing {
-      margin-bottom: $grid-7x;
+    @media screen and (max-width: 1024px) {
+      display: flex;
+      flex-direction: column;
     }
 
     &--increased-spacing-mobile {
@@ -25,6 +26,9 @@
   }
 
   &__image {
+    padding: $grid-2x;
+    border: 1px dotted $color-accent;
+
     @media screen and (min-width: 1024px) {
       position: relative;
     }
@@ -37,6 +41,10 @@
       flex-direction: column;
       justify-content: space-between;
       max-width: 60%;
+    }
+
+    @media screen and (max-width: 1024px) {
+      order: 2;
     }
 
     &--reduced {
@@ -93,6 +101,10 @@
 
     @media screen and (min-width: 1024px) {
       width: 40%;
+    }
+
+    @media screen and (max-width: 1024px) {
+      order: 1;
     }
 
     &--left {

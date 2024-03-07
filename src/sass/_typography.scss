@@ -1,8 +1,9 @@
 h1 {
+  color: $color-accent;
   font-size: 64px;
 
   @media only screen and (min-width: 768px) {
-    font-size: 100px;
+    font-size: 80px;
   }
 }
 
@@ -10,6 +11,12 @@ h2 {
   margin: $grid-6x 0;
   font-family: $font-body;
   font-size: 40px;
+
+  span {
+    font-size: 30px;
+    font-weight: 100;
+    letter-spacing: -1px;
+  }
 
   &.heading--extra-spacing {
     margin: $grid-6x 0 $grid-12x;

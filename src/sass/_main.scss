@@ -123,7 +123,7 @@ video {
     h1 {
       font-family: $font-body;
       font-size: 50px;
-      font-weight: 400;
+      font-weight: 600;
 
       @media screen and (min-width: 1200px) {
         font-size: 80px;
@@ -260,4 +260,8 @@ video {
       margin-top: 0;
     }
   }
+}
+
+.about-image {
+  max-height: 600px;
 }

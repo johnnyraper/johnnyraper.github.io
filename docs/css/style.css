@@ -417,7 +417,7 @@ video {
 .section__intro h1 {
   font-family: "Rosario", serif;
   font-size: 50px;
-  font-weight: 400;
+  font-weight: 600;
 }
 @media screen and (min-width: 1200px) {
   .section__intro h1 {
@@ -534,6 +534,10 @@ video {
 }
 .disciplines li:first-of-type {
   margin-top: 0;
+}
+
+.about-image {
+  max-height: 600px;
 }
 
 @media screen and (min-width: 500px) {

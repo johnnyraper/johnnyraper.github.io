@@ -172,11 +172,11 @@ video {
 
     h1 {
       font-family: $font-body;
-      font-size: 70px;
+      font-size: 50px;
       line-height: 1.2;
 
       @media screen and (min-width: 1200px) {
-        font-size: 110px;
+        font-size: 80px;
         line-height: 1.1;
       }
     }

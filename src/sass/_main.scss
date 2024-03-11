@@ -95,6 +95,10 @@ video {
   }
 
   &__hero {
+    background: linear-gradient(45deg, #ffffff 25%, transparent 25%), linear-gradient(315deg, #ffffff 25%, transparent 25%), linear-gradient(45deg, transparent 24%, #F4EEFD 25%, #F4EEFD 30%, transparent 31%, transparent 39%, #F4EEFD 40%, #F4EEFD 45%, transparent 45%), linear-gradient(315deg, transparent 24%, #F4EEFD 25%, #F4EEFD 30%, transparent 31%, transparent 39%, #F4EEFD 40%, #F4EEFD 45%, transparent 45%);
+    background-size: 1em 1em;
+    background-color: #ffffff;
+
     @media screen and (min-width: 768px) {
       padding-top: 0;
       padding-bottom: 0;
@@ -111,7 +115,7 @@ video {
     align-items: stretch;
     justify-content: center;
     max-width: 1200px;
-    margin: $grid-4x auto 0;
+    margin: $grid-4x auto $grid-7x;
     color: $color-primary;
 
     @media screen and (min-width: 768px) {
@@ -122,16 +126,21 @@ video {
 
     h1 {
       font-family: $font-body;
-      font-size: 50px;
+      font-size: 56px;
       font-weight: 600;
-
-      @media screen and (min-width: 1200px) {
-        font-size: 80px;
-      }
     }
   }
 
   &__intro-content {
+    background: $color-white;
+    padding: $grid-5x;
+
+    @media screen and (min-width: 768px) and (orientation: landscape) {
+      margin-top: $grid-6x;
+      padding: $grid-10x;
+      border: 1px dotted $color-accent;
+    }
+
     p {
       color: #666;
       font-family: $font-body;
@@ -141,14 +150,7 @@ video {
 
       @media screen and (min-width: 768px) {
         max-width: 800px;
-        font-size: 32px;
         line-height: 1.35;
-      }
-    }
-
-    &--home {
-      @media screen and (min-width: 768px) and (orientation: landscape) {
-        margin-top: 100px;
       }
     }
   }

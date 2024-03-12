@@ -62,14 +62,13 @@ select {
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   *,
-*::before,
-*::after {
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-
   html {
     scroll-behavior: initial;
   }
@@ -122,8 +121,8 @@ li {
 }
 @media screen and (min-width: 768px) {
   p,
-ol,
-li {
+  ol,
+  li {
     font-size: 20px;
     line-height: 1.55;
   }
@@ -441,7 +440,8 @@ video {
   .section__intro-content {
     margin-top: 48px;
     padding: 80px;
-    border: 1px dotted #5e0ede;
+    border-radius: 40px;
+    background-color: rgba(255, 255, 255, 0.6);
   }
 }
 .section__intro-content p {

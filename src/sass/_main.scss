@@ -91,7 +91,7 @@ video {
   }
 
   @media screen and (min-width: 1024px) {
-    min-height: 80vh;
+    min-height: 100vh;
   }
 
   &__hero {
@@ -120,14 +120,18 @@ video {
 
     @media screen and (min-width: 768px) {
       align-items: center;
-      min-height: 80vh;
+      min-height: 100vh;
       margin: 0 auto;
     }
 
     h1 {
       font-family: $font-body;
-      font-size: 56px;
-      font-weight: 600;
+      font-size: 36px;
+      font-weight: 700;
+
+      @media screen and (min-width: 768px) {
+        font-size: 56px;
+      }
     }
   }
 
@@ -136,8 +140,8 @@ video {
     padding: $grid-5x;
 
     @media screen and (min-width: 768px) and (orientation: landscape) {
-      margin-top: $grid-6x;
-      padding: $grid-10x;
+      margin-top: $grid-9x;
+      padding: $grid-8x $grid-8x $grid-6x;
       border-radius: $grid-5x;
       background-color: rgba(255, 255, 255, 0.6);
     }
@@ -169,7 +173,7 @@ video {
     }
 
     @media screen and (min-width: 1200px) {
-      min-height: 80vh;
+      min-height: 100vh;
       padding-top: 100px;
     }
 
@@ -267,4 +271,92 @@ video {
 
 .about-image {
   max-height: 600px;
+}
+
+.scrollarrow {
+  display: block;
+  height: 13px;
+  width: 13px;
+  border: 11px solid transparent;
+  transform: rotate(45deg);
+  position: relative;
+  margin: 30px auto;
+
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    height: inherit;
+    width: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  a {
+    display: block;
+    width: 42px;
+    height: 42px;
+    border-bottom: 0;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+  }
+}
+
+.scrollarrow:after {
+  border-bottom: 3px solid $color-accent;
+  border-right: 3px solid $color-accent;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  animation: bottom-arrow 1.65s infinite;
+}
+
+@keyframes bottom-arrow {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  45% {
+    opacity: 0;
+    transform: translate(12px, 12px);
+  }
+  46% {
+    opacity: 0;
+    transform: translate(-16px, -16px);
+  }
+  90% {
+    opacity: 1;
+    transform: translate(-6px, -6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-6px, -6px);
+  }
+}
+
+.scrollarrow:before {
+  top: 0;
+  left: 0;
+  border-bottom: 3px solid $color-accent;
+  border-right: 3px solid $color-accent;
+  animation: top-arrow 1.65s infinite;
+}
+
+@keyframes top-arrow {
+  0% {
+    transform: translate(-6px, -6px);
+  }
+  35% {
+    transform: translate(0, 0);
+  }
+  90% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
 }

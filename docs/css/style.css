@@ -777,6 +777,9 @@ video {
     max-width: 1400px;
   }
 }
+.portfolio__article-image--small {
+  width: 50%;
+}
 .portfolio__two-columns {
   display: flex;
   align-items: flex-start;

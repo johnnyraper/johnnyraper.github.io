@@ -2,6 +2,10 @@
   &__group {
     justify-content: center;
 
+    &:last-of-type {
+      margin-bottom: $grid-7x;
+    }
+
     @media screen and (min-width: 1024px) {
       display: flex;
       margin-bottom: 160px;
@@ -49,7 +53,7 @@
 
     &--reduced {
       @media screen and (min-width: 1024px) {
-        max-width: 40%;
+        max-width: 60%;
       }
     }
 

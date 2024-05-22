@@ -21,6 +21,8 @@
 .u-reading {
   max-width: 700px;
   margin: auto;
+  position: relative;
+  z-index: 15;
 }
 
 .u-stacked-flex {

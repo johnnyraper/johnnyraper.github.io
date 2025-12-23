@@ -894,6 +894,11 @@ video {
     margin-bottom: 64px;
   }
 }
+@media screen and (min-width: 1024px) {
+  .portfolio__introduction {
+    max-width: 700px;
+  }
+}
 .portfolio__two-columns {
   display: flex;
   align-items: flex-start;

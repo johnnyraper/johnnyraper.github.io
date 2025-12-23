@@ -228,6 +228,12 @@
     }
   }
 
+  &__introduction {
+    @media screen and (min-width: 1024px) {
+      max-width: 700px;
+    }
+  }
+
   &__two-columns {
     display: flex;
     align-items: flex-start;

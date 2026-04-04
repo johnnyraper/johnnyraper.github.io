@@ -1,57 +1,68 @@
 h1 {
-  color: $color-accent;
-  font-size: 64px;
+  font-family: $font-fancy;
+  font-size: var(--text-3xl);
+  line-height: var(--leading-tight);
+  font-weight: var(--font-semibold);
+  letter-spacing: -0.02em;
+  color: $color-text-strong;
 
   @media only screen and (min-width: 768px) {
-    font-size: 80px;
+    font-size: 64px; // preserve your scale for now
   }
 }
 
 h2 {
   margin: $grid-6x 0;
   font-family: $font-body;
-  font-size: 40px;
+  font-size: var(--text-xl);
+  line-height: var(--leading-normal);
+  font-weight: var(--font-medium);
+  letter-spacing: -0.01em;
+  color: $color-text;
 
   span {
-    font-size: 30px;
-    font-weight: 100;
-    letter-spacing: -1px;
+    font-size: $text-sm;
+    font-weight: $font-regular;
+    letter-spacing: 0;
+    color: $color-text-muted;
   }
 
   &.heading--extra-spacing {
     margin: $grid-6x 0 $grid-12x;
-    color: $color-accent;
+    color: $color-accent; // keep for now (we can remove later intentionally)
   }
 }
 
 h3 {
   margin: $grid-8x 0 $grid-4x;
   font-family: $font-body;
-  font-size: 32px;
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+  font-weight: var(--font-medium);
+  color: $color-text;
 }
 
 h4 {
   margin: $grid-5x 0 $grid-2x;
   font-family: $font-body;
-  font-size: 20px;
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  color: $color-text-muted;
 }
 
 p,
 ol,
 li {
-  font-size: 20px;
-  line-height: 1.55;
-
-  @media screen and (min-width: 768px) {
-    font-size: 20px;
-    line-height: 1.55;
-  }
+  font-size: $text-sm;
+  line-height: $leading-relaxed;
+  font-weight: $font-regular;
 }
 
 .caption-text {
+  margin: 0 0 $grid-2x;
   font-size: 16px;
   font-style: italic;
-  color: #666;
+  color: $color-muted;
 }
 
 ol {

@@ -2,246 +2,301 @@
 <html lang="en">
 
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178613090-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
+    function gtag() { dataLayer.push(arguments); }
     gtag("js", new Date());
-
     gtag("config", "UA-178613090-1");
   </script>
-  <!-- Generated from the HTML / Sass Jumpstart: https://github.com/5t3ph/html-sass-jumpstart -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>John Raper | Senior Product Designer for Complex, Data-Heavy Products</title>
+
   <meta name="keywords"
     content="Senior Product Designer, Product Design, UX Design, UI Design, Complex Systems, Data-Heavy Products, B2B SaaS, Platform Design, Design Systems, Frontend Collaboration, Technical Software, London, UK" />
+
   <meta name="description"
     content="John Raper is a senior product designer specialising in complex, data-heavy B2B software, designing systems and workflows that help teams make confident decisions in technical and real-world contexts." />
-  <meta http-equiv="cache-control" content="no-cache" />
-  <meta http-equiv="expires" content="0" />
-  <meta http-equiv="pragma" content="no-cache" />
+
   <link href="css/style.css" rel="stylesheet" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <main>
+
+    <!-- HEADER -->
     <header class="header">
-      <div class="logo">
-        <a href="index.html" class="logo__link">
-          <div class="cube-container">
-            <div class="cube">
-              <div class="cube__face cube__front">
-                <span>JR</span>
+      <div class="section__grid">
+        <div class="section__inner">
+
+          <div class="logo">
+            <a href="index.html" class="logo__link">
+              <div class="cube-container">
+                <div class="cube">
+                  <div class="cube__face cube__front"><span>JR</span></div>
+                  <div class="cube__face cube__back"><span>UX</span></div>
+                  <div class="cube__face cube__top"><span>UI</span></div>
+                  <div class="cube__face cube__bottom"><span>Frontend</span></div>
+                  <div class="cube__face cube__left"><span>Designer</span></div>
+                  <div class="cube__face cube__right"><span>London</span></div>
+                </div>
               </div>
-              <div class="cube__face cube__back">
-                <span>UX</span>
-              </div>
-              <div class="cube__face cube__top">
-                <span>UI</span>
-              </div>
-              <div class="cube__face cube__bottom">
-                <span>Frontend</span>
-              </div>
-              <div class="cube__face cube__left">
-                <span>Designer</span>
-              </div>
-              <div class="cube__face cube__right">
-                <span>London</span>
-              </div>
-            </div>
+            </a>
           </div>
-        </a>
+
+          <nav>
+            <ul class="navigation">
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
       </div>
-      <nav>
-        <ul class="navigation">
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
     </header>
 
-    <section class="section section__hero u-gutter">
-      <div class="section__intro">
-        <div class="section__intro-content">
-          <h1>
-            I design complex, system-level product experiences for technical software.
-          </h1>
+    <!-- HERO -->
+    <section class="section section__hero">
+      <div class="section__grid">
+        <div class="section__inner">
+          <div class="section__intro hero">
 
-          <p>
-            Working closely with engineering to bring clarity, structure, and scalability to data-heavy workflows.
-          </p>
-          <div class="scrollarrow">
-            <a href="#portfolio">
-              <div class="scrollarrow__anim"></div>
-            </a>
+            <!-- CONTENT -->
+            <div class="hero__content">
+              <h1>
+                I design complex, system-level product experiences that
+                <span class="rotating-text">
+                  <span class="rotating-text__track">
+                    <span>empower users</span>
+                    <span>bring clarity</span>
+                    <span>scale systems</span>
+                    <span>reduce complexity</span>
+                    <span>support decisions</span>
+                  </span>
+                </span>
+              </h1>
+
+              <p>
+                I work at the intersection of product design and engineering, shaping systems that support complex,
+                data-heavy workflows.
+              </p>
+
+              <p>
+                My focus is on structure, clarity, and scalability &ndash; from semantic design systems and theming,
+                through to the way products behave across surfaces. I care about building foundations that teams can
+                rely
+                on,
+                not just interfaces that look good in isolation.
+              </p>
+
+              <div class="hero__actions">
+                <a href="#contact" class="button button--primary">
+                  Get in touch
+                </a>
+              </div>
+
+              <div class="scrollarrow">
+                <a href="#portfolio">
+                  <div class="scrollarrow__anim"></div>
+                </a>
+              </div>
+            </div>
+
+            <!-- VISUAL -->
+            <div class="hero__visual">
+              <div class="hero__visual-frame">
+
+                <div class="hero-card hero-card--back"></div>
+
+                <div class="hero-card hero-card--front">
+                  <img src="assets/portrait.jpg" alt="John Raper" />
+                  <div class="hero-card__overlay"></div>
+                </div>
+
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section--highlight u-gutter" id="portfolio">
-  <h2>Product Design</h2>
-  <p class="portfolio__introduction">
-    My product design work spans complex B2B software across engineering, analytics and platform contexts.
-    Projects often involve dense data, multi-step workflows, and close collaboration with engineering to
-    balance usability, technical constraints and long-term system quality.
-  </p>
-
-  <!-- Current Work -->
-  <div class="portfolio__group scrollFade">
-    <div class="portfolio__summary portfolio__summary--left">
-      <h2>Current work &ndash; Platform and Design Systems</h2>
-      <p>
-        Currently designing system-level product experiences for AI-driven engineering software at PhysicsX,
-        focusing on semantic design tokens, theming, and design &leftrightarrow; frontend alignment.
-      </p>
-      <p>
-        Working across complex, data-heavy workflows to establish scalable patterns and improve consistency across product surfaces.
-      </p>
-    </div>
-
-    <div class="portfolio__image-container">
-      <img class="portfolio__image" src="assets/design-systems-pieces-none.jpg" alt="" />
-    </div>
-  </div>
-
-  <!-- Rafinex Mobius -->
-  <div class="portfolio__group scrollFade">
-    <a class="portfolio__image-container" href="portfolio-rafinex.html">
-      <img class="portfolio__image" src="assets/rafinex/rafinex-portfolio-pieces.png" alt="" />
-      <div class="portfolio__overlay">
-        <p>Open case study &rarr;</p>
+    <!-- PRODUCT DESIGN -->
+    <section class="section" id="portfolio">
+      <div class="section__grid">
+      <div class="section__inner">
+        <div class="section__header">
+          <h2>Product Design</h2>
+          <p class="portfolio__introduction">
+            My product design work spans complex B2B software across engineering, analytics and platform contexts.
+            Projects often involve dense data, multi-step workflows, and close collaboration with engineering to
+            balance usability, technical constraints and long-term system quality.
+          </p>
+        </div>
       </div>
-    </a>
-
-    <div class="portfolio__summary portfolio__summary--right">
-      <h2>Rafinex Möbius</h2>
-      <p>UX, UI design and frontend development for Rafinex's SaaS product: Möbius.</p>
-      <a href="portfolio-rafinex.html">Open case study &rarr;</a>
-    </div>
-  </div>
-
-  <!-- CloudNC -->
-  <div class="portfolio__group scrollFade">
-    <div class="portfolio__summary portfolio__summary--left">
-      <h2>CloudNC</h2>
-      <p>
-        Frontend development with a blend of UX and UI design across three major projects; the
-        website assisted CloudNC's Series A fundraising investment.
-      </p>
-      <a href="portfolio-cloudnc.html">Open case study &rarr;</a>
-    </div>
-
-    <a class="portfolio__image-container" href="portfolio-cloudnc.html">
-      <img class="portfolio__image" src="assets/cloudnc/cloudnc-portfolio-pieces.png" alt="" />
-      <div class="portfolio__overlay">
-        <p>Open case study &rarr;</p>
       </div>
-    </a>
-  </div>
 
-  <!-- Nodes -->
-  <div class="portfolio__group scrollFade">
-    <a class="portfolio__image-container" href="portfolio-nodes.html">
-      <img class="portfolio__image" src="assets/nodes/nodes-portfolio.png" alt="" />
-      <div class="portfolio__overlay">
-       <p>Open case study &rarr;</p>
+      <div class="section__grid">
+      <div class="section__inner">
+
+        <!-- Current -->
+        <div class="portfolio__group scrollFade">
+          <div class="portfolio__summary portfolio__summary--left">
+            <h2>Current work &ndash; Platform and Design Systems</h2>
+            <p>Currently designing system-level product experiences for AI-driven engineering software at PhysicsX...
+            </p>
+            <p>Working across complex, data-heavy workflows to establish scalable patterns and improve consistency.</p>
+          </div>
+
+          <div class="portfolio__image-container">
+            <img class="portfolio__image" src="assets/design-systems-pieces-none.jpg" alt="" />
+          </div>
+        </div>
+
+        <!-- Rafinex -->
+        <div class="portfolio__group scrollFade">
+          <a class="portfolio__image-container" href="portfolio-rafinex.html">
+            <img class="portfolio__image" src="assets/rafinex/rafinex-portfolio-pieces.png" alt="" />
+            <div class="portfolio__overlay">
+              <p>Open case study &rarr;</p>
+            </div>
+          </a>
+
+          <div class="portfolio__summary portfolio__summary--right">
+            <h2>Rafinex Möbius</h2>
+            <p>UX, UI design and frontend development for Rafinex's SaaS product: Möbius.</p>
+            <a href="portfolio-rafinex.html">Open case study &rarr;</a>
+          </div>
+        </div>
+
+        <!-- CloudNC -->
+        <div class="portfolio__group scrollFade">
+          <div class="portfolio__summary portfolio__summary--left">
+            <h2>CloudNC</h2>
+            <p>Frontend development with a blend of UX and UI design across three major projects.</p>
+            <a href="portfolio-cloudnc.html">Open case study &rarr;</a>
+          </div>
+
+          <a class="portfolio__image-container" href="portfolio-cloudnc.html">
+            <img class="portfolio__image" src="assets/cloudnc/cloudnc-portfolio-pieces.png" alt="" />
+            <div class="portfolio__overlay">
+              <p>Open case study &rarr;</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Nodes -->
+        <div class="portfolio__group scrollFade">
+          <a class="portfolio__image-container" href="portfolio-nodes.html">
+            <img class="portfolio__image" src="assets/nodes/nodes-portfolio.png" alt="" />
+            <div class="portfolio__overlay">
+              <p>Open case study &rarr;</p>
+            </div>
+          </a>
+
+          <div class="portfolio__summary portfolio__summary--right">
+            <h2>Nodes &amp; Links</h2>
+            <p>Product Design for Nodes &amp; Links' AI B2B SaaS product.</p>
+            <a href="portfolio-nodes.html">Open case study &rarr;</a>
+          </div>
+        </div>
+
       </div>
-    </a>
-
-    <div class="portfolio__summary portfolio__summary--right">
-      <h2>Nodes &amp; Links</h2>
-      <p>Product Design for Nodes &amp; Links' AI B2B SaaS product.</p>
-      <a href="portfolio-nodes.html">Open case study &rarr;</a>
-    </div>
-  </div>
-</section>
-
-<!-- Web Section -->
-<section class="section section--highlight section__tight u-gutter">
-  <h2 class="u-margin-bottom-remove">Web Design and Build</h2>
-  <p>
-    I've been fortunate enough to work on some of the most exciting brands worldwide, for example LOTUS,
-    Microsoft and The Premier League.
-  </p>
-
-  <!-- Rafinex -->
-  <div class="portfolio__group scrollFade">
-    <div class="portfolio__summary portfolio__summary--left">
-      <h2>Rafinex</h2>
-      <p>
-        Designed and built Rafinex's website using HTML, CSS and JavaScript.
-        Built mobile-first using BEM methodology.
-      </p>
-      <a href="https://rafinex.com/" target="_blank">Visit website &#x2197;</a>
-    </div>
-
-    <a class="portfolio__image-container portfolio__image-container--reduced"
-       href="https://rafinex.com/" target="_blank">
-      <img class="portfolio__image" src="assets/portfolio-rafinex.png" alt="" />
-      <div class="portfolio__overlay">
-        <p>Visit website &#x2197;</p>
       </div>
-    </a>
-  </div>
-
-  <!-- QBE -->
-  <div class="portfolio__group scrollFade">
-    <a class="portfolio__image-container portfolio__image-container--reduced"
-       href="https://qbeeurope.com/" target="_blank">
-      <img class="portfolio__image" src="assets/portfolio-qbe.jpg" alt="" />
-      <div class="portfolio__overlay">
-        <p>Visit website &#x2197;</p>
-      </div>
-    </a>
-
-    <div class="portfolio__summary portfolio__summary--right">
-      <h2>QBE Insurance Europe</h2>
-      <p>HTML, Sass and JavaScript development.</p>
-      <a href="https://qbeeurope.com/" target="_blank">Visit website &#x2197;</a>
-    </div>
-  </div>
-
-  <!-- Kallo -->
-  <div class="portfolio__group scrollFade">
-    <div class="portfolio__summary portfolio__summary--left">
-      <h2>Kallo</h2>
-      <p>HTML, Sass and WordPress development.</p>
-      <a href="https://kallo.com" target="_blank">Visit website &#x2197;</a>
-    </div>
-
-    <a class="portfolio__image-container portfolio__image-container--reduced"
-       href="https://kallo.com" target="_blank">
-      <img class="portfolio__image" src="assets/portfolio-kallo.jpg" alt="" />
-      <div class="portfolio__overlay">
-        <p>Visit website &#x2197;</p>
-      </div>
-    </a>
-  </div>
-</section>
-
-    <section class="section section--highlight section__footer u-gutter" id="contact">
-      <footer>
-        <h2>Contact Me</h2>
-        <p>
-          🌱 I'm always interested in thoughtful conversations about product design and complex systems. Please <a
-            href="mailto:johnnyraper@googlemail.com">get in touch</a> if you'd like to talk.
-        </p>
-        <p>
-          Alternatively, you can find me on
-          <a href="https://www.linkedin.com/in/johnnyraper/" target="_blank">LinkedIn</a>.
-        </p>
-      </footer>
     </section>
+
+    <!-- WEB -->
+    <section class="section section__tight u-border-top">
+      <div class="section__grid">
+        <div class="section__inner">
+          <h2 class="u-margin-bottom-remove">Web Design and Build</h2>
+          <p>I've worked with brands like LOTUS, Microsoft and The Premier League.</p>
+        </div>
+
+        <!-- Rafinex -->
+        <div class="section__inner scrollFade">
+          <div class="portfolio__group">
+            <div class="portfolio__summary portfolio__summary--left">
+              <h2>Rafinex</h2>
+              <p>Designed and built Rafinex's website.</p>
+              <a href="https://rafinex.com/" target="_blank">Visit website ↗</a>
+            </div>
+
+            <a class="portfolio__image-container portfolio__image-container--reduced" href="https://rafinex.com/"
+              target="_blank">
+              <img class="portfolio__image" src="assets/portfolio-rafinex.png" alt="" />
+              <div class="portfolio__overlay">
+                <p>Visit website ↗</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- QBE -->
+        <div class="section__inner scrollFade">
+          <div class="portfolio__group">
+            <a class="portfolio__image-container portfolio__image-container--reduced" href="https://qbeeurope.com/"
+              target="_blank">
+              <img class="portfolio__image" src="assets/portfolio-qbe.jpg" alt="" />
+              <div class="portfolio__overlay">
+                <p>Visit website ↗</p>
+              </div>
+            </a>
+
+            <div class="portfolio__summary portfolio__summary--right">
+              <h2>QBE Insurance Europe</h2>
+              <p>HTML, Sass and JavaScript development.</p>
+              <a href="https://qbeeurope.com/" target="_blank">Visit website ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kallo -->
+        <div class="section__inner scrollFade">
+          <div class="portfolio__group">
+            <div class="portfolio__summary portfolio__summary--left">
+              <h2>Kallo</h2>
+              <p>HTML, Sass and WordPress development.</p>
+              <a href="https://kallo.com" target="_blank">Visit website ↗</a>
+            </div>
+
+            <a class="portfolio__image-container portfolio__image-container--reduced" href="https://kallo.com"
+              target="_blank">
+              <img class="portfolio__image" src="assets/portfolio-kallo.jpg" alt="" />
+              <div class="portfolio__overlay">
+                <p>Visit website ↗</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <section class="section section--highlight section__footer" id="contact">
+      <div class="section__inner">
+        <footer>
+          <h2>Contact Me</h2>
+          <p>
+            🌱 I'm always interested in thoughtful conversations.
+            <a href="mailto:johnnyraper@googlemail.com">Get in touch</a>.
+          </p>
+          <p>
+            Or find me on
+            <a href="https://www.linkedin.com/in/johnnyraper/" target="_blank">LinkedIn</a>.
+          </p>
+        </footer>
+      </div>
+    </section>
+
   </main>
   <script src="js/scripts.js"></script>
 </body>

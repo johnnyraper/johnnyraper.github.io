@@ -1,15 +1,18 @@
+/* --- Headings --- */
+
 h1 {
-  font-family: $font-fancy;
+  font-family: $font-body;
   font-size: var(--text-3xl);
   line-height: var(--leading-tight);
   font-weight: var(--font-semibold);
-  letter-spacing: -0.02em;
-  color: $color-text-strong;
+  letter-spacing: -0.025em; // slightly tighter
+  color: $text;
 
   @media only screen and (min-width: 768px) {
-    font-size: 64px; // preserve your scale for now
+    font-size: 72px; // ← push it
   }
 }
+
 
 h2 {
   margin: $grid-6x 0;
@@ -18,20 +21,26 @@ h2 {
   line-height: var(--leading-normal);
   font-weight: var(--font-medium);
   letter-spacing: -0.01em;
-  color: $color-text;
-
-  span {
-    font-size: $text-sm;
-    font-weight: $font-regular;
-    letter-spacing: 0;
-    color: $color-text-muted;
-  }
-
-  &.heading--extra-spacing {
-    margin: $grid-6x 0 $grid-12x;
-    color: $color-accent; // keep for now (we can remove later intentionally)
-  }
 }
+
+
+/* --- h2 Variants --- */
+
+h2.heading--extra-spacing {
+  margin: $grid-6x 0 $grid-12x;
+  color: $accent; // keep for now
+}
+
+
+/* --- h2 Inline Elements --- */
+
+h2 span {
+  font-size: $text-sm;
+  font-weight: $font-regular;
+  letter-spacing: 0;
+  color: $text-muted;
+}
+
 
 h3 {
   margin: $grid-8x 0 $grid-4x;
@@ -39,16 +48,18 @@ h3 {
   font-size: var(--text-lg);
   line-height: var(--leading-normal);
   font-weight: var(--font-medium);
-  color: $color-text;
 }
+
 
 h4 {
   margin: $grid-5x 0 $grid-2x;
   font-family: $font-body;
   font-size: $text-sm;
   font-weight: $font-medium;
-  color: $color-text-muted;
 }
+
+
+/* --- Body Text --- */
 
 p,
 ol,
@@ -58,12 +69,18 @@ li {
   font-weight: $font-regular;
 }
 
+
+/* --- Caption --- */
+
 .caption-text {
   margin: 0 0 $grid-2x;
-  font-size: 16px;
+  font-size: $text-sm;
   font-style: italic;
-  color: $color-muted;
+  color: $text-muted;
 }
+
+
+/* --- Lists --- */
 
 ol {
   margin: $grid-5x 0;

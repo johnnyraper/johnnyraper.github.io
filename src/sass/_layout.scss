@@ -1,0 +1,99 @@
+.section {
+  position: relative;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: calc((100% - 1200px) / 2);
+
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.07),
+    rgba(255,255,255,0.07) 2px,
+    transparent 2px,
+    transparent 12px
+  );
+
+  pointer-events: none;
+}
+
+.section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: calc((100% - 1200px) / 2);
+
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(255,255,255,0.07),
+    rgba(255,255,255,0.07) 2px,
+    transparent 2px,
+    transparent 12px
+  );
+
+  pointer-events: none;
+}
+
+.section::before,
+.section::after {
+  opacity: 0.2;
+}
+
+.section__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-block: var(--section-space, 40px);
+  padding-inline: $grid-6x;
+}
+
+.section__tight {
+  padding-top: $grid-6x;
+  padding-bottom: $grid-6x;
+}
+
+/* -----------------------------------
+   MODIFIERS
+----------------------------------- */
+
+.section__tight {
+  padding: 0;
+}
+
+.section__tight>p {
+  max-width: 700px;
+  margin: $grid-5x 0;
+}
+
+.section__wide {
+  @media (min-width: 768px) {
+    display: grid;
+    justify-content: center;
+  }
+}
+
+.section--highlight {
+  border-bottom: 1px solid $border;
+}
+
+
+/* -----------------------------------
+   COLUMNS
+----------------------------------- */
+
+.column {
+  @media (min-width: 768px) {
+    max-width: 50%;
+  }
+}
+
+.column__content {
+  @media (min-width: 768px) {
+    max-width: 700px;
+  }
+}

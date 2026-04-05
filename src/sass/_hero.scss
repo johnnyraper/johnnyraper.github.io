@@ -1,0 +1,143 @@
+.rotating-text {
+    display: inline-block;
+    height: 1.25em; // ← more headroom
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+.rotating-text__track {
+    display: flex;
+    flex-direction: column;
+    will-change: transform;
+    transition: transform 0.6s ease;
+}
+
+.rotating-text__track span {
+    display: flex;
+    align-items: center; // ← centers glyphs vertically
+    height: 1.25em;
+    line-height: 1.25em;
+    white-space: nowrap;
+
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+}
+
+.section__intro h1 {
+    font-size: clamp(3rem, 5vw, 4.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+}
+
+.section__hero {
+    position: relative;
+    overflow: hidden;
+    --section-space: 40px;
+}
+
+.section.section__hero::before,
+.section.section__hero::after {
+  opacity: 0.5;
+}
+
+.hero {
+    display: grid;
+    gap: $grid-8x;
+
+    @media (min-width: 1024px) {
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: center;
+        min-height: 85vh;
+    }
+}
+
+.hero__content {
+    max-width: 720px;
+}
+
+.hero__visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 1024px) {
+        display: none;
+    }
+}
+
+.hero__visual-frame {
+    background: rgba(255, 255, 255, 0.015);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.8),
+        0 0 60px rgba(59, 130, 246, 0.12);
+}
+
+.hero-card {
+    width: 280px;
+    height: 360px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-card--back {
+    position: absolute;
+    inset: 0;
+
+    transform: translate(10px, 10px) rotate(3deg);
+    opacity: 0.08; // ← MUCH lower
+}
+
+.hero-card--front {
+    position: relative;
+    z-index: 2;
+
+    transform: rotate(-1deg);
+}
+
+.hero-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    filter:
+        grayscale(100%) contrast(1.05) brightness(0.9);
+}
+
+.hero-card__overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+
+    background-size: 24px 24px;
+
+    mix-blend-mode: overlay;
+    opacity: 0.4;
+}
+
+.hero__actions {
+    margin-top: 24px;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 999px;
+    border: 1px solid $border;
+    background: var(--accent-soft);
+    border-color: transparent;
+    color: $text;
+
+    transition: $transition;
+}
+
+.button:hover {
+    background: var(--accent);
+    border-color: $accent-hover;
+    color: white;
+}

@@ -1,3 +1,7 @@
+/* -----------------------------------
+   RESET
+----------------------------------- */
+
 html,
 body {
   margin: 0;
@@ -8,40 +12,31 @@ html {
   scroll-behavior: smooth;
 }
 
+
+/* -----------------------------------
+   BASE
+----------------------------------- */
+
 body {
-  background-color: $color-bg;
-  color: $color-text;
+  background: #06080f;
+
+  background-image:
+    radial-gradient(
+      1200px 800px at 20% 20%,
+      rgba(59, 130, 246, 0.10),
+      transparent 70%
+    ),
+    radial-gradient(
+      1000px 700px at 80% 80%,
+      rgba(59, 130, 246, 0.06),
+      transparent 75%
+    );
+
+  background-repeat: no-repeat;
+  color: $text;
   font-family: $font-body;
-  font-weight: 400;
-}
-
-a {
-  display: inline-block;
-  transition: $transition;
-  border-bottom: 1px solid $color-border;
-  color: $color-accent;
-  line-height: 1.5;
-  text-decoration: none;
-
-  &:active,
-  &:visited {
-    color: $color-accent;
-  }
-
-  &:hover {
-    transition: $transition;
-    color: $color-accent-hover;
-  }
-
-  &.logo__link {
-    border: none;
-  }
-}
-
-hr {
-  border: none;
-  border-top: 1px solid $color-neutral;
-  margin: $grid-5x auto;
+  font-weight: $font-regular;
+  min-height: 100vh;
 }
 
 main {
@@ -49,271 +44,275 @@ main {
   margin: 0 auto;
 }
 
-header {
+
+/* -----------------------------------
+   LAYOUT PRIMITIVES
+----------------------------------- */
+
+.section__inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: calc($grid-6x + 40px);
+  padding-right: calc($grid-6x + 40px);
+
+  @media (min-width: 768px) {
+    padding-inline: $grid-6x;
+  }
+
+  @media (min-width: 1024px) {
+    padding-inline: $grid-8x;
+  }
+}
+
+.section__inner,
+.section__inner-content {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+.section__grid {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section__grid::before,
+.section__grid::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+}
+
+.section__grid::before {
+  left: 0;
+}
+
+.section__grid::after {
+  right: 0;
+}
+
+
+/* -----------------------------------
+   HEADER
+----------------------------------- */
+
+.header {
+  width: 100%;
+  backdrop-filter: blur(10px);
+  background: rgba(11, 15, 23, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06); // Make this reusable
+}
+
+.header .section__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: $grid-2x $grid-2x 0;
-
-  @media screen and (min-width: 500px) {
-    padding: $grid-4x;
-  }
-
-  @media screen and (min-width: 768px) {
-    position: fixed;
-    width: 100%;
-    padding: $grid-6x;
-    z-index: 10;
-  }
-
-  @media screen and (min-width: 1024px) {
-    position: fixed;
-    padding: $grid-8x;
-    z-index: 10;
-  }
-
-  // a {
-  //   font-size: 20px;
-  // }
 }
 
+.header .section__grid {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+/* -----------------------------------
+   LINKS
+----------------------------------- */
+
+a {
+  display: inline-block;
+  border-bottom: 1px solid $border;
+  color: $accent;
+  text-decoration: none;
+  line-height: 1.5;
+  font-weight: $font-medium;
+  transition: $transition;
+}
+
+a:hover {
+  color: $accent-hover;
+}
+
+a:visited,
+a:active {
+  color: $accent;
+}
+
+a.logo__link {
+  border-bottom: none;
+}
+
+
+/* -----------------------------------
+   ELEMENTS
+----------------------------------- */
+
+hr {
+  border: none;
+  border-top: 1px solid $border;
+  margin: $grid-5x auto;
+}
+
+.frame {
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+
+/* -----------------------------------
+   SECTION VARIANTS
+----------------------------------- */
+
+.section__hero {
+  position: relative;
+  border-bottom: 1px solid $border;
+  overflow: hidden; // ← THIS is the key
+  z-index: 1;
+
+  @media (min-width: 768px) {
+    padding: 0;
+  }
+}
+
+.section__hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(ellipse at 30% 40%,
+      rgba(59, 130, 246, 0.12),
+      transparent 60%);
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* -----------------------------------
+   PAGE SECTIONS
+----------------------------------- */
+
+.section__portfolio {
+  @media (min-width: 768px) {
+    min-height: 100vh;
+  }
+}
+
+.section__about {
+  @media (min-width: 1024px) {
+    min-height: 50vh;
+    padding-top: 200px;
+  }
+
+  @media (min-width: 1200px) {
+    min-height: 100vh;
+    padding-top: 100px;
+  }
+}
+
+.section__about h1 {
+  font-size: var(--text-2xl);
+  line-height: 1.2;
+
+  @media (min-width: 1200px) {
+    font-size: var(--text-3xl);
+    line-height: 1.1;
+  }
+}
+
+
+/* -----------------------------------
+   FOOTER
+----------------------------------- */
+
+.section__footer {
+  padding-top: $grid-10x;
+  background: $surface;
+  border-top: 1px solid $border;
+}
+
+.section__footer a {
+  display: inline;
+}
+
+
+/* -----------------------------------
+   MEDIA
+----------------------------------- */
+
 video {
+  display: block;
   margin: auto;
   cursor: pointer;
 }
 
 .video-wrapper {
-  position: relative;
   margin: $grid-10x auto;
+  position: relative;
 }
 
-.section {
-  padding-top: $grid-3x;
-  padding-bottom: $grid-3x;
 
-  @media screen and (min-width: 768px) {
-    // min-height: 100vh;
-    padding-top: $grid-10x;
-    padding-bottom: $grid-10x;
-  }
-
-  @media screen and (min-width: 1024px) {
-    // min-height: 100vh;
-  }
-
-  &__hero {
-    background: var(--color-bg);
-    border-bottom: 1px solid var(--color-border);
-
-    @media screen and (min-width: 768px) {
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-  }
-
-  &--highlight {
-    border-top: 1px dotted var(--color-accent);
-    background: var(--color-surface);
-  }
-
-  &__intro {
-    display: grid;
-    align-items: stretch;
-    justify-content: center;
-    max-width: 1200px;
-    margin: $grid-4x auto $grid-7x;
-    color: $color-primary;
-
-    @media screen and (min-width: 768px) {
-      align-items: center;
-      min-height: 100vh;
-      margin: 0 auto;
-    }
-
-    h1 {
-      font-size: 36px;
-      font-weight: 700;
-
-      @media screen and (min-width: 768px) {
-        font-size: 56px;
-        line-height: 1.3;
-        margin-bottom: 20px;
-      }
-    }
-  }
-
-  &__intro-content {
-    background: $color-surface-elevated;
-    border: 1px solid $color-border;
-    padding: $grid-5x;
-
-    @media screen and (min-width: 768px) and (orientation: landscape) {
-      margin-top: $grid-9x;
-      padding: $grid-8x $grid-8x $grid-6x;
-      border-radius: $grid-5x;
-    }
-
-    p {
-      color: $color-text-muted;
-      font-family: $font-body;
-      // font-size: 20px;
-      // font-weight: 400;
-      // line-height: 1.35;
-
-      @media screen and (min-width: 768px) {
-        max-width: 800px;
-        // line-height: 1.5;
-      }
-    }
-  }
-
-  &__portfolio {
-    @media screen and (min-width: 768px) {
-      min-height: 100vh;
-    }
-  }
-
-  &__about {
-    @media screen and (min-width: 1024px) {
-      min-height: 50vh;
-      padding-top: 200px;
-    }
-
-    @media screen and (min-width: 1200px) {
-      min-height: 100vh;
-      padding-top: 100px;
-    }
-
-    h1 {
-      font-family: $font-body;
-      font-size: 50px;
-      line-height: 1.2;
-
-      @media screen and (min-width: 1200px) {
-        font-size: 80px;
-        line-height: 1.1;
-      }
-    }
-  }
-
-  &__tight {
-    padding-top: 0;
-    padding-bottom: 0;
-
-    >p {
-      max-width: 700px;
-      margin: 40px 0;
-    }
-  }
-
-  &__wide {
-    @media screen and (min-width: 768px) {
-      display: grid;
-      justify-content: center;
-    }
-
-    h3 {
-      color: $color-accent;
-    }
-  }
-
-  .column {
-    @media screen and (min-width: 768px) {
-      max-width: 50%;
-    }
-
-    &__content {
-      @media screen and (min-width: 768px) {
-        max-width: 700px;
-      }
-    }
-  }
-
-  &__footer {
-    margin-top: 100px;
-    padding-top: 170px;
-    background: $color-surface;
-    border-top: 1px solid $color-border;
-    background-size: 10px 10px;
-    color: $color-white;
-
-    @media screen and (min-width: 768px) {
-      max-height: 600px;
-    }
-
-    h2 {
-      color: $color-primary;
-    }
-
-    p {
-      // font-size: 20px;
-      color: $color-muted;
-    }
-
-    a {
-      display: inline;
-    }
-  }
-}
+/* -----------------------------------
+   MISC
+----------------------------------- */
 
 .disciplines {
   max-width: 700px;
-  padding: 0;
   column-count: 2;
-  list-style-type: none;
+  list-style: none;
+  padding: 0;
+}
 
-  li {
-    margin: $grid-2x 0;
-
-    &:first-of-type {
-      margin-top: 0;
-    }
-  }
+.disciplines li {
+  margin: $grid-2x 0;
 }
 
 .about-image {
   max-height: 600px;
 }
 
+
+/* -----------------------------------
+   SCROLL ARROW
+----------------------------------- */
+
 .scrollarrow {
-  display: block;
-  height: 13px;
   width: 13px;
-  border: 11px solid transparent;
+  height: 13px;
+  margin: $grid-5x auto;
   transform: rotate(45deg);
   position: relative;
-  margin: 30px auto;
-
-  &:before,
-  &:after {
-    content: "";
-    display: block;
-    height: inherit;
-    width: inherit;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  a {
-    display: block;
-    width: 42px;
-    height: 42px;
-    border-bottom: 0;
-    position: absolute;
-    top: -20px;
-    left: -20px;
-  }
 }
 
-.scrollarrow:after {
-  border-bottom: 3px solid $color-accent;
-  border-right: 3px solid $color-accent;
-  top: 0;
-  left: 0;
-  opacity: 1;
+.scrollarrow::before,
+.scrollarrow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-bottom: 3px solid $accent;
+  border-right: 3px solid $accent;
+}
+
+.scrollarrow::after {
   animation: bottom-arrow 1.65s infinite;
 }
+
+.scrollarrow::before {
+  animation: top-arrow 1.65s infinite;
+}
+
+
+/* -----------------------------------
+   ANIMATIONS
+----------------------------------- */
 
 @keyframes bottom-arrow {
   0% {
@@ -331,23 +330,10 @@ video {
     transform: translate(-16px, -16px);
   }
 
-  90% {
-    opacity: 1;
-    transform: translate(-6px, -6px);
-  }
-
   100% {
     opacity: 1;
     transform: translate(-6px, -6px);
   }
-}
-
-.scrollarrow:before {
-  top: 0;
-  left: 0;
-  border-bottom: 3px solid $color-accent;
-  border-right: 3px solid $color-accent;
-  animation: top-arrow 1.65s infinite;
 }
 
 @keyframes top-arrow {
@@ -359,13 +345,7 @@ video {
     transform: translate(0, 0);
   }
 
-  90% {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
-
   100% {
-    opacity: 1;
     transform: translate(0, 0);
   }
 }

@@ -1,0 +1,20 @@
+body {
+  background-color: var(--bg);
+
+  background-image:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(59, 130, 246, 0.12),
+      transparent 50%
+    ),
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
+  background-size:
+    auto,
+    40px 40px,
+    40px 40px;
+
+  background-position:
+    center;
+}

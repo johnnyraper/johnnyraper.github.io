@@ -1,38 +1,42 @@
-/* --- Headings --- */
+/* =========================================================
+   TYPOGRAPHY — HEADINGS
+   ========================================================= */
 
 h1 {
-  font-family: $font-body;
-  font-size: var(--text-3xl);
-  line-height: var(--leading-tight);
-  font-weight: var(--font-semibold);
-  letter-spacing: -0.025em; // slightly tighter
+  font-size: $text-3xl;
+  line-height: $leading-tight;
+  font-weight: $font-semibold;
+  letter-spacing: -0.025em;
   color: $text;
 
-  @media only screen and (min-width: 768px) {
-    font-size: 72px; // ← push it
+  @include mq(md) {
+    font-size: $text-3xl; // keep scale consistent (was 72px)
   }
 }
 
-
 h2 {
   margin: $grid-6x 0;
-  font-family: $font-body;
-  font-size: var(--text-xl);
-  line-height: var(--leading-normal);
-  font-weight: var(--font-medium);
+
+  font-size: $text-xl;
+  line-height: $leading-normal;
+  font-weight: $font-medium;
   letter-spacing: -0.01em;
 }
 
 
-/* --- h2 Variants --- */
+/* =========================================================
+   H2 VARIANTS
+   ========================================================= */
 
 h2.heading--extra-spacing {
   margin: $grid-6x 0 $grid-12x;
-  color: $accent; // keep for now
+  color: $accent;
 }
 
 
-/* --- h2 Inline Elements --- */
+/* =========================================================
+   H2 INLINE ELEMENTS
+   ========================================================= */
 
 h2 span {
   font-size: $text-sm;
@@ -44,22 +48,24 @@ h2 span {
 
 h3 {
   margin: $grid-8x 0 $grid-4x;
-  font-family: $font-body;
-  font-size: var(--text-lg);
-  line-height: var(--leading-normal);
-  font-weight: var(--font-medium);
+
+  font-size: $text-lg;
+  line-height: $leading-normal;
+  font-weight: $font-medium;
 }
 
 
 h4 {
   margin: $grid-5x 0 $grid-2x;
-  font-family: $font-body;
+
   font-size: $text-sm;
   font-weight: $font-medium;
 }
 
 
-/* --- Body Text --- */
+/* =========================================================
+   BODY TEXT
+   ========================================================= */
 
 p,
 ol,
@@ -70,17 +76,22 @@ li {
 }
 
 
-/* --- Caption --- */
+/* =========================================================
+   CAPTION
+   ========================================================= */
 
 .caption-text {
   margin: 0 0 $grid-2x;
+
   font-size: $text-sm;
   font-style: italic;
   color: $text-muted;
 }
 
 
-/* --- Lists --- */
+/* =========================================================
+   LISTS
+   ========================================================= */
 
 ol {
   margin: $grid-5x 0;

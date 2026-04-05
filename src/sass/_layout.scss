@@ -1,99 +1,201 @@
+// .section {
+//   position: relative;
+// }
+
+
+// /* -----------------------------------
+//    SIDE RAILS (DIAGONALS)
+// ----------------------------------- */
+
+// .section::before,
+// .section::after {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   width: calc((100% - 1200px) / 2);
+//   pointer-events: none;
+//   opacity: 0.3;
+// }
+
+// .section::before {
+//   left: 0;
+//   background: repeating-linear-gradient(
+//     45deg,
+//     $grid-line-strong,
+//     $grid-line-strong 2px,
+//     transparent 2px,
+//     transparent 12px
+//   );
+// }
+
+// .section::after {
+//   right: 0;
+//   background: repeating-linear-gradient(
+//     -45deg,
+//     $grid-line-strong,
+//     $grid-line-strong 2px,
+//     transparent 2px,
+//     transparent 12px
+//   );
+// }
+
+
+// /* -----------------------------------
+//    CONTENT CONTAINER
+// ----------------------------------- */
+
+// .section__inner {
+//   position: relative;
+//   z-index: 1;
+
+//   max-width: 1200px;
+//   margin: 0 auto;
+
+//   padding-inline: $grid-6x;
+//   padding-block: var(--section-space, 40px);
+// }
+
+
+// /* -----------------------------------
+//    SECTION VARIANTS
+// ----------------------------------- */
+
+// .section--highlight {
+//   border-bottom: 1px solid $border-subtle;
+// }
+
+
+// /* -----------------------------------
+//    LAYOUT MODIFIERS
+// ----------------------------------- */
+
+// .section__wide {
+//   @include mq(md) {
+//     display: grid;
+//     justify-content: center;
+//   }
+// }
+
+
+// /* -----------------------------------
+//    COLUMNS
+// ----------------------------------- */
+
+// .column {
+//   @include mq(md) {
+//     max-width: 50%;
+//   }
+// }
+
+// .column__content {
+//   @include mq(md) {
+//     max-width: 700px;
+//   }
+// }
+
+
+/* =========================================================
+   SECTION BASE
+   ========================================================= */
+
 .section {
   position: relative;
 }
 
-.section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: calc((100% - 1200px) / 2);
 
-  background: repeating-linear-gradient(
-    45deg,
-    rgba(255,255,255,0.07),
-    rgba(255,255,255,0.07) 2px,
-    transparent 2px,
-    transparent 12px
-  );
-
-  pointer-events: none;
-}
-
-.section::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: calc((100% - 1200px) / 2);
-
-  background: repeating-linear-gradient(
-    -45deg,
-    rgba(255,255,255,0.07),
-    rgba(255,255,255,0.07) 2px,
-    transparent 2px,
-    transparent 12px
-  );
-
-  pointer-events: none;
-}
+/* =========================================================
+   SIDE RAILS (DIAGONALS)
+   ========================================================= */
 
 .section::before,
 .section::after {
-  opacity: 0.2;
+  content: "";
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  width: calc((100% - 1200px) / 2); // layout constraint
+
+  pointer-events: none;
+  opacity: 0.3;
 }
+
+.section::before {
+  left: 0;
+
+  background: repeating-linear-gradient(
+    45deg,
+    $grid-line-strong,
+    $grid-line-strong 2px,
+    transparent 2px,
+    transparent 12px
+  );
+}
+
+.section::after {
+  right: 0;
+
+  background: repeating-linear-gradient(
+    -45deg,
+    $grid-line-strong,
+    $grid-line-strong 2px,
+    transparent 2px,
+    transparent 12px
+  );
+}
+
+
+/* =========================================================
+   CONTENT CONTAINER
+   ========================================================= */
 
 .section__inner {
-  max-width: 1200px;
+  position: relative;
+  z-index: 1;
+
+  max-width: $grid * 150; // 1200px → tokenised
   margin: 0 auto;
-  padding-block: var(--section-space, 40px);
+
   padding-inline: $grid-6x;
+  padding-block: var(--section-space, $grid-5x); // 40px → tokenised fallback
 }
 
-.section__tight {
-  padding-top: $grid-6x;
-  padding-bottom: $grid-6x;
+
+/* =========================================================
+   SECTION VARIANTS
+   ========================================================= */
+
+.section--highlight {
+  border-bottom: 1px solid $border-subtle;
 }
 
-/* -----------------------------------
-   MODIFIERS
------------------------------------ */
 
-.section__tight {
-  padding: 0;
-}
-
-.section__tight>p {
-  max-width: 700px;
-  margin: $grid-5x 0;
-}
+/* =========================================================
+   LAYOUT MODIFIERS
+   ========================================================= */
 
 .section__wide {
-  @media (min-width: 768px) {
+  @include mq(md) {
     display: grid;
     justify-content: center;
   }
 }
 
-.section--highlight {
-  border-bottom: 1px solid $border;
-}
 
-
-/* -----------------------------------
+/* =========================================================
    COLUMNS
------------------------------------ */
+   ========================================================= */
 
 .column {
-  @media (min-width: 768px) {
+  @include mq(md) {
     max-width: 50%;
   }
 }
 
 .column__content {
-  @media (min-width: 768px) {
-    max-width: 700px;
+  @include mq(md) {
+    max-width: 700px; // layout-bound
   }
 }

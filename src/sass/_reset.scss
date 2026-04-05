@@ -3,14 +3,22 @@
  * @link https://github.com/hankchizljaw/modern-css-reset
 */
 
-/* Box sizing rules */
+
+/* =========================================================
+   BOX SIZING
+   ========================================================= */
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* Remove default margin */
+
+/* =========================================================
+   REMOVE DEFAULT MARGINS
+   ========================================================= */
+
 body,
 h1,
 h2,
@@ -21,18 +29,25 @@ h6 {
   margin: 0;
 }
 
+
+/* =========================================================
+   TEXT SAFETY
+   ========================================================= */
+
 p,
 li,
 h1,
 h2,
 h3,
 h4 {
-  // Help prevent overflow of long words/names/URLs
   word-break: break-word;
-
-  // Optional, not supported for all languages
   // hyphens: auto;
 }
+
+
+/* =========================================================
+   ROOT
+   ========================================================= */
 
 html {
   scroll-behavior: smooth;
@@ -40,23 +55,38 @@ html {
   padding: 0;
 }
 
-/* Set core body defaults */
+
+/* =========================================================
+   BODY DEFAULTS
+   ========================================================= */
+
 body {
   margin: 0;
   padding: 0;
+
   min-height: 100vh;
+
   font-size: 100%;
-  line-height: 1.5;
+  line-height: $leading-normal;
+
   text-rendering: optimizeSpeed;
 }
 
-/* Make images easier to work with */
+
+/* =========================================================
+   MEDIA
+   ========================================================= */
+
 img {
   display: block;
   max-width: 100%;
 }
 
-/* Inherit fonts for inputs and buttons */
+
+/* =========================================================
+   FORM ELEMENTS
+   ========================================================= */
+
 input,
 button,
 textarea,
@@ -64,7 +94,11 @@ select {
   font: inherit;
 }
 
-/* Remove all animations and transitions for people that prefer not to see them */
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -76,6 +110,6 @@ select {
   }
 
   html {
-    scroll-behavior: initial;
+    scroll-behavior: auto;
   }
 }

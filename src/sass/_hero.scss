@@ -1,143 +1,331 @@
+// /* -----------------------------------
+//    HERO SECTION
+// ----------------------------------- */
+
+// .section__hero {
+//     position: relative;
+// }
+
+
+// /* -----------------------------------
+//    HERO LAYOUT (controls spacing, NOT section)
+// ----------------------------------- */
+
+// .hero {
+//     display: grid;
+//     gap: $grid-8x;
+
+//     padding-top: $grid-12x;
+//     padding-bottom: $grid-10x;
+
+//     @include mq(lg) {
+//         grid-template-columns: 1.2fr 0.8fr;
+//         align-items: center;
+//         min-height: 80vh;
+
+//         padding-top: 160px;
+//         padding-bottom: 120px;
+//     }
+// }
+
+
+// /* -----------------------------------
+//    CONTENT
+// ----------------------------------- */
+
+// .hero__content {
+//     max-width: 720px;
+// }
+
+// .section__hero h1 {
+//     margin-bottom: $grid-4x;
+// }
+
+// .section__hero p {
+//     margin-bottom: $grid-3x;
+//     color: $text-muted;
+//     max-width: 640px;
+// }
+
+
+// /* -----------------------------------
+//    ROTATING TEXT
+// ----------------------------------- */
+
+// .rotating-text {
+//     display: inline-block;
+//     height: 1.25em;
+//     overflow: hidden;
+//     vertical-align: bottom;
+// }
+
+// .rotating-text__track {
+//     display: flex;
+//     flex-direction: column;
+//     transition: transform 0.6s ease;
+//     will-change: transform;
+// }
+
+// .rotating-text__track span {
+//     display: flex;
+//     align-items: center;
+//     height: 1.25em;
+//     line-height: 1.25em;
+//     white-space: nowrap;
+
+//     font-family: "DM Serif Display", serif;
+//     font-style: italic;
+// }
+
+
+// /* -----------------------------------
+//    CTA
+// ----------------------------------- */
+
+// .hero__actions {
+//     margin-top: $grid-4x;
+// }
+
+
+// /* -----------------------------------
+//    HERO VISUAL
+// ----------------------------------- */
+
+// .hero__visual {
+//     display: flex;
+//     justify-content: flex-end;
+//     align-items: center;
+
+//     position: relative;
+
+//     @include mq-max(lg) {
+//         display: none;
+//     }
+// }
+
+// /* -----------------------------------
+//    HERO VISUAL FRAME
+// ----------------------------------- */
+
+// .hero__visual-frame {
+//     $hero-frame-radius: 24px;
+
+//   position: relative;
+
+//   width: 280px;
+//   aspect-ratio: 3 / 4;
+
+//   padding: $grid-2x;
+
+//   border-radius: $hero-frame-radius;
+//   border: 1px solid $border-subtle;
+
+//   background: $surface-glass;
+//   backdrop-filter: blur(12px);
+
+//   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+// }
+
+
+// /* -----------------------------------
+//    HERO CARD
+// ----------------------------------- */
+
+// .hero-card {
+//   width: 100%;
+//   height: 100%;
+
+//   border-radius: $radius-lg;
+//   border: 1px solid $border-subtle;
+
+//   background:
+//     linear-gradient(
+//       to bottom right,
+//       rgba(255,255,255,0.02),
+//       rgba(255,255,255,0.01)
+//     ),
+//     $surface;
+
+//   position: relative;
+//   overflow: hidden;
+// }
+
+
+// /* -----------------------------------
+//    SCROLL ARROW
+// ----------------------------------- */
+
+// .scrollarrow {
+//     margin-top: $grid-5x;
+// }
+
+
+
+
+
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
+
+.section__hero {
+  position: relative;
+}
+
+
+/* =========================================================
+   HERO LAYOUT
+   ========================================================= */
+
+.hero {
+  display: grid;
+  gap: $grid-8x;
+
+  padding-top: $grid-12x;
+  padding-bottom: $grid-10x;
+
+  @include mq(lg) {
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    min-height: 80vh;
+
+    padding-top: $grid * 20;  // 160px → tokenised
+    padding-bottom: $grid * 15; // 120px → tokenised
+  }
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.hero__content {
+  max-width: 720px; // layout-bound, fine
+}
+
+.section__hero h1 {
+  margin-bottom: $grid-4x;
+
+  @include mq(lg) {
+    font-size: $text-5xl;
+  }
+}
+
+.section__hero p {
+  margin-bottom: $grid-3x;
+  color: $text-muted;
+  max-width: 640px; // layout-bound
+}
+
+
+/* =========================================================
+   ROTATING TEXT
+   ========================================================= */
+
 .rotating-text {
-    display: inline-block;
-    height: 1.25em; // ← more headroom
-    overflow: hidden;
-    vertical-align: bottom;
+  display: inline-block;
+  height: 1.25em;
+  overflow: hidden;
+  vertical-align: bottom;
 }
 
 .rotating-text__track {
-    display: flex;
-    flex-direction: column;
-    will-change: transform;
-    transition: transform 0.6s ease;
+  display: flex;
+  flex-direction: column;
+
+  transition: transform $transition-base;
+  will-change: transform;
 }
 
 .rotating-text__track span {
-    display: flex;
-    align-items: center; // ← centers glyphs vertically
-    height: 1.25em;
-    line-height: 1.25em;
-    white-space: nowrap;
+  display: flex;
+  align-items: center;
 
-    font-family: "Playfair Display", serif;
-    font-style: italic;
+  height: 1.25em;
+  line-height: 1.25em;
+
+  white-space: nowrap;
+
+  font-family: "DM Serif Display", serif; // intentional (display font)
+  font-style: italic;
 }
 
-.section__intro h1 {
-    font-size: clamp(3rem, 5vw, 4.8rem);
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-}
 
-.section__hero {
-    position: relative;
-    overflow: hidden;
-    --section-space: 40px;
-}
-
-.section.section__hero::before,
-.section.section__hero::after {
-  opacity: 0.5;
-}
-
-.hero {
-    display: grid;
-    gap: $grid-8x;
-
-    @media (min-width: 1024px) {
-        grid-template-columns: 1.2fr 0.8fr;
-        align-items: center;
-        min-height: 85vh;
-    }
-}
-
-.hero__content {
-    max-width: 720px;
-}
-
-.hero__visual {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    @media (max-width: 1024px) {
-        display: none;
-    }
-}
-
-.hero__visual-frame {
-    background: rgba(255, 255, 255, 0.015);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-
-    box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.8),
-        0 0 60px rgba(59, 130, 246, 0.12);
-}
-
-.hero-card {
-    width: 280px;
-    height: 360px;
-    border-radius: 16px;
-    overflow: hidden;
-    position: relative;
-}
-
-.hero-card--back {
-    position: absolute;
-    inset: 0;
-
-    transform: translate(10px, 10px) rotate(3deg);
-    opacity: 0.08; // ← MUCH lower
-}
-
-.hero-card--front {
-    position: relative;
-    z-index: 2;
-
-    transform: rotate(-1deg);
-}
-
-.hero-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-
-    filter:
-        grayscale(100%) contrast(1.05) brightness(0.9);
-}
-
-.hero-card__overlay {
-    position: absolute;
-    inset: 0;
-
-    background:
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-
-    background-size: 24px 24px;
-
-    mix-blend-mode: overlay;
-    opacity: 0.4;
-}
+/* =========================================================
+   CTA
+   ========================================================= */
 
 .hero__actions {
-    margin-top: 24px;
+  margin-top: $grid-4x;
 }
 
-.button {
-    display: inline-block;
-    padding: 12px 20px;
-    border-radius: 999px;
-    border: 1px solid $border;
-    background: var(--accent-soft);
-    border-color: transparent;
-    color: $text;
 
-    transition: $transition;
+/* =========================================================
+   HERO VISUAL
+   ========================================================= */
+
+.hero__visual {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  position: relative;
+
+  @include mq-max(lg) {
+    display: none;
+  }
 }
 
-.button:hover {
-    background: var(--accent);
-    border-color: $accent-hover;
-    color: white;
+
+/* =========================================================
+   HERO VISUAL FRAME
+   ========================================================= */
+
+.hero__visual-frame {
+  position: relative;
+
+  width: 280px; // layout-bound
+  aspect-ratio: 3 / 4;
+
+  padding: $grid-2x;
+
+  border-radius: $radius-lg; // unified (was local 24px)
+  border: 1px solid $border-subtle;
+
+  background: $surface-glass;
+  backdrop-filter: blur(12px); // effect, not token
+
+  box-shadow: $shadow-strong;
+}
+
+
+/* =========================================================
+   HERO CARD
+   ========================================================= */
+
+.hero-card {
+  width: 100%;
+  height: 100%;
+
+  border-radius: $radius-lg;
+  border: 1px solid $border-subtle;
+
+  background:
+    linear-gradient(
+      to bottom right,
+      $surface-glass,
+      transparent
+    ),
+    $surface;
+
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   SCROLL ARROW
+   ========================================================= */
+
+.scrollarrow {
+  margin-top: $grid-5x;
 }

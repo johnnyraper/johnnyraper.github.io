@@ -39,4 +39,4 @@ const step = () => {
   el.style.transform = `translateY(-${index * 1.25}em)`;
 };
 
-setInterval(step, 2000);
+setInterval(step, 5000);

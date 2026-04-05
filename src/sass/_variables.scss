@@ -1,78 +1,186 @@
-/* --- Core Theme --- */
+/* =========================================================
+   ROOT TOKENS (SOURCE OF TRUTH)
+   ========================================================= */
 
 :root {
-  /* --- Background --- */
+  /* =========================
+     BACKGROUND / SURFACE
+     ========================= */
+
   --bg: #060607;
   --surface: #0b0f17;
   --surface-elevated: #0f1623;
 
-  --border: rgba(120, 160, 255, 0.12);
+  --surface-glass: rgba(255, 255, 255, 0.02);
+  --surface-glass-strong: rgba(255, 255, 255, 0.04);
 
-  /* --- Text --- */
+  --overlay: rgba(255, 255, 255, 0.04);
+
+  /* =========================
+     TEXT
+     ========================= */
+
   --text: #e2e8f0;
   --text-muted: #8b9bb3;
   --text-subtle: #6b7a90;
 
-  /* --- Accent (cool, restrained) --- */
+  /* =========================
+     ACCENT
+     ========================= */
+
   --accent: #3b82f6;
   --accent-hover: #2563eb;
 
-  /* --- Accent Soft (this is key) --- */
-  --accent-soft: rgba(59, 130, 246, 0.12);
+  --accent-subtle: rgba(59, 130, 246, 0.12);
+  --accent-soft: rgba(59, 130, 246, 0.08);
 
-  /* --- Overlay --- */
-  --overlay: rgba(255, 255, 255, 0.04);
+  /* =========================
+     BORDER
+     ========================= */
 
-  /* --- Typography --- */
+  --border-subtle: rgba(120, 160, 255, 0.08);
+  --border-strong: rgba(120, 160, 255, 0.18);
+
+  /* =========================
+     GRID / LINES
+     ========================= */
+
+  --grid-line-strong: rgba(255, 255, 255, 0.05);
+
+  /* =========================
+     TYPOGRAPHY
+     ========================= */
+
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 
-  /* --- Type Scale (slightly pushed) --- */
-  --text-sm: 15px;
-  --text-md: 17px;
-  --text-lg: 20px;
-  --text-xl: 28px;
-  --text-2xl: 40px;
-  --text-3xl: 56px;
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-md: 16px;
+  --text-lg: 18px;
+  --text-xl: 24px;
+  --text-2xl: 32px;
+  --text-3xl: 48px;
+  --text-4xl: 64px;
+  --text-5xl: 72px;
 
-  /* --- Line Height --- */
+  /* Line Height */
   --leading-tight: 1.1;
   --leading-normal: 1.5;
   --leading-relaxed: 1.6;
 
-  /* --- Font Weight --- */
+  /* Font Weight */
   --font-regular: 400;
   --font-medium: 500;
   --font-semibold: 600;
+
+  /* =========================
+     RADIUS
+     ========================= */
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  /* =========================
+     SHADOW
+     ========================= */
+
+  --shadow-subtle: 0 12px 30px rgba(0, 0, 0, 0.4);
+  --shadow-strong: 0 20px 50px rgba(0, 0, 0, 0.5);
+
+  /* =========================
+     MOTION
+     ========================= */
+
+  --transition-base: 0.25s ease;
+
+  /* =========================
+     BACKGROUND GRADIENTS
+     ========================= */
+
+  --gradient-bg-primary:
+    radial-gradient(1200px 800px at 20% 25%,
+      var(--accent-soft),
+      transparent 70%);
+
+  --gradient-bg-secondary:
+    radial-gradient(1000px 700px at 80% 75%,
+      var(--accent-subtle),
+      transparent 75%);
 }
 
 
-/* --- SCSS Mappings --- */
+/* =========================================================
+   SCSS TOKEN MAPPINGS (AUTHORING LAYER)
+   ========================================================= */
+
+/* =========================
+   SURFACE
+   ========================= */
 
 $bg: var(--bg);
 $surface: var(--surface);
 $surface-elevated: var(--surface-elevated);
-$border: var(--border);
+
+$surface-glass: var(--surface-glass);
+$surface-glass-strong: var(--surface-glass-strong);
+
+$overlay: var(--overlay);
+
+
+/* =========================
+   TEXT
+   ========================= */
 
 $text: var(--text);
 $text-muted: var(--text-muted);
 $text-subtle: var(--text-subtle);
 
+
+/* =========================
+   ACCENT
+   ========================= */
+
 $accent: var(--accent);
 $accent-hover: var(--accent-hover);
 
-$overlay: var(--overlay);
+$accent-subtle: var(--accent-subtle);
+$accent-soft: var(--accent-soft);
+
+
+/* =========================
+   BORDER
+   ========================= */
+
+$border-subtle: var(--border-subtle);
+$border-strong: var(--border-strong);
+
+
+/* =========================
+   GRID / LINES
+   ========================= */
+
+$grid-line-strong: var(--grid-line-strong);
+
+
+/* =========================
+   TYPOGRAPHY
+   ========================= */
 
 $font-body: var(--font-sans);
 
-
-/* --- Type --- */
-
+$text-xs: var(--text-xs);
 $text-sm: var(--text-sm);
 $text-md: var(--text-md);
 $text-lg: var(--text-lg);
 $text-xl: var(--text-xl);
 $text-2xl: var(--text-2xl);
+$text-3xl: var(--text-3xl);
+$text-4xl: var(--text-4xl);
+$text-5xl: var(--text-5xl);
 
+
+$leading-tight: var(--leading-tight);
 $leading-normal: var(--leading-normal);
 $leading-relaxed: var(--leading-relaxed);
 
@@ -81,15 +189,45 @@ $font-medium: var(--font-medium);
 $font-semibold: var(--font-semibold);
 
 
-/* --- Motion --- */
+/* =========================
+   RADIUS
+   ========================= */
 
-$transition: 0.25s ease;
+$radius-sm: var(--radius-sm);
+$radius-md: var(--radius-md);
+$radius-lg: var(--radius-lg);
 
 
-/* --- Spacing (keep — this is good) --- */
+/* =========================
+   SHADOW
+   ========================= */
+
+$shadow-subtle: var(--shadow-subtle);
+$shadow-strong: var(--shadow-strong);
+
+
+/* =========================
+   MOTION
+   ========================= */
+
+$transition-base: var(--transition-base);
+
+
+/* =========================
+   BACKGROUNDS
+   ========================= */
+
+$gradient-bg-primary: var(--gradient-bg-primary);
+$gradient-bg-secondary: var(--gradient-bg-secondary);
+
+
+/* =========================
+   SPACING SYSTEM
+   ========================= */
 
 $grid: 8px;
 
+$grid-0_5x: $grid / 2;
 $grid-2x: $grid * 2;
 $grid-3x: $grid * 3;
 $grid-4x: $grid * 4;
@@ -100,3 +238,53 @@ $grid-8x: $grid * 8;
 $grid-9x: $grid * 9;
 $grid-10x: $grid * 10;
 $grid-12x: $grid * 12;
+
+/* =========================
+   BREAKPOINTS (STANDARDISED)
+   ========================= */
+
+$bp-sm: 640px; // mobile → large mobile
+$bp-md: 768px; // tablet
+$bp-lg: 1024px; // small desktop
+$bp-xl: 1280px; // desktop
+$bp-2xl: 1536px; // large screens
+
+@mixin mq($bp) {
+  @if $bp ==sm {
+    @media (min-width: $bp-sm) {
+      @content;
+    }
+  }
+
+  @if $bp ==md {
+    @media (min-width: $bp-md) {
+      @content;
+    }
+  }
+
+  @if $bp ==lg {
+    @media (min-width: $bp-lg) {
+      @content;
+    }
+  }
+
+  @if $bp ==xl {
+    @media (min-width: $bp-xl) {
+      @content;
+    }
+  }
+
+  @if $bp ==2xl {
+    @media (min-width: $bp-2xl) {
+      @content;
+    }
+  }
+}
+
+@mixin mq-max($bp) {
+  @if $bp ==lg {
+    @media (max-width: $bp-lg) {
+      @content;
+    }
+  }
+}

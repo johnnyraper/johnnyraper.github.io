@@ -1,4 +1,185 @@
-/* --- ScrollFade Specific --- */
+// /* --- ScrollFade Specific --- */
+
+// .scrollFade {
+//   opacity: 1;
+//   pointer-events: all;
+// }
+
+// .scrollFade--hidden {
+//   opacity: 0;
+//   pointer-events: none;
+// }
+
+// .scrollFade--visible {
+//   opacity: 1;
+//   pointer-events: all;
+// }
+
+// .scrollFade--animate {
+//   transition: opacity 0.8s ease-in-out;
+// }
+
+
+// /* --- Cube Animation --- */
+
+// $size: 60px;
+
+// $rotate-none: 0deg;
+// $rotate-quarter: 90deg;
+// $rotate-half: 180deg;
+// $rotate-three-quarters: 270deg;
+// $rotate-full: 360deg;
+
+
+// /* --- Container --- */
+
+// .cube-container {
+//   perspective: 1000px;
+//   perspective-origin: 50%;
+//   margin-left: $grid-3x;
+
+//   @include mq(md) {
+//     margin-left: 0;
+//   }
+
+//   @include mq(lg) {
+//     margin-left: 50px;
+//   }
+// }
+
+
+// /* --- Cube Core --- */
+
+// .cube {
+//   position: relative;
+//   width: $size;
+//   height: $size;
+//   margin: $grid auto;
+
+//   animation: cube-rotation 160s infinite linear;
+
+//   -webkit-transform: translate3d(0, 0, 0);
+//   -moz-transform: translate3d(0, 0, 0);
+
+//   -webkit-transform-style: preserve-3d;
+//   -moz-transform-style: preserve-3d;
+//   transform-style: preserve-3d;
+
+//   outline: 1px solid transparent;
+//   font-family: $font-body;
+//   font-size: 14px;
+
+//   box-shadow: 0 0 1px rgba(255, 255, 255, 0);
+
+//   will-change: transform;
+
+//   -webkit-backface-visibility: hidden;
+//   -moz-backface-visibility: hidden;
+//   backface-visibility: hidden;
+// }
+
+// .cube:hover {
+//   animation-duration: 10s;
+// }
+
+
+// /* --- Cube Faces (base) --- */
+
+// .cube>div {
+//   display: flex;
+//   position: absolute;
+//   box-sizing: border-box;
+
+//   width: 100%;
+//   height: 100%;
+
+//   border: 1px solid rgba(255, 255, 255, 0.15);
+//   opacity: 0.4;
+//   color: rgba(255, 255, 255, 0.4);
+// }
+
+
+// /* --- Face Content --- */
+
+// .cube__face {
+//   align-items: center;
+//   justify-content: center;
+// }
+
+// .cube__face::before {
+//   content: "";
+//   position: absolute;
+//   inset: 0;
+//   outline: 1px solid rgba(255, 255, 255, 0.15);
+//   opacity: 0.2;
+//   filter: blur(0.8px);
+// }
+
+
+// /* --- Face Positions --- */
+
+// .cube__front {
+//   transform: translateZ($size / 2);
+// }
+
+// .cube__back {
+//   transform: translateZ(-$size / 2) rotateY($rotate-half);
+// }
+
+// .cube__top {
+//   transform: rotateX(-$rotate-three-quarters) translateY(-$size / 2);
+//   transform-origin: top center;
+// }
+
+// .cube__bottom {
+//   transform: rotateX($rotate-three-quarters) translateY($size / 2);
+//   transform-origin: bottom center;
+// }
+
+// .cube__left {
+//   transform: rotateY($rotate-three-quarters) translateX(-$size / 2);
+//   transform-origin: center left;
+// }
+
+// .cube__right {
+//   transform: rotateY(-$rotate-three-quarters) translateX($size / 2);
+//   transform-origin: center right;
+// }
+
+
+// /* --- Inner Text --- */
+
+// .cube span {
+//   color: $text-muted;
+// }
+
+
+// /* --- Animation --- */
+
+// @keyframes cube-rotation {
+//   from {
+//     transform: translate3d(0, 0, 0) rotateX($rotate-none) rotateY($rotate-none);
+//   }
+
+//   to {
+//     transform: translate3d(0, 0, 0) rotateX($rotate-full) rotateY($rotate-full);
+//   }
+// }
+
+// @keyframes gridMove {
+//   from {
+//     transform: perspective(900px) rotateX(60deg) translateY(120px);
+//   }
+//   to {
+//     transform: perspective(900px) rotateX(60deg) translateY(200px);
+//   }
+// }
+
+
+
+/* =========================================================
+   SCROLL FADE
+   ========================================================= */
 
 .scrollFade {
   opacity: 1;
@@ -16,13 +197,15 @@
 }
 
 .scrollFade--animate {
-  transition: opacity 0.8s ease-in-out;
+  transition: opacity 0.8s ease-in-out; // intentional (not system-wide)
 }
 
 
-/* --- Cube Animation --- */
+/* =========================================================
+   CUBE CONFIG
+   ========================================================= */
 
-$size: 60px;
+$cube-size: 60px;
 
 $rotate-none: 0deg;
 $rotate-quarter: 90deg;
@@ -31,50 +214,49 @@ $rotate-three-quarters: 270deg;
 $rotate-full: 360deg;
 
 
-/* --- Container --- */
+/* =========================================================
+   CONTAINER
+   ========================================================= */
 
 .cube-container {
   perspective: 1000px;
   perspective-origin: 50%;
   margin-left: $grid-3x;
 
-  @media screen and (min-width: 768px) {
+  @include mq(md) {
     margin-left: 0;
   }
 
-  @media screen and (min-width: 1024px) {
-    margin-left: 50px;
+  @include mq(lg) {
+    margin-left: 50px; // acceptable (layout-specific)
   }
 }
 
 
-/* --- Cube Core --- */
+/* =========================================================
+   CUBE CORE
+   ========================================================= */
 
 .cube {
   position: relative;
-  width: $size;
-  height: $size;
+  width: $cube-size;
+  height: $cube-size;
   margin: $grid auto;
 
   animation: cube-rotation 160s infinite linear;
 
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
+  transform: translate3d(0, 0, 0);
   transform-style: preserve-3d;
 
   outline: 1px solid transparent;
-  font-family: $font-body;
-  font-size: 14px;
 
-  box-shadow: 0 0 1px rgba(255, 255, 255, 0);
+  font-family: $font-body;
+  font-size: $text-sm;
+
+  box-shadow: 0 0 1px transparent;
 
   will-change: transform;
 
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
@@ -83,9 +265,11 @@ $rotate-full: 360deg;
 }
 
 
-/* --- Cube Faces (base) --- */
+/* =========================================================
+   CUBE FACES (BASE)
+   ========================================================= */
 
-.cube>div {
+.cube > div {
   display: flex;
   position: absolute;
   box-sizing: border-box;
@@ -93,13 +277,15 @@ $rotate-full: 360deg;
   width: 100%;
   height: 100%;
 
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid $border-strong;
   opacity: 0.4;
-  color: rgba(255, 255, 255, 0.4);
+  color: $text-subtle;
 }
 
 
-/* --- Face Content --- */
+/* =========================================================
+   FACE CONTENT
+   ========================================================= */
 
 .cube__face {
   align-items: center;
@@ -110,59 +296,71 @@ $rotate-full: 360deg;
   content: "";
   position: absolute;
   inset: 0;
-  outline: 1px solid rgba(255, 255, 255, 0.15);
+
+  outline: 1px solid $border-strong;
   opacity: 0.2;
-  filter: blur(0.8px);
+
+  filter: blur(0.8px); // acceptable visual effect
 }
 
 
-/* --- Face Positions --- */
+/* =========================================================
+   FACE POSITIONS
+   ========================================================= */
 
 .cube__front {
-  transform: translateZ($size / 2);
+  transform: translateZ($cube-size / 2);
 }
 
 .cube__back {
-  transform: translateZ(-$size / 2) rotateY($rotate-half);
+  transform: translateZ(-$cube-size / 2) rotateY($rotate-half);
 }
 
 .cube__top {
-  transform: rotateX(-$rotate-three-quarters) translateY(-$size / 2);
+  transform: rotateX(-$rotate-three-quarters) translateY(-$cube-size / 2);
   transform-origin: top center;
 }
 
 .cube__bottom {
-  transform: rotateX($rotate-three-quarters) translateY($size / 2);
+  transform: rotateX($rotate-three-quarters) translateY($cube-size / 2);
   transform-origin: bottom center;
 }
 
 .cube__left {
-  transform: rotateY($rotate-three-quarters) translateX(-$size / 2);
+  transform: rotateY($rotate-three-quarters) translateX(-$cube-size / 2);
   transform-origin: center left;
 }
 
 .cube__right {
-  transform: rotateY(-$rotate-three-quarters) translateX($size / 2);
+  transform: rotateY(-$rotate-three-quarters) translateX($cube-size / 2);
   transform-origin: center right;
 }
 
 
-/* --- Inner Text --- */
+/* =========================================================
+   INNER TEXT
+   ========================================================= */
 
 .cube span {
   color: $text-muted;
 }
 
 
-/* --- Animation --- */
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
 
 @keyframes cube-rotation {
   from {
-    transform: translate3d(0, 0, 0) rotateX($rotate-none) rotateY($rotate-none);
+    transform: translate3d(0, 0, 0)
+      rotateX($rotate-none)
+      rotateY($rotate-none);
   }
 
   to {
-    transform: translate3d(0, 0, 0) rotateX($rotate-full) rotateY($rotate-full);
+    transform: translate3d(0, 0, 0)
+      rotateX($rotate-full)
+      rotateY($rotate-full);
   }
 }
 
@@ -170,6 +368,7 @@ $rotate-full: 360deg;
   from {
     transform: perspective(900px) rotateX(60deg) translateY(120px);
   }
+
   to {
     transform: perspective(900px) rotateX(60deg) translateY(200px);
   }

@@ -1,6 +1,341 @@
-/* -----------------------------------
+// /* -----------------------------------
+//    RESET
+// ----------------------------------- */
+
+// html,
+// body {
+//   margin: 0;
+//   padding: 0;
+// }
+
+// html {
+//   scroll-behavior: smooth;
+// }
+
+
+// /* -----------------------------------
+//    BASE
+// ----------------------------------- */
+
+// body {
+//   color: $text;
+//   font-family: $font-body;
+//   font-weight: $font-regular;
+//   min-height: 100vh;
+// }
+
+// main {
+//   max-width: 2560px;
+//   margin: 0 auto;
+// }
+
+
+// /* -----------------------------------
+//    LAYOUT PRIMITIVES
+// ----------------------------------- */
+
+// .section__inner {
+//   width: 100%;
+//   max-width: 1200px;
+//   margin: 0 auto;
+//   padding-left: calc($grid-6x + 40px);
+//   padding-right: calc($grid-6x + 40px);
+
+//   @include mq(md) {
+//     padding-inline: $grid-6x;
+//   }
+
+//   @include mq(lg) {
+//     padding-inline: $grid-8x;
+//   }
+// }
+
+// .section__inner,
+// .section__inner-content {
+//   position: relative;
+//   z-index: 1;
+// }
+
+// .section__grid {
+//   position: relative;
+//   max-width: 1200px;
+//   margin: 0 auto;
+// }
+
+// .section__grid::before,
+// .section__grid::after {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   width: 1px;
+//   background: $grid-line-strong;
+//   pointer-events: none;
+// }
+
+// .section__grid::before {
+//   left: 0;
+// }
+
+// .section__grid::after {
+//   right: 0;
+// }
+
+
+// /* -----------------------------------
+//    HEADER
+// ----------------------------------- */
+
+// .header {
+//   width: 100%;
+//   backdrop-filter: blur(10px);
+//   background: rgba(11, 15, 23, 0.7);
+//   border-bottom: 1px solid $border-subtle;
+// }
+
+// .header .section__inner {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+// }
+
+// .header .section__grid {
+//   max-width: 1200px;
+//   margin: 0 auto;
+// }
+
+
+// /* -----------------------------------
+//    LINKS
+// ----------------------------------- */
+
+// a {
+//   display: inline-block;
+//   border-bottom: 1px solid $border;
+//   color: $accent;
+//   text-decoration: none;
+//   line-height: 1.5;
+//   font-weight: $font-medium;
+//   transition: $transition;
+// }
+
+// a:hover {
+//   color: $accent-hover;
+// }
+
+// a:visited,
+// a:active {
+//   color: $accent;
+// }
+
+// a.logo__link {
+//   border-bottom: none;
+// }
+
+
+// /* -----------------------------------
+//    ELEMENTS
+// ----------------------------------- */
+
+// hr {
+//   border: none;
+//   border-top: 1px solid $border;
+//   margin: $grid-5x auto;
+// }
+
+// .frame {
+//   border: 1px solid var(--border);
+//   background: var(--surface);
+// }
+
+
+// /* -----------------------------------
+//    SECTION VARIANTS
+// ----------------------------------- */
+
+// .section__hero {
+//   position: relative;
+//   border-bottom: 1px solid $border;
+//   overflow: hidden; // ← THIS is the key
+//   z-index: 1;
+
+//   @include mq(md) {
+//     padding: 0;
+//   }
+// }
+
+// .section__hero::before {
+//   content: "";
+//   position: absolute;
+//   inset: 0;
+
+//   background:
+//     radial-gradient(ellipse at 30% 40%,
+//       rgba(59, 130, 246, 0.12),
+//       transparent 60%);
+
+//   pointer-events: none;
+//   z-index: 0;
+// }
+
+// /* -----------------------------------
+//    PAGE SECTIONS
+// ----------------------------------- */
+
+// .section__portfolio {
+//   @include mq(md) {
+//     min-height: 100vh;
+//   }
+// }
+
+// .section__about {
+//   @include mq(lg) {
+//     min-height: 50vh;
+//     padding-top: 200px;
+//   }
+
+//   @include mq(xl) {
+//     min-height: 100vh;
+//     padding-top: 100px;
+//   }
+// }
+
+// .section__about h1 {
+//   font-size: var(--text-2xl);
+//   line-height: 1.2;
+
+//   @include mq(xl) {
+//     font-size: var(--text-3xl);
+//     line-height: 1.1;
+//   }
+// }
+
+
+// /* -----------------------------------
+//    FOOTER
+// ----------------------------------- */
+
+// .section__footer {
+//   padding-top: $grid-10x;
+//   background: $surface;
+//   border-top: 1px solid $border;
+// }
+
+// .section__footer a {
+//   display: inline;
+// }
+
+
+// /* -----------------------------------
+//    MEDIA
+// ----------------------------------- */
+
+// video {
+//   display: block;
+//   margin: auto;
+//   cursor: pointer;
+// }
+
+// .video-wrapper {
+//   margin: $grid-10x auto;
+//   position: relative;
+// }
+
+
+// /* -----------------------------------
+//    MISC
+// ----------------------------------- */
+
+// .disciplines {
+//   max-width: 700px;
+//   column-count: 2;
+//   list-style: none;
+//   padding: 0;
+// }
+
+// .disciplines li {
+//   margin: $grid-2x 0;
+// }
+
+// .about-image {
+//   max-height: 600px;
+// }
+
+
+// /* -----------------------------------
+//    SCROLL ARROW
+// ----------------------------------- */
+
+// .scrollarrow {
+//   width: 13px;
+//   height: 13px;
+//   margin: $grid-5x auto;
+//   transform: rotate(45deg);
+//   position: relative;
+// }
+
+// .scrollarrow::before,
+// .scrollarrow::after {
+//   content: "";
+//   position: absolute;
+//   inset: 0;
+//   border-bottom: 3px solid $accent;
+//   border-right: 3px solid $accent;
+// }
+
+// .scrollarrow::after {
+//   animation: bottom-arrow 1.65s infinite;
+// }
+
+// .scrollarrow::before {
+//   animation: top-arrow 1.65s infinite;
+// }
+
+
+// /* -----------------------------------
+//    ANIMATIONS
+// ----------------------------------- */
+
+// @keyframes bottom-arrow {
+//   0% {
+//     opacity: 1;
+//     transform: translate(0, 0);
+//   }
+
+//   45% {
+//     opacity: 0;
+//     transform: translate(12px, 12px);
+//   }
+
+//   46% {
+//     opacity: 0;
+//     transform: translate(-16px, -16px);
+//   }
+
+//   100% {
+//     opacity: 1;
+//     transform: translate(-6px, -6px);
+//   }
+// }
+
+// @keyframes top-arrow {
+//   0% {
+//     transform: translate(-6px, -6px);
+//   }
+
+//   35% {
+//     transform: translate(0, 0);
+//   }
+
+//   100% {
+//     transform: translate(0, 0);
+//   }
+// }
+
+
+/* =========================================================
    RESET
------------------------------------ */
+   ========================================================= */
 
 html,
 body {
@@ -13,26 +348,11 @@ html {
 }
 
 
-/* -----------------------------------
+/* =========================================================
    BASE
------------------------------------ */
+   ========================================================= */
 
 body {
-  background: #06080f;
-
-  background-image:
-    radial-gradient(
-      1200px 800px at 20% 20%,
-      rgba(59, 130, 246, 0.10),
-      transparent 70%
-    ),
-    radial-gradient(
-      1000px 700px at 80% 80%,
-      rgba(59, 130, 246, 0.06),
-      transparent 75%
-    );
-
-  background-repeat: no-repeat;
   color: $text;
   font-family: $font-body;
   font-weight: $font-regular;
@@ -40,30 +360,17 @@ body {
 }
 
 main {
-  max-width: 2560px;
+  // max-width: $grid * 320; // 2560px → tokenised
   margin: 0 auto;
 }
 
 
-/* -----------------------------------
+/* =========================================================
    LAYOUT PRIMITIVES
------------------------------------ */
+   ========================================================= */
 
-.section__inner {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-left: calc($grid-6x + 40px);
-  padding-right: calc($grid-6x + 40px);
-
-  @media (min-width: 768px) {
-    padding-inline: $grid-6x;
-  }
-
-  @media (min-width: 1024px) {
-    padding-inline: $grid-8x;
-  }
-}
+/* ⚠️ Removed duplicate .section__inner definition
+   → canonical version lives in _layout.scss */
 
 .section__inner,
 .section__inner-content {
@@ -71,12 +378,9 @@ main {
   z-index: 1;
 }
 
-
-
-
 .section__grid {
   position: relative;
-  max-width: 1200px;
+  max-width: $grid * 150; // 1200px
   margin: 0 auto;
 }
 
@@ -87,7 +391,7 @@ main {
   top: 0;
   bottom: 0;
   width: 1px;
-  background: rgba(255, 255, 255, 0.06);
+  background: $grid-line-strong;
   pointer-events: none;
 }
 
@@ -100,15 +404,15 @@ main {
 }
 
 
-/* -----------------------------------
+/* =========================================================
    HEADER
------------------------------------ */
+   ========================================================= */
 
 .header {
   width: 100%;
   backdrop-filter: blur(10px);
-  background: rgba(11, 15, 23, 0.7);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06); // Make this reusable
+  background: $surface-glass-strong;
+  border-bottom: 1px solid $border-subtle;
 }
 
 .header .section__inner {
@@ -118,23 +422,23 @@ main {
 }
 
 .header .section__grid {
-  max-width: 1200px;
+  max-width: $grid * 150;
   margin: 0 auto;
 }
 
 
-/* -----------------------------------
+/* =========================================================
    LINKS
------------------------------------ */
+   ========================================================= */
 
 a {
   display: inline-block;
-  border-bottom: 1px solid $border;
+  border-bottom: 1px solid $border-subtle; // removed legacy $border
   color: $accent;
   text-decoration: none;
-  line-height: 1.5;
+  line-height: $leading-normal;
   font-weight: $font-medium;
-  transition: $transition;
+  transition: color $transition-base;
 }
 
 a:hover {
@@ -151,92 +455,78 @@ a.logo__link {
 }
 
 
-/* -----------------------------------
+/* =========================================================
    ELEMENTS
------------------------------------ */
+   ========================================================= */
 
 hr {
   border: none;
-  border-top: 1px solid $border;
+  border-top: 1px solid $border-subtle;
   margin: $grid-5x auto;
 }
 
 .frame {
-  border: 1px solid var(--border);
-  background: var(--surface);
+  border: 1px solid $border-subtle;
+  background: $surface;
 }
 
 
-/* -----------------------------------
+/* =========================================================
    SECTION VARIANTS
------------------------------------ */
+   ========================================================= */
 
 .section__hero {
   position: relative;
-  border-bottom: 1px solid $border;
-  overflow: hidden; // ← THIS is the key
+  border-bottom: 1px solid $border-subtle;
+  overflow: hidden;
   z-index: 1;
 
-  @media (min-width: 768px) {
+  @include mq(md) {
     padding: 0;
   }
 }
 
-.section__hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background:
-    radial-gradient(ellipse at 30% 40%,
-      rgba(59, 130, 246, 0.12),
-      transparent 60%);
-
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* -----------------------------------
+/* =========================================================
    PAGE SECTIONS
------------------------------------ */
+   ========================================================= */
 
 .section__portfolio {
-  @media (min-width: 768px) {
+  @include mq(md) {
     min-height: 100vh;
   }
 }
 
 .section__about {
-  @media (min-width: 1024px) {
+  @include mq(lg) {
     min-height: 50vh;
-    padding-top: 200px;
+    padding-top: $grid * 25; // 200px
   }
 
-  @media (min-width: 1200px) {
+  @include mq(xl) {
     min-height: 100vh;
-    padding-top: 100px;
+    padding-top: $grid * 12.5; // 100px
   }
 }
 
 .section__about h1 {
-  font-size: var(--text-2xl);
-  line-height: 1.2;
+  font-size: $text-2xl;
+  line-height: $leading-tight;
 
-  @media (min-width: 1200px) {
-    font-size: var(--text-3xl);
-    line-height: 1.1;
+  @include mq(xl) {
+    font-size: $text-3xl;
+    line-height: $leading-tight;
   }
 }
 
 
-/* -----------------------------------
+/* =========================================================
    FOOTER
------------------------------------ */
+   ========================================================= */
 
 .section__footer {
   padding-top: $grid-10x;
   background: $surface;
-  border-top: 1px solid $border;
+  border-top: 1px solid $border-subtle;
 }
 
 .section__footer a {
@@ -244,9 +534,9 @@ hr {
 }
 
 
-/* -----------------------------------
+/* =========================================================
    MEDIA
------------------------------------ */
+   ========================================================= */
 
 video {
   display: block;
@@ -260,9 +550,9 @@ video {
 }
 
 
-/* -----------------------------------
+/* =========================================================
    MISC
------------------------------------ */
+   ========================================================= */
 
 .disciplines {
   max-width: 700px;
@@ -280,9 +570,9 @@ video {
 }
 
 
-/* -----------------------------------
+/* =========================================================
    SCROLL ARROW
------------------------------------ */
+   ========================================================= */
 
 .scrollarrow {
   width: 13px;
@@ -310,9 +600,9 @@ video {
 }
 
 
-/* -----------------------------------
+/* =========================================================
    ANIMATIONS
------------------------------------ */
+   ========================================================= */
 
 @keyframes bottom-arrow {
   0% {

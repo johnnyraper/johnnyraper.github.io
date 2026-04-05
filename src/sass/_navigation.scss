@@ -1,18 +1,42 @@
+// .navigation {
+//   @media (min-width: 500px) {
+//     display: flex;
+//     align-items: center;
+//   }
+
+//   li {
+//     margin: $grid-2x 0;
+//     list-style: none;
+
+//     @media (min-width: 500px) {
+//       margin: 0 $grid-2x;
+//     }
+
+//     @include mq(sm) {
+//       margin: 0 $grid-3x;
+//     }
+//   }
+// }
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
 .navigation {
-  @media screen and (min-width: 500px) {
+  @media (min-width: 500px) {
     display: flex;
     align-items: center;
   }
 
   li {
-    margin: $grid-2x 0;
     list-style: none;
+    margin: $grid-2x 0;
 
-    @media screen and (min-width: 500px) {
+    @media (min-width: 500px) {
       margin: 0 $grid-2x;
     }
 
-    @media screen and (min-width: 600px) {
+    @include mq(sm) {
       margin: 0 $grid-3x;
     }
   }

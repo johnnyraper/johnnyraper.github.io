@@ -685,10 +685,10 @@ main {
 /* =========================================================
    HEADER
    ========================================================= */
+   
 .header {
   width: 100%;
   backdrop-filter: blur(10px);
-  background: var(--surface-glass-strong);
   border-bottom: 1px solid var(--border-subtle);
 }
 

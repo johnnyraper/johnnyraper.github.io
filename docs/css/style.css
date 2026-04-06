@@ -31,6 +31,7 @@
      ========================= */
   --border-subtle: rgba(120, 160, 255, 0.08);
   --border-strong: rgba(120, 160, 255, 0.18);
+  --border-emphasis: rgba(120, 160, 255, 0.6);
   /* =========================
      GRID / LINES
      ========================= */
@@ -471,6 +472,145 @@ body {
 }
 
 /* =========================================================
+   CUBE CONFIG
+   ========================================================= */
+/* =========================================================
+   CUBE CONTAINER
+   ========================================================= */
+.cube-container {
+  perspective: 1000px;
+  perspective-origin: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  transform: translateY(-5%);
+}
+
+/* =========================================================
+   CUBE CORE
+   ========================================================= */
+.cube {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 8px auto;
+  animation: cube-rotation 50s infinite linear;
+  transform: translate3d(0, 0, 0);
+  transform-style: preserve-3d;
+  outline: 1px solid transparent;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  box-shadow: 0 0 1px transparent;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.cube:hover {
+  animation-duration: 7s;
+}
+
+/* =========================================================
+   CUBE FACES (BASE)
+   ========================================================= */
+.cube > div {
+  display: flex;
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: 1.5px solid rgba(255, 255, 255, 0.3);
+  opacity: 0.9;
+  color: var(--text);
+}
+
+/* =========================================================
+   CUBE FACE CONTENT
+   ========================================================= */
+.cube__face {
+  align-items: center;
+  justify-content: center;
+}
+
+.cube__face::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  outline: 1.5px solid var(--border-strong);
+  opacity: 1;
+  filter: blur(0.6px);
+  opacity: 0.15;
+}
+
+/* =========================================================
+   CUBE FACE POSITIONS
+   ========================================================= */
+.cube__front {
+  transform: translateZ(110px);
+}
+
+.cube__back {
+  transform: translateZ(-110px) rotateY(180deg);
+}
+
+.cube__top {
+  transform: rotateX(-270deg) translateY(-110px);
+  transform-origin: top center;
+}
+
+.cube__bottom {
+  transform: rotateX(270deg) translateY(110px);
+  transform-origin: bottom center;
+}
+
+.cube__left {
+  transform: rotateY(270deg) translateX(-110px);
+  transform-origin: center left;
+}
+
+.cube__right {
+  transform: rotateY(-270deg) translateX(110px);
+  transform-origin: center right;
+}
+
+/* =========================================================
+   CUBE INNER TEXT
+   ========================================================= */
+.cube span {
+  font-size: var(--text-lg);
+  color: var(--text);
+}
+
+/* =========================================================
+   CUBE ANIMATIONS
+   ========================================================= */
+@keyframes cube-rotation {
+  from {
+    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
+  }
+  to {
+    transform: translate3d(0, 0, 0) rotateX(360deg) rotateY(360deg);
+  }
+}
+/* =========================================================
+   PROJECTS BADGE
+   ========================================================= */
+.projects-badge svg {
+  animation: rotateBadge 20s linear infinite;
+}
+
+@keyframes rotateBadge {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* =========================================================
    SCROLL FADE
    ========================================================= */
 .scrollFade {
@@ -492,160 +632,25 @@ body {
   transition: opacity 0.8s ease-in-out;
 }
 
-/* =========================================================
-   CUBE CONFIG
-   ========================================================= */
-/* =========================================================
-   CONTAINER
-   ========================================================= */
-.cube-container {
-  perspective: 1000px;
-  perspective-origin: 50%;
-  margin-left: 24px;
-}
-@media (min-width: 768px) {
-  .cube-container {
-    margin-left: 0;
-  }
-}
-@media (min-width: 1024px) {
-  .cube-container {
-    margin-left: 50px;
-  }
-}
-
-/* =========================================================
-   CUBE CORE
-   ========================================================= */
-.cube {
-  position: relative;
-  width: 80px;
-  height: 80px;
-  margin: 8px auto;
-  animation: cube-rotation 160s infinite linear;
-  transform: translate3d(0, 0, 0);
-  transform-style: preserve-3d;
-  outline: 1px solid transparent;
-  font-family: var(--font-sans);
-  font-size: var(--text-sm);
-  box-shadow: 0 0 1px transparent;
-  will-change: transform;
-  backface-visibility: hidden;
-}
-
-.cube:hover {
-  animation-duration: 10s;
-}
-
-/* =========================================================
-   CUBE FACES (BASE)
-   ========================================================= */
-.cube > div {
-  display: flex;
+.projects-badge {
   position: absolute;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  border: 1px solid var(--border-strong);
-  opacity: 0.4;
-  color: var(--text-subtle);
-}
-
-/* =========================================================
-   FACE CONTENT
-   ========================================================= */
-.cube__face {
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.cube__face::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  outline: 1px solid var(--border-strong);
-  opacity: 0.2;
-  filter: blur(0.8px);
-}
-
-/* =========================================================
-   FACE POSITIONS
-   ========================================================= */
-.cube__front {
-  transform: translateZ(40px);
-}
-
-.cube__back {
-  transform: translateZ(-40px) rotateY(180deg);
-}
-
-.cube__top {
-  transform: rotateX(-270deg) translateY(-40px);
-  transform-origin: top center;
-}
-
-.cube__bottom {
-  transform: rotateX(270deg) translateY(40px);
-  transform-origin: bottom center;
-}
-
-.cube__left {
-  transform: rotateY(270deg) translateX(-40px);
-  transform-origin: center left;
-}
-
-.cube__right {
-  transform: rotateY(-270deg) translateX(40px);
-  transform-origin: center right;
-}
-
-/* =========================================================
-   INNER TEXT
-   ========================================================= */
-.cube span {
-  color: var(--text-muted);
-}
-
-/* =========================================================
-   ANIMATIONS
-   ========================================================= */
-@keyframes cube-rotation {
-  from {
-    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
-  }
-  to {
-    transform: translate3d(0, 0, 0) rotateX(360deg) rotateY(360deg);
-  }
-}
-@keyframes gridMove {
-  from {
-    transform: perspective(900px) rotateX(60deg) translateY(120px);
-  }
-  to {
-    transform: perspective(900px) rotateX(60deg) translateY(200px);
-  }
-}
-.projects-badge {
-  position: relative;
   width: 140px;
   height: 140px;
-  border-radius: 50%;
-  border: 1px solid var(--border-subtle);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: 0;
   text-decoration: none;
   transition: transform var(--transition-base), border-color var(--transition-base);
-}
-.projects-badge:hover {
-  transform: scale(1.05);
-  border-color: var(--border-strong);
 }
 
 .projects-badge__svg {
   position: absolute;
   inset: 0;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.12em;
   fill: var(--text);
@@ -653,13 +658,13 @@ body {
 }
 
 .projects-badge__arrow {
-  font-size: 18px;
+  font-size: 28px;
   transform: translateY(2px);
   transition: transform var(--transition-base);
 }
 
 .projects-badge:hover .projects-badge__arrow {
-  transform: translateY(6px);
+  transform: translateY(8px);
 }
 
 /* =========================================================
@@ -973,14 +978,15 @@ video {
    ========================================================= */
 .hero {
   display: grid;
-  gap: 64px;
+  gap: 16px;
+  position: relative;
   padding-top: 96px;
   padding-bottom: 80px;
 }
 @media (min-width: 1024px) {
   .hero {
     grid-template-columns: 1.2fr 0.8fr;
-    align-items: center;
+    align-items: flex-start;
     min-height: 80vh;
     padding-top: 160px;
     padding-bottom: 120px;
@@ -1048,7 +1054,7 @@ video {
    ========================================================= */
 .hero__visual {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   position: relative;
 }
@@ -1063,14 +1069,16 @@ video {
    ========================================================= */
 .hero__visual-frame {
   position: relative;
-  width: 280px;
+  width: 360px;
   aspect-ratio: 3/4;
-  padding: 16px;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-subtle);
-  background: var(--surface-glass);
-  backdrop-filter: blur(12px);
-  box-shadow: var(--shadow-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: none;
+  backdrop-filter: none;
+  box-shadow: none;
 }
 
 /* =========================================================

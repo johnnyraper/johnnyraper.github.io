@@ -1,32 +1,8 @@
 /* =========================================================
-   SCROLL FADE
-   ========================================================= */
-
-.scrollFade {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.scrollFade--hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.scrollFade--visible {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.scrollFade--animate {
-  transition: opacity 0.8s ease-in-out; // intentional (not system-wide)
-}
-
-
-/* =========================================================
    CUBE CONFIG
    ========================================================= */
 
-$cube-size: 80px;
+$cube-size: 220px;
 
 $rotate-none: 0deg;
 $rotate-quarter: 90deg;
@@ -36,21 +12,23 @@ $rotate-full: 360deg;
 
 
 /* =========================================================
-   CONTAINER
+   CUBE CONTAINER
    ========================================================= */
 
 .cube-container {
   perspective: 1000px;
   perspective-origin: 50%;
-  margin-left: $grid-3x;
 
-  @include mq(md) {
-    margin-left: 0;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  @include mq(lg) {
-    margin-left: 50px; // acceptable (layout-specific)
-  }
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+
+  transform:translateY(-5%)
 }
 
 
@@ -64,7 +42,7 @@ $rotate-full: 360deg;
   height: $cube-size;
   margin: $grid auto;
 
-  animation: cube-rotation 160s infinite linear;
+  animation: cube-rotation 50s infinite linear;
 
   transform: translate3d(0, 0, 0);
   transform-style: preserve-3d;
@@ -82,7 +60,7 @@ $rotate-full: 360deg;
 }
 
 .cube:hover {
-  animation-duration: 10s;
+  animation-duration: 7s;
 }
 
 
@@ -98,14 +76,14 @@ $rotate-full: 360deg;
   width: 100%;
   height: 100%;
 
-  border: 1px solid $border-strong;
-  opacity: 0.4;
-  color: $text-subtle;
+  border: none;
+  outline: 1.5px solid rgba(255,255,255,0.3);
+  opacity: 0.9;
+  color: $text;
 }
 
-
 /* =========================================================
-   FACE CONTENT
+   CUBE FACE CONTENT
    ========================================================= */
 
 .cube__face {
@@ -118,15 +96,16 @@ $rotate-full: 360deg;
   position: absolute;
   inset: 0;
 
-  outline: 1px solid $border-strong;
-  opacity: 0.2;
+  outline: 1.5px solid $border-strong;
+  opacity: 1;
 
-  filter: blur(0.8px); // acceptable visual effect
+  filter: blur(0.6px);
+  opacity: 0.15;
 }
 
 
 /* =========================================================
-   FACE POSITIONS
+   CUBE FACE POSITIONS
    ========================================================= */
 
 .cube__front {
@@ -159,16 +138,17 @@ $rotate-full: 360deg;
 
 
 /* =========================================================
-   INNER TEXT
+   CUBE INNER TEXT
    ========================================================= */
 
 .cube span {
-  color: $text-muted;
+  font-size: $text-lg;
+  color: $text;
 }
 
 
 /* =========================================================
-   ANIMATIONS
+   CUBE ANIMATIONS
    ========================================================= */
 
 @keyframes cube-rotation {
@@ -185,12 +165,38 @@ $rotate-full: 360deg;
   }
 }
 
-@keyframes gridMove {
-  from {
-    transform: perspective(900px) rotateX(60deg) translateY(120px);
-  }
+/* =========================================================
+   PROJECTS BADGE
+   ========================================================= */
 
-  to {
-    transform: perspective(900px) rotateX(60deg) translateY(200px);
-  }
+.projects-badge svg {
+  animation: rotateBadge 20s linear infinite;
+}
+
+@keyframes rotateBadge {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* =========================================================
+   SCROLL FADE
+   ========================================================= */
+
+.scrollFade {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.scrollFade--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.scrollFade--visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.scrollFade--animate {
+  transition: opacity 0.8s ease-in-out; // intentional (not system-wide)
 }

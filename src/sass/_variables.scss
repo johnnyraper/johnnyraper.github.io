@@ -41,6 +41,7 @@
 
   --border-subtle: rgba(120, 160, 255, 0.08);
   --border-strong: rgba(120, 160, 255, 0.18);
+  --border-emphasis: rgba(120, 160, 255, 0.6);
 
   /* =========================
      GRID / LINES
@@ -156,6 +157,7 @@ $accent-soft-hover: var(--accent-soft-hover);
 
 $border-subtle: var(--border-subtle);
 $border-strong: var(--border-strong);
+$border-emphasis: var(--border-emphasis);
 
 
 /* =========================

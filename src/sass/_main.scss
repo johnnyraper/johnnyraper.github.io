@@ -74,14 +74,19 @@ main {
    ========================================================= */
 
 .header {
+  position: sticky;
+  top: $grid-2x;
+  z-index: 100;
   width: 100%;
-  border-bottom: 1px solid $border-subtle;
 }
 
 .header .section__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  padding: 0 $grid-4x;
+  height: auto;
 }
 
 .header .section__grid {
@@ -269,37 +274,6 @@ video {
 .about-image {
   max-height: 600px;
 }
-
-
-/* =========================================================
-   SCROLL ARROW
-   ========================================================= */
-
-.scrollarrow {
-  width: 13px;
-  height: 13px;
-  margin: $grid-5x auto;
-  transform: rotate(45deg);
-  position: relative;
-}
-
-.scrollarrow::before,
-.scrollarrow::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-bottom: 3px solid $accent;
-  border-right: 3px solid $accent;
-}
-
-.scrollarrow::after {
-  animation: bottom-arrow 1.65s infinite;
-}
-
-.scrollarrow::before {
-  animation: top-arrow 1.65s infinite;
-}
-
 
 /* =========================================================
    ANIMATIONS

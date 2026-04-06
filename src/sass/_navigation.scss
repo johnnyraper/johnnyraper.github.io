@@ -3,21 +3,23 @@
    ========================================================= */
 
 .navigation {
-  @media (min-width: 500px) {
-    display: flex;
-    align-items: center;
-  }
+  display: flex;
+  align-items: center;
+  gap: $grid-3x;
 
   li {
-    list-style: none;
-    margin: $grid-2x 0;
+    margin: 0;
+    list-style: none;;
+  }
 
-    @media (min-width: 500px) {
-      margin: 0 $grid-2x;
-    }
+  a {
+    border: none;
+    color: $text-muted;
 
-    @include mq(sm) {
-      margin: 0 $grid-3x;
+    font-size: $text-sm;
+
+    &:hover {
+      color: $text;
     }
   }
 }

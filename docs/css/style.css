@@ -519,8 +519,8 @@ body {
    ========================================================= */
 .cube {
   position: relative;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   margin: 8px auto;
   animation: cube-rotation 160s infinite linear;
   transform: translate3d(0, 0, 0);
@@ -572,30 +572,30 @@ body {
    FACE POSITIONS
    ========================================================= */
 .cube__front {
-  transform: translateZ(30px);
+  transform: translateZ(40px);
 }
 
 .cube__back {
-  transform: translateZ(-30px) rotateY(180deg);
+  transform: translateZ(-40px) rotateY(180deg);
 }
 
 .cube__top {
-  transform: rotateX(-270deg) translateY(-30px);
+  transform: rotateX(-270deg) translateY(-40px);
   transform-origin: top center;
 }
 
 .cube__bottom {
-  transform: rotateX(270deg) translateY(30px);
+  transform: rotateX(270deg) translateY(40px);
   transform-origin: bottom center;
 }
 
 .cube__left {
-  transform: rotateY(270deg) translateX(-30px);
+  transform: rotateY(270deg) translateX(-40px);
   transform-origin: center left;
 }
 
 .cube__right {
-  transform: rotateY(-270deg) translateX(30px);
+  transform: rotateY(-270deg) translateX(40px);
   transform-origin: center right;
 }
 
@@ -625,6 +625,43 @@ body {
     transform: perspective(900px) rotateX(60deg) translateY(200px);
   }
 }
+.projects-badge {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform var(--transition-base), border-color var(--transition-base);
+}
+.projects-badge:hover {
+  transform: scale(1.05);
+  border-color: var(--border-strong);
+}
+
+.projects-badge__svg {
+  position: absolute;
+  inset: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  fill: var(--text);
+  animation: rotateText 14s linear infinite;
+}
+
+.projects-badge__arrow {
+  font-size: 18px;
+  transform: translateY(2px);
+  transition: transform var(--transition-base);
+}
+
+.projects-badge:hover .projects-badge__arrow {
+  transform: translateY(6px);
+}
+
 /* =========================================================
    RESET
    ========================================================= */
@@ -692,14 +729,18 @@ main {
    HEADER
    ========================================================= */
 .header {
+  position: sticky;
+  top: 16px;
+  z-index: 100;
   width: 100%;
-  border-bottom: 1px solid var(--border-subtle);
 }
 
 .header .section__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 32px;
+  height: auto;
 }
 
 .header .section__grid {
@@ -867,34 +908,6 @@ video {
 }
 
 /* =========================================================
-   SCROLL ARROW
-   ========================================================= */
-.scrollarrow {
-  width: 13px;
-  height: 13px;
-  margin: 40px auto;
-  transform: rotate(45deg);
-  position: relative;
-}
-
-.scrollarrow::before,
-.scrollarrow::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-bottom: 3px solid var(--accent);
-  border-right: 3px solid var(--accent);
-}
-
-.scrollarrow::after {
-  animation: bottom-arrow 1.65s infinite;
-}
-
-.scrollarrow::before {
-  animation: top-arrow 1.65s infinite;
-}
-
-/* =========================================================
    ANIMATIONS
    ========================================================= */
 @keyframes bottom-arrow {
@@ -930,25 +943,22 @@ video {
 /* =========================================================
    NAVIGATION
    ========================================================= */
-@media (min-width: 500px) {
-  .navigation {
-    display: flex;
-    align-items: center;
-  }
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 .navigation li {
+  margin: 0;
   list-style: none;
-  margin: 16px 0;
 }
-@media (min-width: 500px) {
-  .navigation li {
-    margin: 0 16px;
-  }
+.navigation a {
+  border: none;
+  color: var(--text-muted);
+  font-size: var(--text-sm);
 }
-@media (min-width: 640px) {
-  .navigation li {
-    margin: 0 24px;
-  }
+.navigation a:hover {
+  color: var(--text);
 }
 
 /* =========================================================
@@ -1074,13 +1084,6 @@ video {
   background: linear-gradient(to bottom right, var(--surface-glass), transparent), var(--surface);
   position: relative;
   overflow: hidden;
-}
-
-/* =========================================================
-   SCROLL ARROW
-   ========================================================= */
-.scrollarrow {
-  margin-top: 40px;
 }
 
 /* =========================================================

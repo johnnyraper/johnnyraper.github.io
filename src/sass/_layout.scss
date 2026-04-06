@@ -28,25 +28,21 @@
 .section::before {
   left: 0;
 
-  background: repeating-linear-gradient(
-    45deg,
-    $grid-line-strong,
-    $grid-line-strong 2px,
-    transparent 2px,
-    transparent 12px
-  );
+  background: repeating-linear-gradient(45deg,
+      $grid-line-strong,
+      $grid-line-strong 2px,
+      transparent 2px,
+      transparent 12px);
 }
 
 .section::after {
   right: 0;
 
-  background: repeating-linear-gradient(
-    -45deg,
-    $grid-line-strong,
-    $grid-line-strong 2px,
-    transparent 2px,
-    transparent 12px
-  );
+  background: repeating-linear-gradient(-45deg,
+      $grid-line-strong,
+      $grid-line-strong 2px,
+      transparent 2px,
+      transparent 12px);
 }
 
 
@@ -61,14 +57,27 @@
   max-width: $grid * 150; // 1200px → tokenised
   margin: 0 auto;
 
-  padding-inline: $grid-6x;
+  padding-inline: $grid-4x;
   padding-block: var(--section-space, $grid-5x); // 40px → tokenised fallback
+
+  @include mq(md) {
+    padding-inline: $grid-6x;
+  }
 }
 
 
 /* =========================================================
    SECTION VARIANTS
    ========================================================= */
+
+// .section__web {
+//   // slightly tighter vertical rhythm
+//   padding-block: $grid-8x;
+
+//   @include mq(md) {
+//     padding-block: $grid-10x;
+//   }
+// }
 
 .section--highlight {
   border-bottom: 1px solid $border-subtle;

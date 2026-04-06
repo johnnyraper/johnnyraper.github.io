@@ -75,8 +75,6 @@ main {
 
 .header {
   width: 100%;
-  backdrop-filter: blur(10px);
-  background: $surface-glass-strong;
   border-bottom: 1px solid $border-subtle;
 }
 
@@ -135,6 +133,45 @@ hr {
   background: $surface;
 }
 
+.button {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: $grid-0_5x;
+
+  padding: $grid $grid-2x;
+
+  border-radius: 999px;
+  border: 1px solid transparent;
+
+  background: #ffffff;
+  color: #000000;
+  font-size: $text-sm;
+  font-weight: $font-medium;
+
+  text-decoration: none;
+  cursor: pointer;
+
+  transition:
+    transform $transition-base,
+    background $transition-base,
+    box-shadow $transition-base;
+
+  &:hover,
+  &:visited,
+  &:active {
+    color: #000000;
+  }
+}
+
+.button:hover {
+  border-color: $border-strong;
+
+  transform: translateY(-$grid-0_5x);
+  background: #c8d1ef;
+  box-shadow: $shadow-subtle;
+}
+
 
 /* =========================================================
    SECTION VARIANTS
@@ -189,7 +226,6 @@ hr {
    ========================================================= */
 
 .section__footer {
-  padding-top: $grid-10x;
   background: $surface;
   border-top: 1px solid $border-subtle;
 }

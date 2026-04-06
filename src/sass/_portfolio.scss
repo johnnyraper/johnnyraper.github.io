@@ -5,69 +5,104 @@
 .portfolio-feature {
   display: flex;
   flex-direction: column;
-  gap: $grid-8x;
+  gap: $grid-6x; // tightened from 8x
 }
 
 .portfolio-feature__item {
   display: flex;
-  align-items: flex-start;
-  gap: $grid-6x;
+  flex-direction: column;
+  gap: $grid-4x;
+
+  @include mq(lg) {
+    flex-direction: row;
+    align-items: stretch;
+    gap: $grid-6x;
+
+    > * {
+      min-height: 0;
+    }
+  }
 }
 
+/* IMAGE */
+
 .portfolio-feature__image {
-  flex: 1.3;
-
-  position: relative;
-  overflow: hidden;
-
+  width: 100%;
   padding: $grid-2x;
 
   border-radius: $radius-lg;
   border: 1px solid $border-subtle;
-
   background: $surface;
 
-  transition:
-    transform $transition-base,
-    border-color $transition-base,
-    box-shadow $transition-base;
+  @include interactive-surface($lift: $grid-0_5x);
+
+  @include mq(lg) {
+    flex: 0 0 60%; // 👈 better than width
+    height: 380px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+      to bottom,
+      transparent 40%,
+      rgba(0, 0, 0, 0.45)
+    );
+
+    opacity: 0;
+    transition: opacity $transition-base;
+    pointer-events: none;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
 }
 
 .portfolio-feature__image img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   border-radius: $radius-md;
 }
 
-.portfolio-feature__content {
-  flex: 1;
+/* CONTENT */
 
+.portfolio-feature__content {
   display: flex;
   flex-direction: column;
-  gap: $grid-3x;
+  justify-content: center;
+
+  @include mq(lg) {
+    flex: 0 0 40%;
+  }
 }
 
 .portfolio-feature__content h3 {
-  font-size: $text-lg;
+  margin-top: $grid-4x;
+  margin-bottom: $grid-0_5x;
+  font-size: $text-xl;
   font-weight: $font-medium;
+  color: $text;
+
+  @include mq(lg) {
+    margin-top: 0;
+  }
 }
 
 .portfolio-feature__content p {
+  max-width: 48ch;
+  font-size: $text-sm;
+  line-height: $leading-normal;
   color: $text-muted;
 }
 
 .portfolio-feature__content a {
-  margin-top: $grid-2x;
-  color: $accent;
-  text-decoration: none;
-}
-
-.portfolio-feature__image:hover {
-  transform: translateY(-$grid);
-
-  border-color: $border-strong;
-  box-shadow: $shadow-strong;
+  margin-top: $grid-10x; // 👈 consistent spacing
 }
 
 
@@ -77,8 +112,12 @@
 
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: $grid-6x;
+  grid-template-columns: 1fr;
+
+  @include mq(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 
@@ -89,61 +128,138 @@
 .portfolio-card {
   display: flex;
   flex-direction: column;
-  gap: $grid-3x;
-
-  text-decoration: none;
-  color: $text;
+  gap: $grid-2x;
 
   padding: $grid-4x;
 
   border-radius: $radius-md;
   border: 1px solid $border-subtle;
-
   background: $surface;
 
-  transition:
-    transform $transition-base,
-    border-color $transition-base,
-    background $transition-base,
-    box-shadow $transition-base;
-}
-
-.portfolio-card__image {
-  border-radius: $radius-sm;
-  overflow: hidden;
-
-  border: 1px solid $border-subtle;
-  background: $surface;
-
-  padding: $grid;
-}
-
-.portfolio-card__image img {
-  width: 100%;
-  display: block;
+  @include interactive-surface();
 }
 
 .portfolio-card__content {
   display: flex;
   flex-direction: column;
-  gap: $grid;
+  height: 100%;
 }
 
-.portfolio-card__content h4 {
-  font-size: $text-md;
-  font-weight: $font-medium;
+.portfolio-card__content .button {
+  margin-top: auto;
 }
 
-.portfolio-card__content p {
+.portfolio-card p {
   font-size: $text-sm;
+  line-height: $leading-normal;
   color: $text-muted;
 }
 
-.portfolio-card:hover {
-  transform: translateY(-$grid-0_5x); // subtle lift (~4px equivalent)
+/* Layer */
+.portfolio-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
 
-  border-color: $border-strong;
-  background: $surface-elevated;
+  background: linear-gradient(
+    to bottom right,
+    $surface-glass,
+    transparent
+  );
 
-  box-shadow: $shadow-subtle;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* IMAGE */
+
+.portfolio-card__image {
+  position: relative;
+
+  border-radius: $radius-sm;
+  overflow: hidden;
+  border: 1px solid $border-subtle;
+  background: $surface;
+
+  aspect-ratio: 5 / 4;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+      to bottom,
+      transparent 40%,
+      rgba(0, 0, 0, 0.45)
+    );
+
+    opacity: 0;
+    transition: opacity $transition-base;
+    pointer-events: none;
+  }
+}
+
+.portfolio-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition:
+    filter $transition-base,
+    transform $transition-base;
+}
+
+.portfolio-card:hover .portfolio-card__image::after {
+  opacity: 1;
+}
+
+.portfolio-card h4 {
+  font-size: $text-md;
+  font-weight: $font-medium;
+  color: $text;
+}
+
+
+/* =========================================================
+   SECTION WEB
+   ========================================================= */
+
+.section__web .portfolio-grid {
+  gap: $grid-5x;
+
+  grid-template-columns: 1fr;
+
+  @include mq(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mq(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.section__web .portfolio-card {
+  padding: $grid-3x;
+  gap: $grid-2x;
+}
+
+.section__web .portfolio-card__image {
+  aspect-ratio: 4 / 3;
+}
+
+.section__web .portfolio-card__content h4 {
+  font-size: $text-md;
+  font-weight: $font-semibold;
+}
+
+.section__web .portfolio-card__content p {
+  font-size: $text-sm;
+  line-height: $leading-normal;
+  max-width: 48ch;
+}
+
+.section__web .portfolio-card__content .button {
+  margin-top: auto;
+  align-self: flex-start;
 }

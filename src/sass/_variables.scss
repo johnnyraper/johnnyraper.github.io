@@ -33,6 +33,7 @@
 
   --accent-subtle: rgba(59, 130, 246, 0.12);
   --accent-soft: rgba(59, 130, 246, 0.08);
+  --accent-soft-hover: rgba(59, 130, 246, 0.18);
 
   /* =========================
      BORDER
@@ -146,6 +147,7 @@ $accent-hover: var(--accent-hover);
 
 $accent-subtle: var(--accent-subtle);
 $accent-soft: var(--accent-soft);
+$accent-soft-hover: var(--accent-soft-hover);
 
 
 /* =========================
@@ -228,6 +230,7 @@ $gradient-bg-secondary: var(--gradient-bg-secondary);
 $grid: 8px;
 
 $grid-0_5x: $grid / 2;
+$grid-1_5x: $grid * 1.5;
 $grid-2x: $grid * 2;
 $grid-3x: $grid * 3;
 $grid-4x: $grid * 4;

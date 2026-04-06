@@ -1,0 +1,35 @@
+@mixin interactive-surface(
+  $lift: $grid-0_5x,
+  $shadow: $shadow-strong,
+  $grayscale: true
+) {
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    transform $transition-base,
+    border-color $transition-base,
+    box-shadow $transition-base;
+
+  img {
+    pointer-events: none;
+
+    @if $grayscale {
+      filter: grayscale(100%) brightness(0.9);
+    }
+
+    transition: filter 0.35s ease;
+  }
+
+  &:hover {
+    transform: translateY(-#{$lift});
+    border-color: $border-strong;
+    box-shadow: $shadow;
+  }
+
+  &:hover img {
+    @if $grayscale {
+      filter: grayscale(0%) brightness(1);
+    }
+  }
+}

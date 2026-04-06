@@ -1,20 +1,25 @@
 .projects-badge {
-  position: absolute;
-  bottom: $grid-6x;
-  left: 50%;
-  transform: translateX(-50%);
+  display: none;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include mq(lg) {
 
-  width: 140px;
-  height: 140px;
+    position: absolute;
+    bottom: $grid-6x;
+    left: 50%;
+    transform: translateX(-50%);
 
-  border: 0;
-  text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  transition: transform $transition-base, border-color $transition-base;
+    width: 140px;
+    height: 140px;
+
+    border: 0;
+    text-decoration: none;
+
+    transition: transform $transition-base, border-color $transition-base;
+  }
 
 }
 
@@ -34,7 +39,6 @@
 .projects-badge__arrow {
   font-size: 28px;
   transform: translateY(2px);
-
   transition: transform $transition-base;
 }
 

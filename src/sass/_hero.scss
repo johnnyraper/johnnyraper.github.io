@@ -12,21 +12,23 @@
    ========================================================= */
 
 .hero {
-  display: grid;
-  gap: $grid-2x;
-  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: $grid-6x;
+  align-items: start;
 
-  padding-top: $grid-12x;
-  padding-bottom: $grid-10x;
+  padding-top: $grid * 4;
+  padding-bottom: $grid * 6;
 
-  @include mq(lg) {
-    grid-template-columns: 1.2fr 0.8fr;
-    align-items: flex-start;
-    min-height: 80vh;
+  min-height: auto; // 👈 key change
+}
 
-    padding-top: $grid * 20;  // 160px → tokenised
-    padding-bottom: $grid * 15; // 120px → tokenised
-  }
+.hero p:first-of-type {
+  margin-top: $grid-3x;
+}
+
+.hero p + p {
+  margin-top: $grid-2x;
 }
 
 
@@ -35,15 +37,13 @@
    ========================================================= */
 
 .hero__content {
-  max-width: 720px; // layout-bound, fine
+  flex: 1;
+  max-width: 680px; // layout-bound, fine
 }
 
 .section__hero h1 {
-  margin-bottom: $grid-4x;
-
-  @include mq(lg) {
-    font-size: $text-5xl;
-  }
+  margin-bottom: $grid-2x;
+  font-size: clamp($text-3xl, 4.5vw, $text-4xl);
 }
 
 .section__hero p {
@@ -100,9 +100,11 @@
    ========================================================= */
 
 .hero__visual {
+  flex: 0 0 320px;  // fixed visual column
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
+  align-self: start;
 
   position: relative;
 
@@ -118,8 +120,6 @@
 
 .hero__visual-frame {
   position: relative;
-
-  width: 360px; // bigger presence
   aspect-ratio: 3 / 4;
 
   display: flex;
@@ -129,7 +129,6 @@
   padding: 0; // remove padding
   border: none; // remove border
   background: none; // remove glass
-  backdrop-filter: none;
   box-shadow: none;
 }
 
@@ -146,11 +145,9 @@
   border: 1px solid $border-subtle;
 
   background:
-    linear-gradient(
-      to bottom right,
+    linear-gradient(to bottom right,
       $surface-glass,
-      transparent
-    ),
+      transparent),
     $surface;
 
   position: relative;

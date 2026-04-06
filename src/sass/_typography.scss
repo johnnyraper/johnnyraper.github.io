@@ -6,8 +6,7 @@ h1 {
   font-size: $text-3xl;
   line-height: $leading-tight;
   font-weight: $font-semibold;
-  letter-spacing: -0.025em;
-  color: $text;
+  letter-spacing: -0.02em;
 
   @include mq(md) {
     font-size: $text-3xl; // keep scale consistent (was 72px)
@@ -21,6 +20,26 @@ h2 {
   line-height: $leading-normal;
   font-weight: $font-medium;
   letter-spacing: -0.01em;
+}
+
+/* =========================================================
+   DISPLAY TYPOGRAPHY
+   ========================================================= */
+
+.display-xl {
+  font-size: clamp($text-3xl, 5vw, $text-4xl);
+  line-height: $leading-tight;
+  letter-spacing: -0.03em;
+}
+
+.display-lg {
+  font-size: clamp($text-2xl, 4vw, $text-3xl);
+  line-height: 1;
+}
+
+.display-md {
+  font-size: clamp($text-lg, 3vw, $text-xl);
+  line-height: 1.05;
 }
 
 
@@ -70,7 +89,7 @@ h4 {
 p,
 ol,
 li {
-  font-size: $text-sm;
+  font-size: $text-md;
   line-height: $leading-relaxed;
   font-weight: $font-regular;
 }
@@ -96,3 +115,5 @@ li {
 ol {
   margin: $grid-5x 0;
 }
+
+

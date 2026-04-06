@@ -46,9 +46,9 @@
   --text-lg: 18px;
   --text-xl: 24px;
   --text-2xl: 32px;
-  --text-3xl: 48px;
-  --text-4xl: 64px;
-  --text-5xl: 72px;
+  --text-3xl: 44px;
+  --text-4xl: 56px;
+  --text-5xl: 68px;
   /* Line Height */
   --leading-tight: 1.1;
   --leading-normal: 1.5;
@@ -85,9 +85,12 @@
       transparent 75%);
 }
 
-/* =========================================================
-   SCSS TOKEN MAPPINGS (AUTHORING LAYER)
-   ========================================================= */
+/* =========================
+   SPACING SYSTEM
+   ========================= */
+/* =========================
+   BREAKPOINTS (STANDARDISED)
+   ========================= */
 /* =========================
    SURFACE
    ========================= */
@@ -104,6 +107,9 @@
    GRID / LINES
    ========================= */
 /* =========================
+   LAYOUT COLUMNS
+   ========================= */
+/* =========================
    TYPOGRAPHY
    ========================= */
 /* =========================
@@ -117,12 +123,6 @@
    ========================= */
 /* =========================
    BACKGROUNDS
-   ========================= */
-/* =========================
-   SPACING SYSTEM
-   ========================= */
-/* =========================
-   BREAKPOINTS (STANDARDISED)
    ========================= */
 /* 1. Foundations */
 /*
@@ -225,8 +225,7 @@ h1 {
   font-size: var(--text-3xl);
   line-height: var(--leading-tight);
   font-weight: var(--font-semibold);
-  letter-spacing: -0.025em;
-  color: var(--text);
+  letter-spacing: -0.02em;
 }
 @media (min-width: 768px) {
   h1 {
@@ -240,6 +239,25 @@ h2 {
   line-height: var(--leading-normal);
   font-weight: var(--font-medium);
   letter-spacing: -0.01em;
+}
+
+/* =========================================================
+   DISPLAY TYPOGRAPHY
+   ========================================================= */
+.display-xl {
+  font-size: clamp(var(--text-3xl), 5vw, var(--text-4xl));
+  line-height: var(--leading-tight);
+  letter-spacing: -0.03em;
+}
+
+.display-lg {
+  font-size: clamp(var(--text-2xl), 4vw, var(--text-3xl));
+  line-height: 1;
+}
+
+.display-md {
+  font-size: clamp(var(--text-lg), 3vw, var(--text-xl));
+  line-height: 1.05;
 }
 
 /* =========================================================
@@ -279,7 +297,7 @@ h4 {
 p,
 ol,
 li {
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   line-height: var(--leading-relaxed);
   font-weight: var(--font-regular);
 }
@@ -478,15 +496,18 @@ body {
    CUBE CONTAINER
    ========================================================= */
 .cube-container {
-  perspective: 1000px;
-  perspective-origin: 50%;
+  perspective: 1400px;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: grab;
   width: 100%;
   height: 100%;
-  margin: 0;
-  transform: translateY(-5%);
+  transform: translateY(10%);
+}
+
+.cube-container:active {
+  cursor: grabbing;
 }
 
 /* =========================================================
@@ -496,105 +517,92 @@ body {
   position: relative;
   width: 220px;
   height: 220px;
-  margin: 8px auto;
-  animation: cube-rotation 50s infinite linear;
-  transform: translate3d(0, 0, 0);
   transform-style: preserve-3d;
-  outline: 1px solid transparent;
+  /* 👇 IMPORTANT: base angle so cube is visible */
+  transform: rotateX(-35deg) rotateY(40deg);
+  will-change: transform;
   font-family: var(--font-sans);
   font-size: var(--text-sm);
-  box-shadow: 0 0 1px transparent;
-  will-change: transform;
-  backface-visibility: hidden;
-}
-
-.cube:hover {
-  animation-duration: 7s;
 }
 
 /* =========================================================
-   CUBE FACES (BASE)
-   ========================================================= */
-.cube > div {
-  display: flex;
-  position: absolute;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  border: none;
-  outline: 1.5px solid rgba(255, 255, 255, 0.3);
-  opacity: 0.9;
-  color: var(--text);
-}
-
-/* =========================================================
-   CUBE FACE CONTENT
+   CUBE FACES
    ========================================================= */
 .cube__face {
-  align-items: center;
-  justify-content: center;
-}
-
-.cube__face::before {
-  content: "";
   position: absolute;
   inset: 0;
-  outline: 1.5px solid var(--border-strong);
-  opacity: 1;
-  filter: blur(0.6px);
-  opacity: 0.15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: visible;
+  opacity: 0.85;
+  border: 1.5px solid rgba(255, 255, 255, 0.16);
 }
 
 /* =========================================================
-   CUBE FACE POSITIONS
+   TRUE 3D FACE POSITIONS
    ========================================================= */
 .cube__front {
   transform: translateZ(110px);
 }
 
+.cube__front span {
+  opacity: 0.95;
+}
+
 .cube__back {
-  transform: translateZ(-110px) rotateY(180deg);
+  transform: rotateY(180deg) translateZ(110px);
 }
 
-.cube__top {
-  transform: rotateX(-270deg) translateY(-110px);
-  transform-origin: top center;
+.cube__front span {
+  opacity: 0.95;
 }
 
-.cube__bottom {
-  transform: rotateX(270deg) translateY(110px);
-  transform-origin: bottom center;
-}
-
-.cube__left {
-  transform: rotateY(270deg) translateX(-110px);
-  transform-origin: center left;
+.cube__back span {
+  opacity: 0.35;
 }
 
 .cube__right {
-  transform: rotateY(-270deg) translateX(110px);
-  transform-origin: center right;
+  transform: rotateY(90deg) translateZ(110px);
+}
+
+.cube__right span {
+  opacity: 0.35;
+}
+
+.cube__left {
+  transform: rotateY(-90deg) translateZ(110px);
+}
+
+.cube__left span {
+  opacity: 0.95;
+}
+
+.cube__top {
+  transform: rotateX(90deg) translateZ(110px);
+}
+
+.cube__top span {
+  opacity: 0.95;
+}
+
+.cube__bottom {
+  transform: rotateX(-90deg) translateZ(110px);
+}
+
+.cube__bottom span {
+  opacity: 0.35;
 }
 
 /* =========================================================
-   CUBE INNER TEXT
+   TEXT
    ========================================================= */
 .cube span {
-  font-size: var(--text-lg);
+  font-size: var(--text-md);
   color: var(--text);
+  letter-spacing: 0.04em;
 }
 
-/* =========================================================
-   CUBE ANIMATIONS
-   ========================================================= */
-@keyframes cube-rotation {
-  from {
-    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
-  }
-  to {
-    transform: translate3d(0, 0, 0) rotateX(360deg) rotateY(360deg);
-  }
-}
 /* =========================================================
    PROJECTS BADGE
    ========================================================= */
@@ -633,18 +641,23 @@ body {
 }
 
 .projects-badge {
-  position: absolute;
-  bottom: 48px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 140px;
-  height: 140px;
-  border: 0;
-  text-decoration: none;
-  transition: transform var(--transition-base), border-color var(--transition-base);
+  display: none;
+}
+@media (min-width: 1024px) {
+  .projects-badge {
+    position: absolute;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 140px;
+    border: 0;
+    text-decoration: none;
+    transition: transform var(--transition-base), border-color var(--transition-base);
+  }
 }
 
 .projects-badge__svg {
@@ -687,18 +700,40 @@ body {
   color: var(--text);
   font-family: var(--font-sans);
   font-weight: var(--font-regular);
-  min-height: 100vh;
+}
+
+.layout-rails {
+  position: relative;
+  inset: 0;
+  z-index: 0;
 }
 
 main {
-  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.layout-rails::before,
+.layout-rails::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--grid-line-strong);
+}
+
+.layout-rails::before {
+  left: calc((100% - 1200px) / 2);
+}
+
+.layout-rails::after {
+  right: calc((100% - 1200px) / 2);
 }
 
 /* =========================================================
    LAYOUT PRIMITIVES
    ========================================================= */
-/* ⚠️ Removed duplicate .section__inner definition
-   → canonical version lives in _layout.scss */
 .section__inner,
 .section__inner-content {
   position: relative;
@@ -709,25 +744,6 @@ main {
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
-}
-
-.section__grid::before,
-.section__grid::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: var(--grid-line-strong);
-  pointer-events: none;
-}
-
-.section__grid::before {
-  left: 0;
-}
-
-.section__grid::after {
-  right: 0;
 }
 
 /* =========================================================
@@ -872,7 +888,6 @@ hr {
    FOOTER
    ========================================================= */
 .section__footer {
-  background: var(--surface);
   border-top: 1px solid var(--border-subtle);
 }
 
@@ -977,36 +992,34 @@ video {
    HERO LAYOUT
    ========================================================= */
 .hero {
-  display: grid;
-  gap: 16px;
-  position: relative;
-  padding-top: 96px;
-  padding-bottom: 80px;
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+  align-items: start;
+  padding-top: 32px;
+  padding-bottom: 48px;
+  min-height: auto;
 }
-@media (min-width: 1024px) {
-  .hero {
-    grid-template-columns: 1.2fr 0.8fr;
-    align-items: flex-start;
-    min-height: 80vh;
-    padding-top: 160px;
-    padding-bottom: 120px;
-  }
+
+.hero p:first-of-type {
+  margin-top: 24px;
+}
+
+.hero p + p {
+  margin-top: 16px;
 }
 
 /* =========================================================
    CONTENT
    ========================================================= */
 .hero__content {
-  max-width: 720px;
+  flex: 1;
+  max-width: 680px;
 }
 
 .section__hero h1 {
-  margin-bottom: 32px;
-}
-@media (min-width: 1024px) {
-  .section__hero h1 {
-    font-size: var(--text-5xl);
-  }
+  margin-bottom: 16px;
+  font-size: clamp(var(--text-3xl), 4.5vw, var(--text-4xl));
 }
 
 .section__hero p {
@@ -1053,9 +1066,11 @@ video {
    HERO VISUAL
    ========================================================= */
 .hero__visual {
+  flex: 0 0 320px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
+  align-self: start;
   position: relative;
 }
 @media (max-width: 1024px) {
@@ -1069,7 +1084,6 @@ video {
    ========================================================= */
 .hero__visual-frame {
   position: relative;
-  width: 360px;
   aspect-ratio: 3/4;
   display: flex;
   align-items: center;
@@ -1077,7 +1091,6 @@ video {
   padding: 0;
   border: none;
   background: none;
-  backdrop-filter: none;
   box-shadow: none;
 }
 
@@ -1176,11 +1189,6 @@ video {
   flex-direction: column;
   justify-content: center;
 }
-@media (min-width: 1024px) {
-  .portfolio-feature__content {
-    flex: 0 0 40%;
-  }
-}
 
 .portfolio-feature__content h3 {
   margin-top: 32px;
@@ -1197,7 +1205,6 @@ video {
 
 .portfolio-feature__content p {
   max-width: 48ch;
-  font-size: var(--text-sm);
   line-height: var(--leading-normal);
   color: var(--text-muted);
 }
@@ -1317,13 +1324,9 @@ video {
 .section__web .portfolio-grid {
   gap: 40px;
   grid-template-columns: 1fr;
+  padding: 32px 0 64px;
 }
 @media (min-width: 768px) {
-  .section__web .portfolio-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (min-width: 1024px) {
   .section__web .portfolio-grid {
     grid-template-columns: repeat(3, 1fr);
   }

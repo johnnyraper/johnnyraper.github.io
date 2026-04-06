@@ -21,21 +21,43 @@ body {
   color: $text;
   font-family: $font-body;
   font-weight: $font-regular;
-  min-height: 100vh;
+}
+
+.layout-rails {
+  position: relative;
+  inset: 0;
+  z-index: 0;
 }
 
 main {
-  // max-width: $grid * 320; // 2560px → tokenised
-  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.layout-rails::before,
+.layout-rails::after {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  width: 1px;
+
+  background: var(--grid-line-strong);
+}
+
+.layout-rails::before {
+  left: calc((100% - #{$layout-max-width}) / 2);
+}
+
+.layout-rails::after {
+  right: calc((100% - #{$layout-max-width}) / 2);
 }
 
 
 /* =========================================================
    LAYOUT PRIMITIVES
    ========================================================= */
-
-/* ⚠️ Removed duplicate .section__inner definition
-   → canonical version lives in _layout.scss */
 
 .section__inner,
 .section__inner-content {
@@ -45,27 +67,8 @@ main {
 
 .section__grid {
   position: relative;
-  max-width: $grid * 150; // 1200px
+  max-width: $layout-max-width;
   margin: 0 auto;
-}
-
-.section__grid::before,
-.section__grid::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: $grid-line-strong;
-  pointer-events: none;
-}
-
-.section__grid::before {
-  left: 0;
-}
-
-.section__grid::after {
-  right: 0;
 }
 
 
@@ -90,7 +93,7 @@ main {
 }
 
 .header .section__grid {
-  max-width: $grid * 150;
+  max-width: $layout-max-width;
   margin: 0 auto;
 }
 
@@ -231,7 +234,6 @@ hr {
    ========================================================= */
 
 .section__footer {
-  background: $surface;
   border-top: 1px solid $border-subtle;
 }
 

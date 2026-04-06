@@ -76,10 +76,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  @include mq(lg) {
-    flex: 0 0 40%;
-  }
 }
 
 .portfolio-feature__content h3 {
@@ -96,7 +92,6 @@
 
 .portfolio-feature__content p {
   max-width: 48ch;
-  font-size: $text-sm;
   line-height: $leading-normal;
   color: $text-muted;
 }
@@ -227,14 +222,10 @@
 
 .section__web .portfolio-grid {
   gap: $grid-5x;
-
   grid-template-columns: 1fr;
+  padding: $grid-4x 0 $grid-8x;
 
   @include mq(md) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @include mq(lg) {
     grid-template-columns: repeat(3, 1fr);
   }
 }

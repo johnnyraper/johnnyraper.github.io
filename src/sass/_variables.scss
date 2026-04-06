@@ -61,9 +61,9 @@
   --text-lg: 18px;
   --text-xl: 24px;
   --text-2xl: 32px;
-  --text-3xl: 48px;
-  --text-4xl: 64px;
-  --text-5xl: 72px;
+  --text-3xl: 44px;
+  --text-4xl: 56px;
+  --text-5xl: 68px;
 
   /* Line Height */
   --leading-tight: 1.1;
@@ -110,120 +110,6 @@
       var(--accent-subtle),
       transparent 75%);
 }
-
-
-/* =========================================================
-   SCSS TOKEN MAPPINGS (AUTHORING LAYER)
-   ========================================================= */
-
-/* =========================
-   SURFACE
-   ========================= */
-
-$bg: var(--bg);
-$surface: var(--surface);
-$surface-elevated: var(--surface-elevated);
-
-$surface-glass: var(--surface-glass);
-$surface-glass-strong: var(--surface-glass-strong);
-
-$overlay: var(--overlay);
-
-
-/* =========================
-   TEXT
-   ========================= */
-
-$text: var(--text);
-$text-muted: var(--text-muted);
-$text-subtle: var(--text-subtle);
-
-
-/* =========================
-   ACCENT
-   ========================= */
-
-$accent: var(--accent);
-$accent-hover: var(--accent-hover);
-
-$accent-subtle: var(--accent-subtle);
-$accent-soft: var(--accent-soft);
-$accent-soft-hover: var(--accent-soft-hover);
-
-
-/* =========================
-   BORDER
-   ========================= */
-
-$border-subtle: var(--border-subtle);
-$border-strong: var(--border-strong);
-$border-emphasis: var(--border-emphasis);
-
-
-/* =========================
-   GRID / LINES
-   ========================= */
-
-$grid-line-strong: var(--grid-line-strong);
-
-
-/* =========================
-   TYPOGRAPHY
-   ========================= */
-
-$font-body: var(--font-sans);
-
-$text-xs: var(--text-xs);
-$text-sm: var(--text-sm);
-$text-md: var(--text-md);
-$text-lg: var(--text-lg);
-$text-xl: var(--text-xl);
-$text-2xl: var(--text-2xl);
-$text-3xl: var(--text-3xl);
-$text-4xl: var(--text-4xl);
-$text-5xl: var(--text-5xl);
-
-
-$leading-tight: var(--leading-tight);
-$leading-normal: var(--leading-normal);
-$leading-relaxed: var(--leading-relaxed);
-
-$font-regular: var(--font-regular);
-$font-medium: var(--font-medium);
-$font-semibold: var(--font-semibold);
-
-
-/* =========================
-   RADIUS
-   ========================= */
-
-$radius-sm: var(--radius-sm);
-$radius-md: var(--radius-md);
-$radius-lg: var(--radius-lg);
-
-
-/* =========================
-   SHADOW
-   ========================= */
-
-$shadow-subtle: var(--shadow-subtle);
-$shadow-strong: var(--shadow-strong);
-
-
-/* =========================
-   MOTION
-   ========================= */
-
-$transition-base: var(--transition-base);
-
-
-/* =========================
-   BACKGROUNDS
-   ========================= */
-
-$gradient-bg-primary: var(--gradient-bg-primary);
-$gradient-bg-secondary: var(--gradient-bg-secondary);
-
 
 /* =========================
    SPACING SYSTEM
@@ -293,3 +179,118 @@ $bp-2xl: 1536px; // large screens
     }
   }
 }
+
+/* =========================
+   SURFACE
+   ========================= */
+
+$bg: var(--bg);
+$surface: var(--surface);
+$surface-elevated: var(--surface-elevated);
+
+$surface-glass: var(--surface-glass);
+$surface-glass-strong: var(--surface-glass-strong);
+
+$overlay: var(--overlay);
+
+
+/* =========================
+   TEXT
+   ========================= */
+
+$text: var(--text);
+$text-muted: var(--text-muted);
+$text-subtle: var(--text-subtle);
+
+
+/* =========================
+   ACCENT
+   ========================= */
+
+$accent: var(--accent);
+$accent-hover: var(--accent-hover);
+
+$accent-subtle: var(--accent-subtle);
+$accent-soft: var(--accent-soft);
+$accent-soft-hover: var(--accent-soft-hover);
+
+
+/* =========================
+   BORDER
+   ========================= */
+
+$border-subtle: var(--border-subtle);
+$border-strong: var(--border-strong);
+$border-emphasis: var(--border-emphasis);
+
+
+/* =========================
+   GRID / LINES
+   ========================= */
+
+$grid-line-strong: var(--grid-line-strong);
+
+/* =========================
+   LAYOUT COLUMNS
+   ========================= */
+
+$layout-max-width-columns: 150;
+$layout-max-width: $grid * $layout-max-width-columns;
+
+
+/* =========================
+   TYPOGRAPHY
+   ========================= */
+
+$font-body: var(--font-sans);
+
+$text-xs: var(--text-xs);
+$text-sm: var(--text-sm);
+$text-md: var(--text-md);
+$text-lg: var(--text-lg);
+$text-xl: var(--text-xl);
+$text-2xl: var(--text-2xl);
+$text-3xl: var(--text-3xl);
+$text-4xl: var(--text-4xl);
+$text-5xl: var(--text-5xl);
+
+
+$leading-tight: var(--leading-tight);
+$leading-normal: var(--leading-normal);
+$leading-relaxed: var(--leading-relaxed);
+
+$font-regular: var(--font-regular);
+$font-medium: var(--font-medium);
+$font-semibold: var(--font-semibold);
+
+
+/* =========================
+   RADIUS
+   ========================= */
+
+$radius-sm: var(--radius-sm);
+$radius-md: var(--radius-md);
+$radius-lg: var(--radius-lg);
+
+
+/* =========================
+   SHADOW
+   ========================= */
+
+$shadow-subtle: var(--shadow-subtle);
+$shadow-strong: var(--shadow-strong);
+
+
+/* =========================
+   MOTION
+   ========================= */
+
+$transition-base: var(--transition-base);
+
+
+/* =========================
+   BACKGROUNDS
+   ========================= */
+
+$gradient-bg-primary: var(--gradient-bg-primary);
+$gradient-bg-secondary: var(--gradient-bg-secondary);

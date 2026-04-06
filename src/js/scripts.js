@@ -1,6 +1,6 @@
-// -----------------------------
-// Scroll Fade (IntersectionObserver)
-// -----------------------------
+// ------------------------------------
+// SCROLL FADE ANIMATION
+// ------------------------------------
 
 const fadeElements = document.querySelectorAll(".scrollFade");
 
@@ -26,9 +26,9 @@ const fadeObserver = new IntersectionObserver(
 fadeElements.forEach((el) => fadeObserver.observe(el));
 
 
-// -----------------------------
-// Rotating Text
-// -----------------------------
+// ------------------------------------
+// ROTATING TEXT ANIMATION
+// ------------------------------------
 
 const el = document.querySelector('.rotating-text__track');
 const items = el.children;
@@ -40,3 +40,131 @@ const step = () => {
 };
 
 setInterval(step, 5000);
+
+
+// ------------------------------------
+// CUBE ANIMATION
+// ------------------------------------
+
+const cube = document.querySelector('.cube');
+const faces = document.querySelectorAll('.cube__face');
+
+// ======================
+// BASE STATE
+// ======================
+
+let baseX = -35;
+let baseY = 40;
+
+let currentX = baseX;
+let currentY = baseY;
+
+let targetX = baseX;
+let targetY = baseY;
+
+// inertia
+let velocityX = 0;
+let velocityY = 0;
+
+// mouse influence
+let mouseX = 0;
+let mouseY = 0;
+
+// interaction state
+let isDragging = false;
+let lastX = 0;
+let lastY = 0;
+
+// ======================
+// TUNING
+// ======================
+
+const ease = 0.05;
+const friction = 0.92;
+const dragSensitivity = 0.25;
+const influence = 12;
+
+// ======================
+// MOUSE INTERACTION
+// ======================
+
+const container = document.querySelector('.cube-container');
+
+container.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  lastX = e.clientX;
+  lastY = e.clientY;
+});
+
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+});
+
+document.addEventListener('mousemove', (e) => {
+  if (isDragging) {
+    const dx = e.clientX - lastX;
+    const dy = e.clientY - lastY;
+
+    velocityY = dx * dragSensitivity;
+    velocityX = -dy * dragSensitivity;
+
+    lastX = e.clientX;
+    lastY = e.clientY;
+  } else {
+    const x = e.clientX / window.innerWidth - 0.5;
+    const y = e.clientY / window.innerHeight - 0.5;
+
+    mouseX = x * influence;
+    mouseY = y * influence;
+  }
+});
+
+// ======================
+// ANIMATION LOOP
+// ======================
+
+function animate() {
+  if (isDragging) {
+    currentX += velocityX;
+    currentY += velocityY;
+  } else {
+    // idle drift
+    baseX += 0.01;
+    baseY += 0.015;
+
+    targetX = baseX + mouseY;
+    targetY = baseY + mouseX;
+
+    currentX += (targetX - currentX) * ease;
+    currentY += (targetY - currentY) * ease;
+  }
+
+  // apply inertia
+  velocityX *= friction;
+  velocityY *= friction;
+
+  // apply transform
+  cube.style.transform = `
+    rotateX(${currentX}deg)
+    rotateY(${currentY}deg)
+  `;
+
+  // ======================
+  // SUBTLE LIGHTING
+  // ======================
+
+  faces.forEach((face, i) => {
+    // simulate light variation
+    const angle = currentX + currentY;
+    const light = Math.sin((angle + i * 60) * Math.PI / 180);
+
+    // subtle brightness only (NOT opacity)
+    const brightness = 0.6 + light * 0.4;
+
+    face.style.filter = `brightness(${brightness})`;
+  });
+
+  requestAnimationFrame(animate);
+}
+
+animate();

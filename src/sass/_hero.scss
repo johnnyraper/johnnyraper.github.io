@@ -13,14 +13,13 @@
 
 .hero {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   gap: $grid-6x;
-  align-items: start;
 
   padding-top: $grid * 4;
   padding-bottom: $grid * 6;
 
-  min-height: auto; // 👈 key change
+  min-height: 85vh;
 }
 
 .hero p:first-of-type {
@@ -36,9 +35,16 @@
    CONTENT
    ========================================================= */
 
-.hero__content {
+.hero__left {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__content {
+  flex: 0 0 auto;
   max-width: 680px; // layout-bound, fine
+  margin-bottom: $grid-6x;
 }
 
 .section__hero h1 {

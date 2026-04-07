@@ -645,18 +645,19 @@ body {
 }
 @media (min-width: 1024px) {
   .projects-badge {
-    position: absolute;
-    bottom: 48px;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
     width: 140px;
     height: 140px;
-    border: 0;
+    margin-top: 64px;
+    align-self: flex-start;
     text-decoration: none;
-    transition: transform var(--transition-base), border-color var(--transition-base);
+    border: none;
+    transition: transform var(--transition-base), opacity var(--transition-base);
+    opacity: 0.7;
   }
 }
 
@@ -664,8 +665,8 @@ body {
   position: absolute;
   inset: 0;
   font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
   fill: var(--text);
   animation: rotateText 14s linear infinite;
 }
@@ -993,12 +994,11 @@ video {
    ========================================================= */
 .hero {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 48px;
-  align-items: start;
   padding-top: 32px;
   padding-bottom: 48px;
-  min-height: auto;
+  min-height: 85vh;
 }
 
 .hero p:first-of-type {
@@ -1012,9 +1012,16 @@ video {
 /* =========================================================
    CONTENT
    ========================================================= */
-.hero__content {
+.hero__left {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__content {
+  flex: 0 0 auto;
   max-width: 680px;
+  margin-bottom: 48px;
 }
 
 .section__hero h1 {

@@ -2,25 +2,26 @@
   display: none;
 
   @include mq(lg) {
-
-    position: absolute;
-    bottom: $grid-6x;
-    left: 50%;
-    transform: translateX(-50%);
-
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    position: relative;
+    overflow: hidden; // 🔥 critical
 
     width: 140px;
     height: 140px;
 
-    border: 0;
+    margin-top: $grid-8x;
+    align-self: flex-start;
+
     text-decoration: none;
+    border: none;
 
-    transition: transform $transition-base, border-color $transition-base;
+    transition: transform $transition-base, opacity $transition-base;
+
+    opacity: 0.7; // reduce competition
   }
-
 }
 
 .projects-badge__svg {
@@ -28,9 +29,8 @@
   inset: 0;
 
   font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-
+  letter-spacing: 0.1em;
+  opacity: 0.6;
   fill: $text;
 
   animation: rotateText 14s linear infinite;

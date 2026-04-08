@@ -496,14 +496,13 @@ body {
    CUBE CONTAINER
    ========================================================= */
 .cube-container {
-  perspective: 1400px;
+  perspective: 2000px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: grab;
   width: 100%;
   height: 100%;
-  transform: translateY(10%);
 }
 
 .cube-container:active {
@@ -515,11 +514,11 @@ body {
    ========================================================= */
 .cube {
   position: relative;
-  width: 220px;
-  height: 220px;
+  width: 200px;
+  height: 200px;
   transform-style: preserve-3d;
   /* 👇 IMPORTANT: base angle so cube is visible */
-  transform: rotateX(-35deg) rotateY(40deg);
+  transform: rotateX(-28deg) rotateY(40deg);
   will-change: transform;
   font-family: var(--font-sans);
   font-size: var(--text-sm);
@@ -535,15 +534,15 @@ body {
   align-items: center;
   justify-content: center;
   backface-visibility: visible;
-  opacity: 0.85;
-  border: 1.5px solid rgba(255, 255, 255, 0.16);
+  opacity: 0.9;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* =========================================================
    TRUE 3D FACE POSITIONS
    ========================================================= */
 .cube__front {
-  transform: translateZ(110px);
+  transform: translateZ(100px);
 }
 
 .cube__front span {
@@ -551,7 +550,7 @@ body {
 }
 
 .cube__back {
-  transform: rotateY(180deg) translateZ(110px);
+  transform: rotateY(180deg) translateZ(100px);
 }
 
 .cube__front span {
@@ -563,7 +562,7 @@ body {
 }
 
 .cube__right {
-  transform: rotateY(90deg) translateZ(110px);
+  transform: rotateY(90deg) translateZ(100px);
 }
 
 .cube__right span {
@@ -571,7 +570,7 @@ body {
 }
 
 .cube__left {
-  transform: rotateY(-90deg) translateZ(110px);
+  transform: rotateY(-90deg) translateZ(100px);
 }
 
 .cube__left span {
@@ -579,7 +578,7 @@ body {
 }
 
 .cube__top {
-  transform: rotateX(90deg) translateZ(110px);
+  transform: rotateX(90deg) translateZ(100px);
 }
 
 .cube__top span {
@@ -587,7 +586,7 @@ body {
 }
 
 .cube__bottom {
-  transform: rotateX(-90deg) translateZ(110px);
+  transform: rotateX(-90deg) translateZ(100px);
 }
 
 .cube__bottom span {
@@ -995,7 +994,7 @@ video {
 .hero {
   display: flex;
   align-items: stretch;
-  gap: 48px;
+  gap: 32px;
   padding-top: 32px;
   padding-bottom: 48px;
   min-height: 85vh;
@@ -1032,7 +1031,7 @@ video {
 .section__hero p {
   margin-bottom: 24px;
   color: var(--text-muted);
-  max-width: 640px;
+  max-width: 650px;
 }
 
 /* =========================================================
@@ -1073,12 +1072,13 @@ video {
    HERO VISUAL
    ========================================================= */
 .hero__visual {
-  flex: 0 0 320px;
+  flex: 0 0 360px;
   display: flex;
   justify-content: center;
   align-items: center;
   align-self: start;
   position: relative;
+  margin-top: 16px;
 }
 @media (max-width: 1024px) {
   .hero__visual {

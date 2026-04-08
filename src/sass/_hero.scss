@@ -14,7 +14,7 @@
 .hero {
   display: flex;
   align-items: stretch;
-  gap: $grid-6x;
+  gap: $grid-4x;
 
   padding-top: $grid * 4;
   padding-bottom: $grid * 6;
@@ -55,7 +55,7 @@
 .section__hero p {
   margin-bottom: $grid-3x;
   color: $text-muted;
-  max-width: 640px; // layout-bound
+  max-width: 650px; // layout-bound
 }
 
 
@@ -106,13 +106,14 @@
    ========================================================= */
 
 .hero__visual {
-  flex: 0 0 320px;  // fixed visual column
+  flex: 0 0 360px;  // fixed visual column
   display: flex;
   justify-content: center;
   align-items: center;
   align-self: start;
 
   position: relative;
+  margin-top: $grid-2x;
 
   @include mq-max(lg) {
     display: none;

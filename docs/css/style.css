@@ -21,8 +21,8 @@
   /* =========================
      ACCENT
      ========================= */
-  --accent: #3b82f6;
-  --accent-hover: #2563eb;
+  --accent: #429af8;
+  --accent-hover: #327ac8;
   --accent-subtle: rgba(59, 130, 246, 0.12);
   --accent-soft: rgba(59, 130, 246, 0.08);
   --accent-soft-hover: rgba(59, 130, 246, 0.18);
@@ -1399,10 +1399,10 @@ video {
 .portfolio__image-frame {
   max-width: 100%;
   margin: 40px auto;
-  padding: 24px;
+  padding: 32px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
   overflow: hidden;
 }
@@ -1416,7 +1416,7 @@ video {
   display: block;
   border-radius: var(--radius-md);
   transform-origin: center;
-  margin: -1px;
+  margin: 0;
 }
 
 /* =========================================================

@@ -112,11 +112,11 @@
 
 .portfolio__image-frame {
   max-width: 100%;
-  margin: 40px auto;
-  padding: 24px;
+  margin: $grid-5x auto;
+  padding: $grid-4x;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 16px;
+  border-radius: $radius-lg;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
   overflow: hidden;
 
@@ -131,7 +131,7 @@
   display: block;
   border-radius: $radius-md;
   transform-origin: center;
-  margin: -1px;
+  margin: 0;
 }
 
 

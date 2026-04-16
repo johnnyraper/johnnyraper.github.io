@@ -36,16 +36,18 @@
       <header class="header">
         <div class="section__grid">
           <div class="section__inner">
+            <div class="logo"></div>
 
-            <div class="logo">
-              <!-- <a href="index.html" class="logo__link">
-                
-              </a> -->
-            </div>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation"
+              aria-label="Open menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
 
-            <nav>
+            <nav class="site-nav" id="site-navigation" aria-label="Primary">
               <ul class="navigation">
-                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="#contact">Contact</a></li>
               </ul>
@@ -81,12 +83,13 @@
                     </span>
                   </h1>
 
-                  <p>I work at the intersection of product design and engineering, shaping systems that support complex,
+                  <p>I work at the intersection of product design and engineering, shaping systems for complex,
                     data-heavy workflows.</p>
-
-                  <p>My focus is on structure, clarity, and scalability &mdash; from semantic design systems and theming
-                    to
-                    how products behave across surfaces. I design foundations teams can build on with confidence.</p>
+                  <p>My primary focus is on structure, clarity, and scalability — from semantic design
+                    systems and theming, to prototyping interfaces that reduce the gap between concept and
+                    implementation.</p>
+                  <p>I also explore AI-assisted and code-aware prototyping workflows to test ideas more realistically
+                    and reduce handoff friction.</p>
 
                   <div class="hero__actions">
                     <a href="#contact" class="button">
@@ -111,7 +114,7 @@
 
                   <span class="projects-badge__arrow">&downarrow;</span>
                 </a>
-                
+
               </div>
 
               <!-- VISUAL -->
@@ -167,8 +170,8 @@
                 <div class="portfolio-feature__content">
                   <h3>PhysicsX: Platform Innovation and Design Systems</h3>
                   <p>
-                    Designing system-level product experiences for AI-driven engineering software,
-                    focusing on scalable patterns across complex workflows.
+                    Designing platform-level product experiences for AI-driven engineering software, with a focus on
+                    scalable systems, workflow clarity, and reducing friction between design and implementation.
                   </p>
                 </div>
               </div>

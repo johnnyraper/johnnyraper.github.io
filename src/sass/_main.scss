@@ -228,6 +228,19 @@ hr {
   }
 }
 
+.about-image-frame {
+  max-width: 480px;
+  margin: 0 auto $grid-5x;
+
+  aspect-ratio: 3 / 4;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: $radius-lg;
+  }
+}
 
 /* =========================================================
    FOOTER
@@ -267,10 +280,11 @@ video {
   column-count: 2;
   list-style: none;
   padding: 0;
+  margin: $grid-4x auto;
 }
 
 .disciplines li {
-  margin: $grid-2x 0;
+  padding: $grid 0;
 }
 
 .about-image {

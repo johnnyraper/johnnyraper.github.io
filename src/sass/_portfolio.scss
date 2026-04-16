@@ -100,6 +100,41 @@
   margin-top: $grid-10x; // 👈 consistent spacing
 }
 
+.portfolio__article-image {
+  width: auto;
+  height: auto;
+  display: block;
+  margin: $grid-4x auto;
+  border-radius: $radius-md;
+}
+
+/* FRAMING */
+
+.portfolio__image-frame {
+  max-width: 100%;
+  margin: 40px auto;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+
+  &.portfolio__image-frame--adjusted {
+    max-width: 700px;
+  }
+}
+
+.portfolio__image-frame .portfolio__article-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: $radius-md;
+  transform-origin: center;
+  margin: -1px;
+}
+
+
 
 /* =========================================================
    GRID
@@ -145,7 +180,7 @@
 }
 
 .portfolio-card p {
-  font-size: $text-sm;
+  font-size: $text-md;
   line-height: $leading-normal;
   color: $text-muted;
 }
@@ -245,7 +280,7 @@
 }
 
 .section__web .portfolio-card__content p {
-  font-size: $text-sm;
+  font-size: $text-md;
   line-height: $leading-normal;
   max-width: 48ch;
 }

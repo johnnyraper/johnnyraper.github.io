@@ -35,274 +35,281 @@
 <body>
   <div class="layout-rails">
     <main>
+
+      <!-- HEADER -->
       <header class="header">
-        <div class="logo">
-          <a href="index.html" class="logo__link">
-            <div class="cube-container">
-              <div class="cube">
-                <div class="cube__face cube__front">
-                  <span>JR</span>
-                </div>
-                <div class="cube__face cube__back">
-                  <span>UX</span>
-                </div>
-                <div class="cube__face cube__top">
-                  <span>UI</span>
-                </div>
-                <div class="cube__face cube__bottom">
-                  <span>Frontend</span>
-                </div>
-                <div class="cube__face cube__left">
-                  <span>Designer</span>
-                </div>
-                <div class="cube__face cube__right">
-                  <span>London</span>
-                </div>
-              </div>
-            </div>
-          </a>
+        <div class="section__grid">
+          <div class="section__inner">
+            <div class="logo"></div>
+
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation"
+              aria-label="Open menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+
+            <nav class="site-nav" id="site-navigation" aria-label="Primary">
+              <ul class="navigation">
+                <li><a href="index.html#portfolio" class="is-active">Portfolio</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
         </div>
-        <nav>
-          <ul class="navigation">
-            <li><a href="index.html">Portfolio</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
       </header>
 
-      <section class="section section__portfolio u-gutter">
-        <article class="portfolio__article">
+      <!-- HERO -->
+      <section class="section section__hero">
+        <div class="section__grid">
+          <div class="section__inner">
+            <div class="section__intro">
+              <div class="u-reading">
+                <p class="eyebrow">Product Design</p>
 
-          <div class="u-reading">
-            <h2>Product Design : CloudNC</h2>
+                <h1 class="display-xl">
+                  CloudNC
+                </h1>
 
-            <!-- System Layer -->
-
-            <h3>Context</h3>
-            <p>
-              CloudNC develops software to automate CNC manufacturing through simulation-driven toolpath generation. The
-              platform combines 3D geometry, optimisation algorithms, and real-world machining constraints to produce
-              efficient manufacturing outputs.
-            </p>
-
-            <p>
-              I joined initially on a short-term contract and transitioned into a permanent role within the technology
-              team, contributing across both product and frontend implementation in a highly technical domain.
-            </p>
-
-            <h3>My Role</h3>
-            <p>
-              Worked across product design and frontend development, focusing on designing and implementing interfaces
-              for
-              complex, geometry-driven workflows. Contributed to UI structure, theming, and interaction design across
-              multiple areas of the product and supporting tools.
-            </p>
-
-            <h3>Outcome</h3>
-            <ul>
-              <li>Improved clarity and usability across complex manufacturing workflows.</li>
-              <li>Delivered production-ready UI aligned with engineering constraints.</li>
-              <li>Supported development of scalable interfaces for simulation-driven software.</li>
-            </ul>
-
-            <hr />
-
-            <!-- Overview -->
-
-            <h3>Overview</h3>
-
-            <p>
-              CloudNC automates CNC manufacturing by generating optimal toolpaths from 3D models, enabling faster
-              production and reducing manual intervention. The system integrates simulation, tooling constraints, and
-              manufacturing logic into a single workflow.
-            </p>
-
-            <!-- Team -->
-
-            <h3>Team and Environment</h3>
-
-            <ul>
-              <li>Worked within a cross-functional team of frontend and backend engineers alongside a UX designer.</li>
-              <li>Collaborated closely with engineering in an Agile environment with two-week sprints and continuous
-                iteration.</li>
-            </ul>
-
-            <!-- Work Areas -->
-
-            <h3>Key Contributions</h3>
-
-            <p>
-              My work spanned multiple areas across both product and supporting systems, including:
-            </p>
-
-            <ul>
-              <li>Designing and building a responsive website for Series A fundraising.</li>
-              <li>Contributing to UI design and theming within the AMT simulation software.</li>
-              <li>Designing a real-time production dashboard for factory operations.</li>
-            </ul>
-
-            <!-- Website -->
-
-            <h3>Website Development (Series A Fundraising)</h3>
-
-            <p>
-              Designed and delivered a responsive website under tight deadlines to support Series A fundraising.
-            </p>
-
-            <ul>
-              <li>Worked across mobile, tablet, and desktop breakpoints.</li>
-              <li>Implemented modular HTML and Sass within Angular components.</li>
-              <li>Balanced visual design with performance and maintainability.</li>
-            </ul>
-
-            <p>
-              This work required balancing visual design with performance, responsiveness, and maintainability within an
-              engineering-led codebase.
-            </p>
-
+                <p>
+                  Product design and frontend development for simulation-driven CNC manufacturing software, spanning
+                  machining workflows, production dashboards, and supporting digital systems.
+                </p>
+              </div>
+            </div>
           </div>
-
-          <img class="portfolio__article-image portfolio__article-image--1400w" src="assets/cloudnc/website-header.png"
-            alt="" />
-
-          <img class="portfolio__article-image portfolio__article-image--1400w"
-            src="assets/cloudnc/website-all-pages.png" alt="" />
-
-          <div class="u-reading">
-
-            <!-- AMT Software -->
-
-            <h3>AMT Software (Simulation and Toolpath Generation)</h3>
-
-            <p>
-              Contributed to the design of a multi-level CNC machining simulator used to generate toolpaths, tooling
-              configurations, and setup instructions from 3D geometry.
-            </p>
-
-            <ul>
-              <li>Supported complex workflows involving geometry interpretation, tooling constraints, and optimisation
-                outputs.</li>
-              <li>Structured information and interaction patterns to improve clarity and usability.</li>
-              <li>Maintained visual consistency while working within technical constraints of the underlying system.
-              </li>
-            </ul>
-
-          </div>
-
-          <img class="portfolio__article-image" src="assets/cloudnc/amt-ui-main.png" alt="" />
-
-          <div class="u-reading">
-
-            <!-- Setup Sheet -->
-
-            <h3>Setup Sheet Redesign</h3>
-
-            <p>
-              Redesigned the setup sheet used by CNC machinists to interpret tool requirements, machining steps, and
-              estimated timings.
-            </p>
-
-            <ul>
-              <li>Improved information hierarchy and clarity through usability testing.</li>
-              <li>Iterated on both digital and print layouts to improve structure and readability.</li>
-              <li>Reduced time required for machinists to interpret manufacturing instructions.</li>
-            </ul>
-
-          </div>
-
-          <img class="portfolio__article-image" src="assets/cloudnc/amt-ui-setup-sheet.png" alt="" />
-
-          <div class="u-reading">
-
-            <!-- Dashboard -->
-
-            <h3>Production Dashboard (Factory Operations)</h3>
-
-            <p>
-              Designed and delivered a real-time dashboard for monitoring factory operations across multiple work
-              centres,
-              including machining progress, downtime, and resource planning.
-            </p>
-
-            <ul>
-              <li>Led design and coordination from concept through to implementation, aligning stakeholder and
-                operational
-                requirements.</li>
-              <li>Structured the interface to support 48 work centres across multiple views.</li>
-              <li>Balanced high information density with readability for large-screen display.</li>
-            </ul>
-
-          </div>
-
-          <img class="portfolio__article-image" src="assets/cloudnc/dpd-wire.png" alt="" />
-
-          <div class="u-reading">
-
-            <h3>Design Iteration</h3>
-
-            <p>
-              Initial designs aligned visually with the AMT system, using colour to communicate machine status and
-              operational states. Iterated on data visualisation elements, including charting approaches, to better
-              communicate production metrics.
-            </p>
-
-          </div>
-
-          <img class="portfolio__article-image" src="assets/cloudnc/dpd-design-ideas.png" alt="" />
-
-          <div class="u-reading">
-
-            <p>
-              Refined designs based on feedback and evolving requirements, improving clarity of production metrics and
-              ensuring consistency in how data was represented across the dashboard.
-            </p>
-
-          </div>
-
-          <img class="portfolio__article-image" src="assets/cloudnc/dpd-design-adjusted.png" alt="" />
-
-          <div class="u-reading">
-
-            <p>
-              The final design was implemented and adopted by the operations team, providing a clear, real-time view of
-              factory performance and enabling more efficient decision-making on the shop floor.
-            </p>
-
-            <h3>Closing</h3>
-
-            <p>
-              This work involved designing interfaces for a highly technical domain, balancing complex system
-              constraints
-              with usability. The focus was on structuring information clearly and supporting efficient workflows in a
-              simulation-driven environment.
-            </p>
-
-          </div>
-
-          <img class="portfolio__article-image" src="assets/cloudnc/dpd-design-final.png" alt="" />
-
-        </article>
+        </div>
       </section>
 
-      <section class="section section__footer u-gutter" id="contact">
-        <footer>
-          <h2>Contact Me</h2>
-          <p>
-            🌱 I'm always interested in thoughtful conversations about product design and complex systems. Please <a
-              href="mailto:johnnyraper@googlemail.com">get in touch</a> if you'd like to talk.
-          </p>
-          <p>
-            Alternatively, you can find me on
-            <a href="https://www.linkedin.com/in/johnnyraper/" target="_blank">LinkedIn</a>.
-          </p>
-        </footer>
+      <!-- CASE STUDY -->
+      <section class="section">
+        <div class="section__grid">
+          <div class="section__inner">
+
+            <article class="portfolio__article">
+
+              <div class="u-reading">
+                <h2>Context</h2>
+
+                <p>
+                  CloudNC develops software to automate CNC manufacturing through simulation-driven toolpath generation.
+                  The platform combines 3D geometry, optimisation algorithms, and real-world machining constraints to
+                  produce efficient manufacturing outputs.
+                </p>
+
+                <p>
+                  I joined initially on a short-term contract and transitioned into a permanent role within the
+                  technology team, contributing across both product and frontend implementation in a highly technical
+                  domain.
+                </p>
+
+                <h2>My role</h2>
+
+                <p>
+                  Worked across product design and frontend development, focusing on designing and implementing
+                  interfaces for complex, geometry-driven workflows. Contributed to UI structure, theming, and
+                  interaction design across multiple areas of the product and supporting tools.
+                </p>
+
+                <h2>Outcome</h2>
+
+                <ul>
+                  <li>Improved clarity and usability across complex manufacturing workflows.</li>
+                  <li>Delivered production-ready UI aligned with engineering constraints.</li>
+                  <li>Supported development of scalable interfaces for simulation-driven software.</li>
+                </ul>
+
+                <hr />
+
+                <h2>Overview</h2>
+
+                <p>
+                  CloudNC automates CNC manufacturing by generating optimal toolpaths from 3D models, enabling faster
+                  production and reducing manual intervention. The system integrates simulation, tooling constraints,
+                  and manufacturing logic into a single workflow.
+                </p>
+
+                <h2>Team and environment</h2>
+
+                <ul>
+                  <li>Worked within a cross-functional team of frontend and backend engineers alongside a UX designer.
+                  </li>
+                  <li>Collaborated closely with engineering in an Agile environment with two-week sprints and continuous
+                    iteration.</li>
+                </ul>
+
+                <h2>Key contributions</h2>
+
+                <p>
+                  My work spanned multiple areas across both product and supporting systems, including:
+                </p>
+
+                <ul>
+                  <li>Designing and building a responsive website for Series A fundraising.</li>
+                  <li>Contributing to UI design and theming within the AMT simulation software.</li>
+                  <li>Designing a real-time production dashboard for factory operations.</li>
+                </ul>
+
+                <h2>Website development (Series A fundraising)</h2>
+
+                <p>
+                  Designed and delivered a responsive website under tight deadlines to support Series A fundraising.
+                </p>
+
+                <ul>
+                  <li>Worked across mobile, tablet, and desktop breakpoints.</li>
+                  <li>Implemented modular HTML and Sass within Angular components.</li>
+                  <li>Balanced visual design with performance and maintainability.</li>
+                </ul>
+
+                <p>
+                  This work required balancing visual design with responsiveness, performance, and maintainability
+                  within an engineering-led codebase.
+                </p>
+              </div>
+
+              <div class="portfolio__image-frame">
+                <img class="portfolio__article-image portfolio__article-image--1400w"
+                  src="assets/cloudnc/website-header.png" alt="" />
+              </div>
+
+              <div class="portfolio__image-frame">
+                <img class="portfolio__article-image portfolio__article-image--1400w"
+                  src="assets/cloudnc/website-all-pages.png" alt="" />
+              </div>
+
+              <div class="u-reading">
+                <h2>AMT software</h2>
+
+                <p>
+                  Contributed to the design of a multi-level CNC machining simulator used to generate toolpaths,
+                  tooling configurations, and setup instructions from 3D geometry.
+                </p>
+
+                <ul>
+                  <li>Supported complex workflows involving geometry interpretation, tooling constraints, and
+                    optimisation outputs.</li>
+                  <li>Structured information and interaction patterns to improve clarity and usability.</li>
+                  <li>Maintained visual consistency while working within technical constraints of the underlying system.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="portfolio__image-frame">
+                <img class="portfolio__article-image" src="assets/cloudnc/amt-ui-main.png" alt="" />
+              </div>
+
+              <div class="u-reading">
+                <h2>Setup sheet redesign</h2>
+
+                <p>
+                  Redesigned the setup sheet used by CNC machinists to interpret tool requirements, machining steps,
+                  and estimated timings.
+                </p>
+
+                <ul>
+                  <li>Improved information hierarchy and clarity through usability testing.</li>
+                  <li>Iterated on both digital and print layouts to improve structure and readability.</li>
+                  <li>Reduced time required for machinists to interpret manufacturing instructions.</li>
+                </ul>
+              </div>
+
+              <div class="portfolio__image-frame">
+                <img class="portfolio__article-image" src="assets/cloudnc/amt-ui-setup-sheet.png" alt="" />
+              </div>
+
+              <div class="u-reading">
+                <h2>Production dashboard (factory operations)</h2>
+
+                <p>
+                  Designed and delivered a real-time dashboard for monitoring factory operations across multiple work
+                  centres, including machining progress, downtime, and resource planning.
+                </p>
+
+                <ul>
+                  <li>Led design and coordination from concept through to implementation, aligning stakeholder and
+                    operational requirements.</li>
+                  <li>Structured the interface to support 48 work centres across multiple views.</li>
+                  <li>Balanced high information density with readability for large-screen display.</li>
+                </ul>
+              </div>
+
+              <div class="portfolio__image-frame">
+                <img class="portfolio__article-image" src="assets/cloudnc/dpd-wire.png" alt="" />
+              </div>
+
+              <div class="u-reading">
+                <h2>Design iteration</h2>
+
+                <p>
+                  Initial designs aligned visually with the AMT system, using colour to communicate machine status and
+                  operational states. I iterated on data visualisation elements, including charting approaches, to
+                  better communicate production metrics.
+                </p>
+              </div>
+
+              <div class="portfolio__image-frame portfolio__image-frame--adjusted">
+                <img class="portfolio__article-image" src="assets/cloudnc/dpd-design-ideas.png" alt="" />
+              </div>
+
+              <div class="u-reading">
+                <p>
+                  Refined designs based on feedback and evolving requirements, improving clarity of production metrics
+                  and ensuring consistency in how data was represented across the dashboard.
+                </p>
+              </div>
+
+              <div class="portfolio__image-frame portfolio__image-frame--adjusted">
+                <img class="portfolio__article-image portfolio__article-image--adjusted"
+                  src="assets/cloudnc/dpd-design-adjusted.png" alt="" />
+              </div>
+
+              <div class="u-reading">
+                <p>
+                  The final design was implemented and adopted by the operations team, enabling a clearer real-time
+                  view of factory performance.
+                </p>
+
+                <h2>Closing</h2>
+
+                <p>
+                  This work focused on designing interfaces for a highly technical domain, balancing system complexity
+                  with usability and supporting efficient workflows in a simulation-driven environment.
+                </p>
+              </div>
+
+              <div class="portfolio__image-frame">
+                <img class="portfolio__article-image" src="assets/cloudnc/dpd-design-final.png" alt="" />
+              </div>
+
+            </article>
+
+          </div>
+        </div>
       </section>
+
+      <!-- FOOTER -->
+      <section class="section section--highlight section__footer" id="contact">
+        <div class="section__grid">
+          <div class="section__inner">
+            <footer>
+              <h2>Contact Me</h2>
+              <p>
+                🌱 I'm always interested in thoughtful conversations.
+                <a href="mailto:johnnyraper@googlemail.com">Get in touch</a>.
+              </p>
+              <p>
+                Or find me on
+                <a href="https://www.linkedin.com/in/johnnyraper/" target="_blank">LinkedIn</a>.
+              </p>
+            </footer>
+          </div>
+        </div>
+      </section>
+
     </main>
   </div>
-
-  <script src="js/jquery-3.5.1.min.js"></script>
-  <script src="js/scripts.js"></script>
 </body>
 
 </html>

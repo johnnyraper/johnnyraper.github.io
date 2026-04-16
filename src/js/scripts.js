@@ -25,6 +25,31 @@ const fadeObserver = new IntersectionObserver(
 
 fadeElements.forEach((el) => fadeObserver.observe(el));
 
+// ------------------------------------
+// HAMBURGER MENU TOGGLE
+// ------------------------------------
+
+const navToggle = document.querySelector(".nav-toggle");
+const siteNav = document.querySelector(".site-nav");
+
+if (navToggle && siteNav) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = navToggle.classList.toggle("is-open");
+    siteNav.classList.toggle("is-open", isOpen);
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 1024) {
+      navToggle.classList.remove("is-open");
+      siteNav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    }
+  });
+}
+
+
+
 
 // ------------------------------------
 // ROTATING TEXT ANIMATION

@@ -65,9 +65,11 @@
 
 .rotating-text {
   display: inline-block;
-  height: 1.25em;
   overflow: hidden;
   vertical-align: bottom;
+  height: 1.2em;
+  margin-left: 4px;
+  line-height: 1;
 }
 
 .rotating-text__track {

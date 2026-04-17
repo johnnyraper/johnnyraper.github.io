@@ -747,29 +747,6 @@ main {
 }
 
 /* =========================================================
-   HEADER
-   ========================================================= */
-.header {
-  position: sticky;
-  top: 16px;
-  z-index: 100;
-  width: 100%;
-}
-
-.header .section__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 32px;
-  height: auto;
-}
-
-.header .section__grid {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* =========================================================
    LINKS
    ========================================================= */
 a {
@@ -793,6 +770,36 @@ a:active {
 
 a.logo__link {
   border-bottom: none;
+}
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo__link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.logo__name {
+  font-size: var(--text-md);
+  font-weight: var(--font-semibold);
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.logo__role {
+  margin-top: 2px;
+  font-size: var(--text-xs);
+  color: var(--text-subtle);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 /* =========================================================
@@ -977,17 +984,23 @@ video {
    HEADER / NAVIGATION
    ========================================================= */
 .header {
-  position: relative;
-  z-index: 20;
+  position: sticky;
+  top: 16px;
+  z-index: 100;
+  width: 100%;
 }
+
 .header .section__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  min-height: 80px;
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding: 0 32px;
+  height: auto;
+}
+
+.header .section__grid {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .site-nav {

@@ -3,18 +3,24 @@
    ========================================================= */
 
 .header {
-  position: relative;
-  z-index: 20;
+  position: sticky;
+  top: $grid-2x;
+  z-index: 100;
+  width: 100%;
+}
 
-  .section__inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: $grid-3x;
-    min-height: $grid-10x;
-    padding-top: $grid-3x;
-    padding-bottom: $grid-3x;
-  }
+.header .section__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 $grid-4x;
+  height: auto;
+}
+
+.header .section__grid {
+  max-width: $layout-max-width;
+  margin: 0 auto;
 }
 
 .site-nav {

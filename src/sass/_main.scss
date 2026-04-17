@@ -73,32 +73,6 @@ main {
 
 
 /* =========================================================
-   HEADER
-   ========================================================= */
-
-.header {
-  position: sticky;
-  top: $grid-2x;
-  z-index: 100;
-  width: 100%;
-}
-
-.header .section__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 0 $grid-4x;
-  height: auto;
-}
-
-.header .section__grid {
-  max-width: $layout-max-width;
-  margin: 0 auto;
-}
-
-
-/* =========================================================
    LINKS
    ========================================================= */
 
@@ -123,6 +97,42 @@ a:active {
 
 a.logo__link {
   border-bottom: none;
+}
+
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo__link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.logo__name {
+  font-size: $text-md;
+  font-weight: $font-semibold;
+  color: $text;
+
+  letter-spacing: -0.01em;
+}
+
+.logo__role {
+  margin-top: 2px;
+
+  font-size: $text-xs;
+  color: $text-subtle;
+
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 

@@ -18,14 +18,16 @@ html {
    ========================================================= */
 
 body {
+  background: $bg;
   color: $text;
   font-family: $font-body;
   font-weight: $font-regular;
+  line-height: $leading-normal;
 }
 
 .layout-rails {
   position: relative;
-  inset: 0;
+  min-height: 100vh;
   z-index: 0;
 }
 
@@ -34,16 +36,20 @@ main {
   z-index: 1;
 }
 
+
+/* =========================================================
+   DECORATIVE RAILS
+   ========================================================= */
+
 .layout-rails::before,
 .layout-rails::after {
   content: "";
   position: absolute;
-
   top: 0;
   bottom: 0;
   width: 1px;
-
-  background: var(--grid-line-strong);
+  background: $grid-line-strong;
+  pointer-events: none;
 }
 
 .layout-rails::before {
@@ -59,16 +65,21 @@ main {
    LAYOUT PRIMITIVES
    ========================================================= */
 
+.container {
+  width: 100%;
+  max-width: $layout-max-width;
+  margin: 0 auto;
+  padding-inline: $grid-4x;
+
+  @include mq(md) {
+    padding-inline: $grid-6x;
+  }
+}
+
 .section__inner,
 .section__inner-content {
   position: relative;
   z-index: 1;
-}
-
-.section__grid {
-  position: relative;
-  max-width: $layout-max-width;
-  margin: 0 auto;
 }
 
 
@@ -78,7 +89,7 @@ main {
 
 a {
   display: inline-block;
-  border-bottom: 1px solid $border-subtle; // removed legacy $border
+  border-bottom: 1px solid $border-subtle;
   color: $accent;
   text-decoration: none;
   line-height: $leading-normal;
@@ -98,7 +109,6 @@ a:active {
 a.logo__link {
   border-bottom: none;
 }
-
 
 
 /* =========================================================
@@ -121,16 +131,13 @@ a.logo__link {
   font-size: $text-md;
   font-weight: $font-semibold;
   color: $text;
-
   letter-spacing: -0.01em;
 }
 
 .logo__role {
   margin-top: 2px;
-
   font-size: $text-xs;
   color: $text-subtle;
-
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -156,24 +163,20 @@ hr {
   width: fit-content;
   align-items: center;
   gap: $grid-0_5x;
-
   padding: $grid $grid-2x;
-
   border-radius: 999px;
   border: 1px solid transparent;
-
   background: #ffffff;
   color: #000000;
   font-size: $text-sm;
   font-weight: $font-medium;
-
   text-decoration: none;
   cursor: pointer;
-
   transition:
     transform $transition-base,
     background $transition-base,
-    box-shadow $transition-base;
+    box-shadow $transition-base,
+    border-color $transition-base;
 
   &:hover,
   &:visited,
@@ -184,7 +187,6 @@ hr {
 
 .button:hover {
   border-color: $border-strong;
-
   transform: translateY(-$grid-0_5x);
   background: #c8d1ef;
   box-shadow: $shadow-subtle;
@@ -197,14 +199,15 @@ hr {
 
 .section__hero {
   position: relative;
-  border-bottom: 1px solid $border-subtle;
   overflow: hidden;
   z-index: 1;
+  border-bottom: 1px solid $border-subtle;
 
   @include mq(md) {
     padding: 0;
   }
 }
+
 
 /* =========================================================
    PAGE SECTIONS
@@ -241,7 +244,6 @@ hr {
 .about-image-frame {
   max-width: 480px;
   margin: 0 auto $grid-5x;
-
   aspect-ratio: 3 / 4;
 
   img {
@@ -251,6 +253,7 @@ hr {
     border-radius: $radius-lg;
   }
 }
+
 
 /* =========================================================
    FOOTER
@@ -276,8 +279,8 @@ video {
 }
 
 .video-wrapper {
-  margin: $grid-10x auto;
   position: relative;
+  margin: $grid-10x auto;
 }
 
 
@@ -300,6 +303,7 @@ video {
 .about-image {
   max-height: 600px;
 }
+
 
 /* =========================================================
    ANIMATIONS

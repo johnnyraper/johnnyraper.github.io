@@ -30,42 +30,47 @@
 
 <body>
   <div class="layout-rails">
-    <main>
+    <div class="layout-diagonals" aria-hidden="true"></div>
 
-      <!-- HEADER -->
-      <header class="header">
-        <div class="section__grid">
-          <div class="section__inner">
-            <div class="logo"></div>
+    <header class="header">
+      <div class="container">
+        <div class="header__inner">
+          <div class="logo"></div>
 
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation"
-              aria-label="Open menu">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-navigation"
+            aria-label="Open menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
 
-            <nav class="site-nav" id="site-navigation" aria-label="Primary">
-              <ul class="navigation">
-                <li><a href="index.html" class="is-active">Home</a></li>
-                <li><a href="index.html#portfolio">Portfolio</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-              </ul>
-            </nav>
-          </div>
+          <nav class="site-nav" id="site-navigation" aria-label="Primary">
+            <ul class="navigation">
+              <li><a href="index.html" class="is-active">Home</a></li>
+              <li><a href="index.html#portfolio">Portfolio</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
         </div>
-      </header>
+      </div>
+    </header>
+
+    <main>
 
       <!-- HERO -->
       <section class="section section__hero">
-        <div class="section__grid">
+        <div class="container">
           <div class="section__inner">
             <div class="section__intro hero">
 
               <div class="hero__left">
 
-                <!-- CONTENT -->
                 <div class="hero__content">
                   <h1 class="display-xl">
                     I design complex products that
@@ -84,20 +89,25 @@
                     </span>
                   </h1>
 
-                  <p>I work at the intersection of product design and engineering, shaping systems for complex,
-                    data-heavy workflows.</p>
-                  <p>My primary focus is on structure, clarity, and scalability — from semantic design
+                  <p>
+                    I work at the intersection of product design and engineering, shaping systems for complex,
+                    data-heavy workflows.
+                  </p>
+                  <p>
+                    My primary focus is on structure, clarity, and scalability &mdash; from semantic design
                     systems and theming, to prototyping interfaces that reduce the gap between concept and
-                    implementation.</p>
-                  <p>I also explore AI-assisted and code-aware prototyping workflows to test ideas more realistically
-                    and reduce handoff friction.</p>
+                    implementation.
+                  </p>
+                  <p>
+                    I also explore AI-assisted and code-aware prototyping workflows to test ideas more realistically
+                    and reduce handoff friction.
+                  </p>
 
                   <div class="hero__actions">
                     <a href="#contact" class="button">
                       Get in touch
                     </a>
                   </div>
-
                 </div>
 
                 <a href="#portfolio" class="projects-badge">
@@ -108,17 +118,16 @@
 
                     <text>
                       <textPath href="#circlePath" startOffset="0%">
-                        • VIEW ALL PROJECTS • VIEW ALL PROJECTS
+                        &bull; VIEW ALL PROJECTS &bull; VIEW ALL PROJECTS
                       </textPath>
                     </text>
                   </svg>
 
-                  <span class="projects-badge__arrow">&downarrow;</span>
+                  <span class="projects-badge__arrow">&darr;</span>
                 </a>
 
               </div>
 
-              <!-- VISUAL -->
               <div class="hero__visual">
                 <div class="hero__visual-frame">
                   <div class="cube-container">
@@ -139,10 +148,10 @@
         </div>
       </section>
 
+      <!-- PORTFOLIO -->
       <section class="section" id="portfolio">
 
-        <!-- HEADER -->
-        <div class="section__grid">
+        <div class="container">
           <div class="section__inner">
             <div class="section__header">
               <h2>Product Design</h2>
@@ -155,14 +164,11 @@
           </div>
         </div>
 
-
-        <!-- FEATURED -->
-        <div class="section__grid">
+        <div class="container">
           <div class="section__inner">
 
             <div class="portfolio-feature">
 
-              <!-- PhysicsX -->
               <div class="portfolio-feature__item">
                 <div class="portfolio-feature__image">
                   <img src="assets/design-systems-pieces-none.jpg" alt="" />
@@ -177,7 +183,6 @@
                 </div>
               </div>
 
-              <!-- Rafinex -->
               <div class="portfolio-feature__item">
                 <a class="portfolio-feature__image" href="portfolio-rafinex.html">
                   <img src="assets/rafinex/rafinex-portfolio-pieces.png" alt="" />
@@ -199,14 +204,11 @@
           </div>
         </div>
 
-
-        <!-- GRID -->
-        <div class="section__grid">
+        <div class="container">
           <div class="section__inner">
 
             <div class="portfolio-grid">
 
-              <!-- CloudNC -->
               <a class="portfolio-card" href="portfolio-cloudnc.html">
                 <div class="portfolio-card__image">
                   <img src="assets/cloudnc/cloudnc-portfolio-pieces.png" alt="" />
@@ -221,7 +223,6 @@
                 </div>
               </a>
 
-              <!-- Nodes -->
               <a class="portfolio-card" href="portfolio-nodes.html">
                 <div class="portfolio-card__image">
                   <img src="assets/nodes/nodes-portfolio.png" alt="" />
@@ -243,88 +244,14 @@
 
       </section>
 
-      <!-- WEB -->
-      <section class="section section__tight section__web u-border-top">
-        <div class="section__grid">
-
-          <!-- HEADER -->
-          <div class="section__inner">
-            <div class="section__header">
-              <h2>Web Design and Build</h2>
-              <p>
-                I've worked with brands like LOTUS, Microsoft and The Premier League,
-                designing and building high-quality marketing websites.
-              </p>
-            </div>
-
-            <div class="portfolio-grid">
-
-              <!-- Rafinex -->
-              <a class="portfolio-card" href="https://rafinex.com/" target="_blank">
-                <div class="portfolio-card__image">
-                  <img src="assets/portfolio-rafinex.png" alt="Rafinex website" />
-                </div>
-
-                <div class="portfolio-card__content">
-                  <h4>Rafinex</h4>
-                  <p>Design and build of the Rafinex marketing website,
-                    translating complex topology optimisation workflows into a clear,
-                    high-performance product narrative.</p>
-                  <button class="button">
-                    Visit website &rarr;
-                  </button>
-                </div>
-              </a>
-
-              <!-- QBE -->
-              <a class="portfolio-card" href="https://qbeeurope.com/" target="_blank">
-                <div class="portfolio-card__image">
-                  <img src="assets/portfolio-qbe.jpg" alt="QBE Europe website" />
-                </div>
-
-                <div class="portfolio-card__content">
-                  <h4>QBE Insurance Europe</h4>
-                  <p>Frontend development for a large-scale insurance platform,
-                    delivering performant, accessible experiences across multiple regions.</p>
-
-                  <button class="button">
-                    Visit website &rarr;
-                  </button>
-                </div>
-              </a>
-
-              <!-- Kallo -->
-              <a class="portfolio-card" href="https://kallo.com" target="_blank">
-                <div class="portfolio-card__image">
-                  <img src="assets/portfolio-kallo.jpg" alt="Kallo website" />
-                </div>
-
-                <div class="portfolio-card__content">
-                  <h4>Kallo</h4>
-                  <p>Frontend and WordPress development for a consumer brand,
-                    balancing visual storytelling with flexible content management.</p>
-
-                  <button class="button">
-                    Visit website &rarr;
-                  </button>
-                </div>
-              </a>
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
       <!-- FOOTER -->
       <section class="section section--highlight section__footer" id="contact">
-        <div class="section__grid">
+        <div class="container">
           <div class="section__inner">
             <footer>
               <h2>Contact Me</h2>
               <p>
-                🌱 I'm always interested in thoughtful conversations.
+                &#127793; I&rsquo;m always interested in thoughtful conversations.
                 <a href="mailto:johnnyraper@googlemail.com">Get in touch</a>.
               </p>
               <p>
@@ -338,6 +265,7 @@
 
     </main>
   </div>
+
   <script src="js/scripts.js"></script>
 </body>
 

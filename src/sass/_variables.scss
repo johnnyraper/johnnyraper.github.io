@@ -3,112 +3,112 @@
    ========================================================= */
 
 :root {
-  /* =========================
+   /* =========================
      BACKGROUND / SURFACE
      ========================= */
 
-  --bg: #060607;
-  --surface: #0b0f17;
-  --surface-elevated: #0f1623;
+   --bg: #070a12;
+   --surface: #0b0f17;
+   --surface-elevated: #0f1623;
 
-  --surface-glass: rgba(255, 255, 255, 0.02);
-  --surface-glass-strong: rgba(255, 255, 255, 0.04);
+   --surface-glass: rgba(255, 255, 255, 0.02);
+   --surface-glass-strong: rgba(255, 255, 255, 0.04);
 
-  --overlay: rgba(255, 255, 255, 0.04);
+   --overlay: rgba(255, 255, 255, 0.04);
 
-  /* =========================
+   /* =========================
      TEXT
      ========================= */
 
-  --text: #e2e8f0;
-  --text-muted: #8b9bb3;
-  --text-subtle: #6b7a90;
+   --text: #e2e8f0;
+   --text-muted: #8b9bb3;
+   --text-subtle: #6b7a90;
 
-  /* =========================
+   /* =========================
      ACCENT
      ========================= */
 
-  --accent: #429af8;
-  --accent-hover: #327ac8;
+   --accent: #429af8;
+   --accent-hover: #327ac8;
 
-  --accent-subtle: rgba(59, 130, 246, 0.12);
-  --accent-soft: rgba(59, 130, 246, 0.08);
-  --accent-soft-hover: rgba(59, 130, 246, 0.18);
+   --accent-soft: rgba(59, 130, 246, 0.14);
+   --accent-subtle: rgba(59, 130, 246, 0.22);
+   --accent-soft-hover: rgba(59, 130, 246, 0.18);
 
-  /* =========================
+   /* =========================
      BORDER
      ========================= */
 
-  --border-subtle: rgba(120, 160, 255, 0.08);
-  --border-strong: rgba(120, 160, 255, 0.18);
-  --border-emphasis: rgba(120, 160, 255, 0.6);
+   --border-subtle: rgba(120, 160, 255, 0.08);
+   --border-strong: rgba(120, 160, 255, 0.18);
+   --border-emphasis: rgba(120, 160, 255, 0.6);
 
-  /* =========================
+   /* =========================
      GRID / LINES
      ========================= */
 
-  --grid-line-strong: rgba(255, 255, 255, 0.05);
+   --grid-line-strong: rgba(255, 255, 255, 0.05);
 
-  /* =========================
+   /* =========================
      TYPOGRAPHY
      ========================= */
 
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 
-  --text-xs: 12px;
-  --text-sm: 14px;
-  --text-md: 16px;
-  --text-lg: 18px;
-  --text-xl: 24px;
-  --text-2xl: 32px;
-  --text-3xl: 44px;
-  --text-4xl: 56px;
-  --text-5xl: 68px;
+   --text-xs: 12px;
+   --text-sm: 14px;
+   --text-md: 16px;
+   --text-lg: 18px;
+   --text-xl: 24px;
+   --text-2xl: 32px;
+   --text-3xl: 44px;
+   --text-4xl: 56px;
+   --text-5xl: 68px;
 
-  /* Line Height */
-  --leading-tight: 1.1;
-  --leading-normal: 1.5;
-  --leading-relaxed: 1.6;
+   /* Line Height */
+   --leading-tight: 1.1;
+   --leading-normal: 1.5;
+   --leading-relaxed: 1.6;
 
-  /* Font Weight */
-  --font-regular: 400;
-  --font-medium: 500;
-  --font-semibold: 600;
+   /* Font Weight */
+   --font-regular: 400;
+   --font-medium: 500;
+   --font-semibold: 600;
 
-  /* =========================
+   /* =========================
      RADIUS
      ========================= */
 
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
+   --radius-sm: 8px;
+   --radius-md: 12px;
+   --radius-lg: 16px;
 
-  /* =========================
+   /* =========================
      SHADOW
      ========================= */
 
-  --shadow-subtle: 0 12px 30px rgba(0, 0, 0, 0.4);
-  --shadow-strong: 0 20px 50px rgba(0, 0, 0, 0.5);
+   --shadow-subtle: 0 12px 30px rgba(0, 0, 0, 0.4);
+   --shadow-strong: 0 20px 50px rgba(0, 0, 0, 0.5);
 
-  /* =========================
+   /* =========================
      MOTION
      ========================= */
 
-  --transition-base: 0.25s ease;
+   --transition-base: 0.25s ease;
 
-  /* =========================
+   /* =========================
      BACKGROUND GRADIENTS
      ========================= */
 
-  --gradient-bg-primary:
-    radial-gradient(1200px 800px at 20% 25%,
-      var(--accent-soft),
-      transparent 70%);
+   --gradient-bg-primary:
+  radial-gradient(1400px 900px at 20% 25%,
+    var(--accent-soft),
+    transparent 60%);
 
-  --gradient-bg-secondary:
-    radial-gradient(1000px 700px at 80% 75%,
-      var(--accent-subtle),
-      transparent 75%);
+--gradient-bg-secondary:
+  radial-gradient(1200px 800px at 80% 75%,
+    var(--accent-subtle),
+    transparent 65%);
 }
 
 /* =========================
@@ -141,43 +141,43 @@ $bp-xl: 1280px; // desktop
 $bp-2xl: 1536px; // large screens
 
 @mixin mq($bp) {
-  @if $bp ==sm {
-    @media (min-width: $bp-sm) {
-      @content;
-    }
-  }
+   @if $bp ==sm {
+      @media (min-width: $bp-sm) {
+         @content;
+      }
+   }
 
-  @if $bp ==md {
-    @media (min-width: $bp-md) {
-      @content;
-    }
-  }
+   @if $bp ==md {
+      @media (min-width: $bp-md) {
+         @content;
+      }
+   }
 
-  @if $bp ==lg {
-    @media (min-width: $bp-lg) {
-      @content;
-    }
-  }
+   @if $bp ==lg {
+      @media (min-width: $bp-lg) {
+         @content;
+      }
+   }
 
-  @if $bp ==xl {
-    @media (min-width: $bp-xl) {
-      @content;
-    }
-  }
+   @if $bp ==xl {
+      @media (min-width: $bp-xl) {
+         @content;
+      }
+   }
 
-  @if $bp ==2xl {
-    @media (min-width: $bp-2xl) {
-      @content;
-    }
-  }
+   @if $bp ==2xl {
+      @media (min-width: $bp-2xl) {
+         @content;
+      }
+   }
 }
 
 @mixin mq-max($bp) {
-  @if $bp ==lg {
-    @media (max-width: $bp-lg) {
-      @content;
-    }
-  }
+   @if $bp ==lg {
+      @media (max-width: $bp-lg) {
+         @content;
+      }
+   }
 }
 
 /* =========================

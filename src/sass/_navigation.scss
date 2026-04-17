@@ -9,23 +9,45 @@
   width: 100%;
 }
 
-.header .section__inner {
+.header__inner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  padding: 0 $grid-4x;
-  height: auto;
-}
-
-.header .section__grid {
-  max-width: $layout-max-width;
-  margin: 0 auto;
+  gap: $grid-3x;
+  min-height: $grid-10x;
 }
 
 .site-nav {
   margin-left: auto;
+
+  @include mq-max(lg) {
+    position: absolute;
+    top: calc(100% + #{$grid-2x});
+    right: 0;
+    left: 0;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+
+    transition:
+      opacity $transition-base,
+      visibility $transition-base,
+      transform $transition-base;
+  }
 }
+
+.site-nav.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   NAV LIST
+   ========================================================= */
 
 .navigation {
   display: flex;
@@ -34,63 +56,89 @@
   margin: 0;
   padding: 0;
 
-  li {
-    margin: 0;
-    list-style: none;
-  }
+  @include mq-max(lg) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: $grid-1_5x;
 
-  a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    padding: $grid-2x;
 
-    min-height: 40px;
-    padding: 0 $grid-2x;
+    border: 1px solid $border-subtle;
+    border-radius: $radius-lg;
 
-    border: 1px solid transparent;
-    border-radius: $radius-md;
+    background:
+      linear-gradient(180deg, $surface-glass-strong, rgba(255, 255, 255, 0.02)),
+      $surface;
 
-    color: $text-muted;
-    background: transparent;
-
-    font-size: $text-sm;
-    font-weight: $font-medium;
-    line-height: 1;
-    text-decoration: none;
-
-    transition:
-      color $transition-base,
-      background-color $transition-base,
-      border-color $transition-base,
-      box-shadow $transition-base,
-      transform $transition-base;
-
-    &:hover {
-      color: $text;
-      background: $surface-glass;
-      border-color: $border-subtle;
-    }
-
-    &:focus-visible {
-      outline: none;
-      color: $text;
-      background: $surface-glass-strong;
-      border-color: $border-emphasis;
-      box-shadow: 0 0 0 3px $accent-subtle;
-    }
-
-    &:active {
-      transform: translateY(1px);
-    }
+    box-shadow: $shadow-strong;
+    backdrop-filter: blur(12px);
   }
 }
 
-/* Optional current page state */
+.navigation li {
+  margin: 0;
+  list-style: none;
+}
+
+.navigation a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 40px;
+  padding: 0 $grid-2x;
+
+  border: 1px solid transparent;
+  border-radius: $radius-md;
+
+  color: $text-muted;
+  background: transparent;
+
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  line-height: 1;
+  text-decoration: none;
+
+  transition:
+    color $transition-base,
+    background-color $transition-base,
+    border-color $transition-base,
+    box-shadow $transition-base,
+    transform $transition-base;
+
+  @include mq-max(lg) {
+    justify-content: flex-start;
+    min-height: 44px;
+    padding: 0 $grid-2x;
+    background: transparent;
+    border-color: transparent;
+  }
+}
+
+.navigation a:hover {
+  color: $text;
+  background: $surface-glass;
+  border-color: $border-subtle;
+}
+
+.navigation a:focus-visible {
+  outline: none;
+  color: $text;
+  background: $surface-glass-strong;
+  border-color: $border-emphasis;
+  box-shadow: 0 0 0 3px $accent-subtle;
+}
+
+.navigation a:active {
+  transform: translateY(1px);
+}
+
 .navigation a.is-active {
   color: $text;
   background: $accent-soft;
   border-color: $border-strong;
 }
+
 
 /* =========================================================
    MOBILE TOGGLE
@@ -104,6 +152,7 @@
   width: 44px;
   height: 44px;
   padding: 0;
+  margin-left: auto;
 
   border: 1px solid $border-subtle;
   border-radius: $radius-md;
@@ -118,106 +167,60 @@
     border-color $transition-base,
     box-shadow $transition-base;
 
-  &:hover {
-    background: $surface-glass-strong;
-    border-color: $border-strong;
-  }
-
-  &:focus-visible {
-    outline: none;
-    border-color: $border-emphasis;
-    box-shadow: 0 0 0 3px $accent-subtle;
-  }
-
-  span {
-    position: absolute;
-    left: 11px;
-    right: 11px;
-    height: 2px;
-    border-radius: 999px;
-    background: $text;
-    transition:
-      transform $transition-base,
-      opacity $transition-base,
-      top $transition-base;
-  }
-
-  span:nth-child(1) { top: 14px; }
-  span:nth-child(2) { top: 21px; }
-  span:nth-child(3) { top: 28px; }
-}
-
-.nav-toggle.is-open {
-  span:nth-child(1) {
-    top: 21px;
-    transform: rotate(45deg);
-  }
-
-  span:nth-child(2) {
-    opacity: 0;
-  }
-
-  span:nth-child(3) {
-    top: 21px;
-    transform: rotate(-45deg);
-  }
-}
-
-/* =========================================================
-   RESPONSIVE NAV
-   ========================================================= */
-
-@include mq-max(lg) {
-  .nav-toggle {
+  @include mq-max(lg) {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-left: auto;
   }
+}
 
-  .site-nav {
-    position: absolute;
-    top: calc(100% + #{$grid-2x});
-    right: $grid-2x;
-    left: $grid-2x;
+.nav-toggle:hover {
+  background: $surface-glass-strong;
+  border-color: $border-strong;
+}
 
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-8px);
+.nav-toggle:focus-visible {
+  outline: none;
+  border-color: $border-emphasis;
+  box-shadow: 0 0 0 3px $accent-subtle;
+}
 
-    transition:
-      opacity $transition-base,
-      visibility $transition-base,
-      transform $transition-base;
-  }
+.nav-toggle span {
+  position: absolute;
+  left: 11px;
+  right: 11px;
+  height: 2px;
+  border-radius: 999px;
+  background: $text;
 
-  .site-nav.is-open {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
+  transition:
+    transform $transition-base,
+    opacity $transition-base,
+    top $transition-base;
+}
 
-  .navigation {
-    flex-direction: column;
-    align-items: stretch;
-    gap: $grid-1_5x;
+.nav-toggle span:nth-child(1) {
+  top: 14px;
+}
 
-    padding: $grid-2x;
+.nav-toggle span:nth-child(2) {
+  top: 21px;
+}
 
-    border: 1px solid $border-subtle;
-    border-radius: $radius-lg;
-    background:
-      linear-gradient(180deg, $surface-glass-strong, rgba(255,255,255,0.02)),
-      $surface;
-    box-shadow: $shadow-strong;
-    backdrop-filter: blur(12px);
+.nav-toggle span:nth-child(3) {
+  top: 28px;
+}
 
-    a {
-      justify-content: flex-start;
-      min-height: 44px;
-      padding: 0 $grid-2x;
-      background: transparent;
-      border-color: transparent;
-    }
-  }
+.nav-toggle.is-open span:nth-child(1) {
+  top: 21px;
+  transform: rotate(45deg);
+}
+
+.nav-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.is-open span:nth-child(3) {
+  top: 21px;
+  transform: rotate(-45deg);
 }

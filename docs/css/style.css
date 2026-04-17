@@ -4,41 +4,41 @@
    ========================================================= */
 :root {
   /* =========================
-     BACKGROUND / SURFACE
-     ========================= */
-  --bg: #060607;
+    BACKGROUND / SURFACE
+    ========================= */
+  --bg: #070a12;
   --surface: #0b0f17;
   --surface-elevated: #0f1623;
   --surface-glass: rgba(255, 255, 255, 0.02);
   --surface-glass-strong: rgba(255, 255, 255, 0.04);
   --overlay: rgba(255, 255, 255, 0.04);
   /* =========================
-     TEXT
-     ========================= */
+    TEXT
+    ========================= */
   --text: #e2e8f0;
   --text-muted: #8b9bb3;
   --text-subtle: #6b7a90;
   /* =========================
-     ACCENT
-     ========================= */
+    ACCENT
+    ========================= */
   --accent: #429af8;
   --accent-hover: #327ac8;
-  --accent-subtle: rgba(59, 130, 246, 0.12);
-  --accent-soft: rgba(59, 130, 246, 0.08);
+  --accent-soft: rgba(59, 130, 246, 0.14);
+  --accent-subtle: rgba(59, 130, 246, 0.22);
   --accent-soft-hover: rgba(59, 130, 246, 0.18);
   /* =========================
-     BORDER
-     ========================= */
+    BORDER
+    ========================= */
   --border-subtle: rgba(120, 160, 255, 0.08);
   --border-strong: rgba(120, 160, 255, 0.18);
   --border-emphasis: rgba(120, 160, 255, 0.6);
   /* =========================
-     GRID / LINES
-     ========================= */
+    GRID / LINES
+    ========================= */
   --grid-line-strong: rgba(255, 255, 255, 0.05);
   /* =========================
-     TYPOGRAPHY
-     ========================= */
+    TYPOGRAPHY
+    ========================= */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --text-xs: 12px;
   --text-sm: 14px;
@@ -58,31 +58,31 @@
   --font-medium: 500;
   --font-semibold: 600;
   /* =========================
-     RADIUS
-     ========================= */
+    RADIUS
+    ========================= */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   /* =========================
-     SHADOW
-     ========================= */
+    SHADOW
+    ========================= */
   --shadow-subtle: 0 12px 30px rgba(0, 0, 0, 0.4);
   --shadow-strong: 0 20px 50px rgba(0, 0, 0, 0.5);
   /* =========================
-     MOTION
-     ========================= */
+    MOTION
+    ========================= */
   --transition-base: 0.25s ease;
   /* =========================
-     BACKGROUND GRADIENTS
-     ========================= */
+    BACKGROUND GRADIENTS
+    ========================= */
   --gradient-bg-primary:
-    radial-gradient(1200px 800px at 20% 25%,
-      var(--accent-soft),
-      transparent 70%);
+  radial-gradient(1400px 900px at 20% 25%,
+    var(--accent-soft),
+    transparent 60%);
   --gradient-bg-secondary:
-    radial-gradient(1000px 700px at 80% 75%,
+    radial-gradient(1200px 800px at 80% 75%,
       var(--accent-subtle),
-      transparent 75%);
+      transparent 65%);
 }
 
 /* =========================
@@ -399,6 +399,36 @@ ol {
 
 /* 2. Structural layout */
 /* =========================================================
+   LAYOUT DIAGONALS
+   ========================================================= */
+.layout-diagonals {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.layout-diagonals::before,
+.layout-diagonals::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: max(0px, (100% - 1200px) / 2);
+  opacity: 0.3;
+}
+
+.layout-diagonals::before {
+  left: 0;
+  background: repeating-linear-gradient(45deg, var(--grid-line-strong), var(--grid-line-strong) 2px, transparent 2px, transparent 12px);
+}
+
+.layout-diagonals::after {
+  right: 0;
+  background: repeating-linear-gradient(-45deg, var(--grid-line-strong), var(--grid-line-strong) 2px, transparent 2px, transparent 12px);
+}
+
+/* =========================================================
    SECTION BASE
    ========================================================= */
 .section {
@@ -406,44 +436,12 @@ ol {
 }
 
 /* =========================================================
-   SIDE RAILS (DIAGONALS)
-   ========================================================= */
-.section::before,
-.section::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: calc((100% - 1200px) / 2);
-  pointer-events: none;
-  opacity: 0.3;
-}
-
-.section::before {
-  left: 0;
-  background: repeating-linear-gradient(45deg, var(--grid-line-strong), var(--grid-line-strong) 2px, transparent 2px, transparent 12px);
-}
-
-.section::after {
-  right: 0;
-  background: repeating-linear-gradient(-45deg, var(--grid-line-strong), var(--grid-line-strong) 2px, transparent 2px, transparent 12px);
-}
-
-/* =========================================================
-   CONTENT CONTAINER
+   CONTENT WRAPPER
    ========================================================= */
 .section__inner {
   position: relative;
   z-index: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-inline: 32px;
   padding-block: var(--section-space, 40px);
-}
-@media (min-width: 768px) {
-  .section__inner {
-    padding-inline: 48px;
-  }
 }
 
 /* =========================================================
@@ -697,14 +695,16 @@ html {
    BASE
    ========================================================= */
 body {
+  background: var(--bg);
   color: var(--text);
   font-family: var(--font-sans);
   font-weight: var(--font-regular);
+  line-height: var(--leading-normal);
 }
 
 .layout-rails {
   position: relative;
-  inset: 0;
+  min-height: 100vh;
   z-index: 0;
 }
 
@@ -713,6 +713,9 @@ main {
   z-index: 1;
 }
 
+/* =========================================================
+   DECORATIVE RAILS
+   ========================================================= */
 .layout-rails::before,
 .layout-rails::after {
   content: "";
@@ -721,6 +724,7 @@ main {
   bottom: 0;
   width: 1px;
   background: var(--grid-line-strong);
+  pointer-events: none;
 }
 
 .layout-rails::before {
@@ -734,16 +738,22 @@ main {
 /* =========================================================
    LAYOUT PRIMITIVES
    ========================================================= */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: 32px;
+}
+@media (min-width: 768px) {
+  .container {
+    padding-inline: 48px;
+  }
+}
+
 .section__inner,
 .section__inner-content {
   position: relative;
   z-index: 1;
-}
-
-.section__grid {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 /* =========================================================
@@ -830,7 +840,7 @@ hr {
   font-weight: var(--font-medium);
   text-decoration: none;
   cursor: pointer;
-  transition: transform var(--transition-base), background var(--transition-base), box-shadow var(--transition-base);
+  transition: transform var(--transition-base), background var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
 }
 .button:hover, .button:visited, .button:active {
   color: #000000;
@@ -848,9 +858,9 @@ hr {
    ========================================================= */
 .section__hero {
   position: relative;
-  border-bottom: 1px solid var(--border-subtle);
   overflow: hidden;
   z-index: 1;
+  border-bottom: 1px solid var(--border-subtle);
 }
 @media (min-width: 768px) {
   .section__hero {
@@ -924,8 +934,8 @@ video {
 }
 
 .video-wrapper {
-  margin: 80px auto;
   position: relative;
+  margin: 80px auto;
 }
 
 /* =========================================================
@@ -990,23 +1000,40 @@ video {
   width: 100%;
 }
 
-.header .section__inner {
+.header__inner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 32px;
-  height: auto;
-}
-
-.header .section__grid {
-  max-width: 1200px;
-  margin: 0 auto;
+  gap: 24px;
+  min-height: 80px;
 }
 
 .site-nav {
   margin-left: auto;
 }
+@media (max-width: 1024px) {
+  .site-nav {
+    position: absolute;
+    top: calc(100% + 16px);
+    right: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity var(--transition-base), visibility var(--transition-base), transform var(--transition-base);
+  }
+}
 
+.site-nav.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* =========================================================
+   NAV LIST
+   ========================================================= */
 .navigation {
   display: flex;
   align-items: center;
@@ -1014,10 +1041,25 @@ video {
   margin: 0;
   padding: 0;
 }
+@media (max-width: 1024px) {
+  .navigation {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 16px;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(180deg, var(--surface-glass-strong), rgba(255, 255, 255, 0.02)), var(--surface);
+    box-shadow: var(--shadow-strong);
+    backdrop-filter: blur(12px);
+  }
+}
+
 .navigation li {
   margin: 0;
   list-style: none;
 }
+
 .navigation a {
   display: inline-flex;
   align-items: center;
@@ -1034,11 +1076,22 @@ video {
   text-decoration: none;
   transition: color var(--transition-base), background-color var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
 }
+@media (max-width: 1024px) {
+  .navigation a {
+    justify-content: flex-start;
+    min-height: 44px;
+    padding: 0 16px;
+    background: transparent;
+    border-color: transparent;
+  }
+}
+
 .navigation a:hover {
   color: var(--text);
   background: var(--surface-glass);
   border-color: var(--border-subtle);
 }
+
 .navigation a:focus-visible {
   outline: none;
   color: var(--text);
@@ -1046,11 +1099,11 @@ video {
   border-color: var(--border-emphasis);
   box-shadow: 0 0 0 3px var(--accent-subtle);
 }
+
 .navigation a:active {
   transform: translateY(1px);
 }
 
-/* Optional current page state */
 .navigation a.is-active {
   color: var(--text);
   background: var(--accent-soft);
@@ -1067,6 +1120,7 @@ video {
   width: 44px;
   height: 44px;
   padding: 0;
+  margin-left: auto;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   background: var(--surface-glass);
@@ -1075,15 +1129,25 @@ video {
   cursor: pointer;
   transition: background-color var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
 }
+@media (max-width: 1024px) {
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 .nav-toggle:hover {
   background: var(--surface-glass-strong);
   border-color: var(--border-strong);
 }
+
 .nav-toggle:focus-visible {
   outline: none;
   border-color: var(--border-emphasis);
   box-shadow: 0 0 0 3px var(--accent-subtle);
 }
+
 .nav-toggle span {
   position: absolute;
   left: 11px;
@@ -1093,12 +1157,15 @@ video {
   background: var(--text);
   transition: transform var(--transition-base), opacity var(--transition-base), top var(--transition-base);
 }
+
 .nav-toggle span:nth-child(1) {
   top: 14px;
 }
+
 .nav-toggle span:nth-child(2) {
   top: 21px;
 }
+
 .nav-toggle span:nth-child(3) {
   top: 28px;
 }
@@ -1107,58 +1174,16 @@ video {
   top: 21px;
   transform: rotate(45deg);
 }
+
 .nav-toggle.is-open span:nth-child(2) {
   opacity: 0;
 }
+
 .nav-toggle.is-open span:nth-child(3) {
   top: 21px;
   transform: rotate(-45deg);
 }
 
-/* =========================================================
-   RESPONSIVE NAV
-   ========================================================= */
-@media (max-width: 1024px) {
-  .nav-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto;
-  }
-  .site-nav {
-    position: absolute;
-    top: calc(100% + 16px);
-    right: 16px;
-    left: 16px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-8px);
-    transition: opacity var(--transition-base), visibility var(--transition-base), transform var(--transition-base);
-  }
-  .site-nav.is-open {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-  .navigation {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-    padding: 16px;
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg);
-    background: linear-gradient(180deg, var(--surface-glass-strong), rgba(255, 255, 255, 0.02)), var(--surface);
-    box-shadow: var(--shadow-strong);
-    backdrop-filter: blur(12px);
-  }
-  .navigation a {
-    justify-content: flex-start;
-    min-height: 44px;
-    padding: 0 16px;
-    background: transparent;
-    border-color: transparent;
-  }
-}
 /* =========================================================
    HERO SECTION
    ========================================================= */
@@ -1170,12 +1195,19 @@ video {
    HERO LAYOUT
    ========================================================= */
 .hero {
-  display: flex;
-  align-items: stretch;
-  gap: 32px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  align-items: center;
+  gap: 48px;
   padding-top: 32px;
   padding-bottom: 48px;
   min-height: 85vh;
+}
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
 }
 
 .hero p:first-of-type {
@@ -1190,13 +1222,12 @@ video {
    CONTENT
    ========================================================= */
 .hero__left {
-  flex: 1;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .hero__content {
-  flex: 0 0 auto;
   max-width: 680px;
   margin-bottom: 48px;
 }
@@ -1204,12 +1235,13 @@ video {
 .section__hero h1 {
   margin-bottom: 16px;
   font-size: clamp(var(--text-3xl), 4.5vw, var(--text-4xl));
+  line-height: var(--leading-tight);
 }
 
 .section__hero p {
+  max-width: 650px;
   margin-bottom: 24px;
   color: var(--text-muted);
-  max-width: 650px;
 }
 
 /* =========================================================
@@ -1252,13 +1284,11 @@ video {
    HERO VISUAL
    ========================================================= */
 .hero__visual {
-  flex: 0 0 360px;
   display: flex;
   justify-content: center;
   align-items: center;
-  align-self: start;
+  align-self: center;
   position: relative;
-  margin-top: 16px;
 }
 @media (max-width: 1024px) {
   .hero__visual {
@@ -1271,6 +1301,8 @@ video {
    ========================================================= */
 .hero__visual-frame {
   position: relative;
+  width: 100%;
+  max-width: 360px;
   aspect-ratio: 3/4;
   display: flex;
   align-items: center;
@@ -1285,13 +1317,13 @@ video {
    HERO CARD
    ========================================================= */
 .hero-card {
+  position: relative;
   width: 100%;
   height: 100%;
+  overflow: hidden;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-subtle);
   background: linear-gradient(to bottom right, var(--surface-glass), transparent), var(--surface);
-  position: relative;
-  overflow: hidden;
 }
 
 /* =========================================================

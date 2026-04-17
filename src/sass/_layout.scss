@@ -1,4 +1,47 @@
 /* =========================================================
+   LAYOUT DIAGONALS
+   ========================================================= */
+
+.layout-diagonals {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.layout-diagonals::before,
+.layout-diagonals::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: max(0px, calc((100% - #{$layout-max-width}) / 2));
+  opacity: 0.3;
+}
+
+.layout-diagonals::before {
+  left: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    $grid-line-strong,
+    $grid-line-strong 2px,
+    transparent 2px,
+    transparent 12px
+  );
+}
+
+.layout-diagonals::after {
+  right: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    $grid-line-strong,
+    $grid-line-strong 2px,
+    transparent 2px,
+    transparent 12px
+  );
+}
+
+/* =========================================================
    SECTION BASE
    ========================================================= */
 
@@ -6,78 +49,20 @@
   position: relative;
 }
 
-
 /* =========================================================
-   SIDE RAILS (DIAGONALS)
-   ========================================================= */
-
-.section::before,
-.section::after {
-  content: "";
-  position: absolute;
-
-  top: 0;
-  bottom: 0;
-
-  width: calc((100% - 1200px) / 2); // layout constraint
-
-  pointer-events: none;
-  opacity: 0.3;
-}
-
-.section::before {
-  left: 0;
-
-  background: repeating-linear-gradient(45deg,
-      $grid-line-strong,
-      $grid-line-strong 2px,
-      transparent 2px,
-      transparent 12px);
-}
-
-.section::after {
-  right: 0;
-
-  background: repeating-linear-gradient(-45deg,
-      $grid-line-strong,
-      $grid-line-strong 2px,
-      transparent 2px,
-      transparent 12px);
-}
-
-
-/* =========================================================
-   CONTENT CONTAINER
+   CONTENT WRAPPER
    ========================================================= */
 
 .section__inner {
   position: relative;
   z-index: 1;
-
-  max-width: $grid * 150; // 1200px → tokenised
-  margin: 0 auto;
-
-  padding-inline: $grid-4x;
-  padding-block: var(--section-space, $grid-5x); // 40px → tokenised fallback
-
-  @include mq(md) {
-    padding-inline: $grid-6x;
-  }
+  padding-block: var(--section-space, #{$grid-5x});
 }
 
 
 /* =========================================================
    SECTION VARIANTS
    ========================================================= */
-
-// .section__web {
-//   // slightly tighter vertical rhythm
-//   padding-block: $grid-8x;
-
-//   @include mq(md) {
-//     padding-block: $grid-10x;
-//   }
-// }
 
 .section--highlight {
   border-bottom: 1px solid $border-subtle;
@@ -108,6 +93,6 @@
 
 .column__content {
   @include mq(md) {
-    max-width: 700px; // layout-bound
+    max-width: 700px;
   }
 }

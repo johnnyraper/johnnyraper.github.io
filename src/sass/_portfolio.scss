@@ -5,7 +5,7 @@
 .portfolio-feature {
   display: flex;
   flex-direction: column;
-  gap: $grid-6x; // tightened from 8x
+  gap: $grid-6x;
 }
 
 .portfolio-feature__item {
@@ -17,48 +17,35 @@
     flex-direction: row;
     align-items: stretch;
     gap: $grid-6x;
-
-    > * {
-      min-height: 0;
-    }
   }
 }
 
-/* IMAGE */
+
+/* =========================================================
+   FEATURED IMAGE
+   ========================================================= */
 
 .portfolio-feature__image {
-  width: 100%;
-  padding: $grid-2x;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 1 auto;
+
+  min-height: 320px;
+  padding: $grid-3x;
 
   border-radius: $radius-lg;
   border: 1px solid $border-subtle;
   background: $surface;
 
+  overflow: hidden;
+
   @include interactive-surface($lift: $grid-0_5x);
 
   @include mq(lg) {
-    flex: 0 0 60%; // 👈 better than width
-    height: 380px;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background: linear-gradient(
-      to bottom,
-      transparent 40%,
-      rgba(0, 0, 0, 0.45)
-    );
-
-    opacity: 0;
-    transition: opacity $transition-base;
-    pointer-events: none;
-  }
-
-  &:hover::after {
-    opacity: 1;
+    flex: 0 0 60%;
+    min-height: 360px;
   }
 }
 
@@ -66,21 +53,31 @@
   display: block;
   width: 100%;
   height: 100%;
+  flex: 1 1 auto;
+
   object-fit: cover;
+  object-position: center;
+
   border-radius: $radius-md;
 }
 
-/* CONTENT */
+
+/* =========================================================
+   FEATURED CONTENT
+   ========================================================= */
 
 .portfolio-feature__content {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .portfolio-feature__content h3 {
   margin-top: $grid-4x;
   margin-bottom: $grid-0_5x;
+
   font-size: $text-xl;
   font-weight: $font-medium;
   color: $text;
@@ -97,43 +94,153 @@
 }
 
 .portfolio-feature__content a {
-  margin-top: $grid-10x; // 👈 consistent spacing
+  margin-top: $grid-8x;
 }
+
+
+/* =========================================================
+   TOKEN DIAGRAM
+   ========================================================= */
+
+.token-diagram {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $grid-6x;
+  flex: 1 1 auto;
+
+  width: 100%;
+  padding: $grid-6x;
+
+  @include mq-max(lg) {
+    gap: $grid-4x;
+    padding: $grid-4x;
+  }
+}
+
+.token-group {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: $grid-2x;
+  min-width: 0;
+}
+
+.token-group__label {
+  color: $text;
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  line-height: $leading-normal;
+
+  @include mq-max(lg) {
+    font-size: $text-xs;
+  }
+}
+
+.token-list {
+  display: flex;
+  flex-direction: column;
+  gap: $grid-1_5x;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.token-list li {
+  display: flex;
+  align-items: center;
+  gap: $grid-1_5x;
+}
+
+.token-connector {
+  position: relative;
+  width: $grid-3x;
+  height: 2px;
+  flex: 0 0 auto;
+
+  background: $border-strong;
+}
+
+.token-connector::before {
+  content: "";
+  position: absolute;
+  top: -$grid-1_5x;
+  left: 0;
+
+  width: 1px;
+  height: $grid-3x;
+
+  background: $border-subtle;
+}
+
+.token {
+  color: $text-muted;
+  font-size: $text-sm;
+  line-height: 1.2;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  @include mq-max(lg) {
+    font-size: $text-xs;
+  }
+}
+
+.token-diagram__footer {
+  margin-top: auto;
+  padding: 0 $grid-6x $grid-4x;
+
+  color: $text-subtle;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: $text-xs;
+  text-align: center;
+  line-height: $leading-normal;
+  letter-spacing: 0.02em;
+
+  @include mq-max(lg) {
+    padding: 0 $grid-4x $grid-3x;
+  }
+}
+
+
+/* =========================================================
+   ARTICLE IMAGES
+   ========================================================= */
 
 .portfolio__article-image {
+  display: block;
   width: auto;
   height: auto;
-  display: block;
+  max-width: 100%;
   margin: $grid-4x auto;
+
   border-radius: $radius-md;
 }
-
-/* FRAMING */
 
 .portfolio__image-frame {
   max-width: 100%;
   margin: $grid-5x auto;
   padding: $grid-4x;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+
   border-radius: $radius-lg;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.03);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
   overflow: hidden;
+}
 
-  &.portfolio__image-frame--adjusted {
-    max-width: 700px;
-  }
+.portfolio__image-frame--adjusted {
+  max-width: 700px;
 }
 
 .portfolio__image-frame .portfolio__article-image {
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
+  margin: 0;
+
   border-radius: $radius-md;
   transform-origin: center;
-  margin: 0;
 }
-
 
 
 /* =========================================================
@@ -142,8 +249,8 @@
 
 .portfolio-grid {
   display: grid;
-  gap: $grid-6x;
   grid-template-columns: 1fr;
+  gap: $grid-6x;
 
   @include mq(md) {
     grid-template-columns: repeat(2, 1fr);
@@ -156,36 +263,21 @@
    ========================================================= */
 
 .portfolio-card {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: $grid-2x;
-
-  padding: $grid-4x;
+  gap: $grid-3x;
+  padding: $grid-3x;
 
   border-radius: $radius-md;
   border: 1px solid $border-subtle;
   background: $surface;
 
+  overflow: hidden;
+
   @include interactive-surface();
 }
 
-.portfolio-card__content {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.portfolio-card__content .button {
-  margin-top: auto;
-}
-
-.portfolio-card p {
-  font-size: $text-md;
-  line-height: $leading-normal;
-  color: $text-muted;
-}
-
-/* Layer */
 .portfolio-card::before {
   content: "";
   position: absolute;
@@ -201,47 +293,62 @@
   pointer-events: none;
 }
 
-/* IMAGE */
-
 .portfolio-card__image {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  border-radius: $radius-sm;
+  min-height: 220px;
   overflow: hidden;
-  border: 1px solid $border-subtle;
-  background: $surface;
+  border-radius: $radius-md;
+}
 
-  aspect-ratio: 5 / 4;
+.portfolio-card__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
 
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 40%,
+    rgba(0, 0, 0, 0.35)
+  );
 
-    background: linear-gradient(
-      to bottom,
-      transparent 40%,
-      rgba(0, 0, 0, 0.45)
-    );
+  opacity: 0;
+  transition: opacity $transition-base;
+  pointer-events: none;
+}
 
-    opacity: 0;
-    transition: opacity $transition-base;
-    pointer-events: none;
-  }
+.portfolio-card:hover .portfolio-card__image::after {
+  opacity: 1;
 }
 
 .portfolio-card__image img {
+  display: block;
   width: 100%;
   height: 100%;
+
   object-fit: cover;
+  object-position: center;
+
+  border-radius: $radius-sm;
 
   transition:
     filter $transition-base,
     transform $transition-base;
 }
 
-.portfolio-card:hover .portfolio-card__image::after {
-  opacity: 1;
+.portfolio-card__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: $grid_1-5x;
+  padding-bottom: $grid;
+}
+
+.portfolio-card__content .button {
+  margin-top: auto;
 }
 
 .portfolio-card h4 {
@@ -250,14 +357,20 @@
   color: $text;
 }
 
+.portfolio-card p {
+  font-size: $text-md;
+  line-height: $leading-normal;
+  color: $text-muted;
+}
+
 
 /* =========================================================
-   SECTION WEB
+   WEB VARIANT
    ========================================================= */
 
 .section__web .portfolio-grid {
-  gap: $grid-5x;
   grid-template-columns: 1fr;
+  gap: $grid-5x;
   padding: $grid-4x 0 $grid-8x;
 
   @include mq(md) {
@@ -266,12 +379,12 @@
 }
 
 .section__web .portfolio-card {
-  padding: $grid-3x;
   gap: $grid-2x;
+  padding: $grid-3x;
 }
 
 .section__web .portfolio-card__image {
-  aspect-ratio: 4 / 3;
+  min-height: 180px;
 }
 
 .section__web .portfolio-card__content h4 {
@@ -280,9 +393,9 @@
 }
 
 .section__web .portfolio-card__content p {
+  max-width: 48ch;
   font-size: $text-md;
   line-height: $leading-normal;
-  max-width: 48ch;
 }
 
 .section__web .portfolio-card__content .button {

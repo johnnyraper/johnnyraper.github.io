@@ -34,47 +34,53 @@
 
 <body>
   <div class="layout-rails">
-    <main>
+    <div class="layout-diagonals" aria-hidden="true"></div>
 
-      <!-- HEADER -->
-      <header class="header">
-        <div class="section__grid">
-          <div class="section__inner">
-            <div class="logo"></div>
+    <header class="header">
+      <div class="container">
+        <div class="header__inner">
+          <div class="logo"></div>
 
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation"
-              aria-label="Open menu">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-navigation"
+            aria-label="Open menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
 
-            <nav class="site-nav" id="site-navigation" aria-label="Primary">
-              <ul class="navigation">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#portfolio">Portfolio</a></li>
-                <li><a href="about.html" class="is-active">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-              </ul>
-            </nav>
-          </div>
+          <nav class="site-nav" id="site-navigation" aria-label="Primary">
+            <ul class="navigation">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html#portfolio">Portfolio</a></li>
+              <li><a href="about.html" class="is-active">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
         </div>
-      </header>
+      </div>
+    </header>
+
+    <main>
 
       <!-- HERO -->
       <section class="section section__hero">
-        <div class="section__grid">
+        <div class="container">
           <div class="section__inner">
             <div class="section__intro">
               <div class="u-reading">
                 <p class="eyebrow">About</p>
 
                 <h1 class="display-xl">
-                  How I Work
+                  How I work
                 </h1>
 
                 <p>
-                  I work on complex product problems where clarity, constraints, and system-level thinking matter. I
+                  I work on complex product problems where clarity, constraints, and system-level thinking are important. I
                   enjoy collaborating closely with engineering and product partners to shape solutions that are both
                   usable and implementable, particularly in technically demanding environments.
                 </p>
@@ -86,7 +92,7 @@
 
       <!-- CONTENT -->
       <section class="section section--highlight">
-        <div class="section__grid">
+        <div class="container">
           <div class="section__inner">
 
             <div class="about-image-frame">
@@ -95,13 +101,13 @@
 
             <div class="u-reading">
               <p>
-                I'm a product designer based in London, with a background in computing visualisation and 2D/3D graphics.
+                I&rsquo;m a product designer based in London, with a background in computing visualisation and 2D/3D graphics.
                 My work often sits at the intersection of product design, design systems, and engineering, where
                 understanding constraints and trade-offs is as important as visual craft.
               </p>
 
               <p>
-                Over the past 15 years, I've worked across startups, scaleups, and established organisations on
+                Over the past 15 years, I&rsquo;ve worked across startups, scaleups, and established organisations on
                 technically complex products, including collaborations with Microsoft, CloudNC, Rafinex, Knight Frank,
                 and The Premier League. I bring a pragmatic, detail-oriented approach, combining strong design judgement
                 with an understanding of how design decisions translate into real, maintainable code.
@@ -133,7 +139,7 @@
                 translates effectively into buildable, maintainable solutions and supports smooth delivery across teams.
               </p>
 
-              <h2>Areas of Focus</h2>
+              <h2>Areas of focus</h2>
 
               <p>
                 My work typically focuses on the following areas:
@@ -159,17 +165,14 @@
 
       <!-- FOOTER -->
       <section class="section section--highlight section__footer" id="contact">
-        <div class="section__grid">
+        <div class="container">
           <div class="section__inner">
             <footer>
-              <h2>Contact Me</h2>
+              <h2>Contact me</h2>
               <p>
-                🌱 I'm always interested in thoughtful conversations.
-                <a href="mailto:johnnyraper@googlemail.com">Get in touch</a>.
-              </p>
-              <p>
-                Or find me on
-                <a href="https://www.linkedin.com/in/johnnyraper/" target="_blank">LinkedIn</a>.
+                I&rsquo;m always interested in thoughtful conversations. Please
+                <a href="mailto:johnnyraper@googlemail.com">get in touch</a> or reach out to me on <a
+                  href="https://www.linkedin.com/in/johnnyraper/" target="_blank">LinkedIn</a>.
               </p>
             </footer>
           </div>

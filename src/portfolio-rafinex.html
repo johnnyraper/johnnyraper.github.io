@@ -30,41 +30,41 @@
 
 <body>
   <div class="layout-rails">
-    <main>
+    <div class="layout-diagonals" aria-hidden="true"></div>
 
-      <!-- HEADER -->
-      <header class="header">
-        <div class="section__grid">
-          <div class="section__inner">
-            <div class="logo"></div>
+    <header class="header">
+      <div class="container">
+        <div class="header__inner">
+          <div class="logo"></div>
 
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation"
-              aria-label="Open menu">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation"
+            aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
 
-            <nav class="site-nav" id="site-navigation" aria-label="Primary">
-              <ul class="navigation">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#portfolio" class="is-active">Portfolio</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-              </ul>
-            </nav>
-          </div>
+          <nav class="site-nav" id="site-navigation" aria-label="Primary">
+            <ul class="navigation">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html#portfolio" class="is-active">Portfolio</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
         </div>
-      </header>
+      </div>
+    </header>
+
+    <main>
 
       <!-- HERO -->
       <section class="section section__hero">
-        <div class="section__grid">
+        <div class="container">
           <div class="section__inner">
             <div class="section__intro">
               <div class="u-reading">
-
-                <p class="eyebrow">Product Design</p>
+                <p class="eyebrow">Product design</p>
 
                 <h1 class="display-xl">
                   Rafinex <span class="serif-italic">M&ouml;bius</span>
@@ -74,7 +74,6 @@
                   UX, UI design and frontend development for a topology optimisation platform used to design
                   high-performance engineering components.
                 </p>
-
               </div>
             </div>
           </div>
@@ -83,7 +82,7 @@
 
       <!-- CASE STUDY -->
       <section class="section">
-        <div class="section__grid">
+        <div class="container">
           <div class="section__inner">
 
             <article class="portfolio__article">
@@ -94,8 +93,8 @@
 
                 <p>
                   M&ouml;bius is a topology optimisation platform used to design high-performance engineering
-                  components. It
-                  combines simulation, material constraints, and optimisation algorithms to generate manufacturable
+                  components. It combines simulation, material constraints, and optimisation algorithms to generate
+                  manufacturable
                   geometries.
                 </p>
 
@@ -140,8 +139,7 @@
 
                 <p class="portfolio__callout">
                   The goal was to create a system that balanced technical depth with clarity &mdash; enabling engineers
-                  to
-                  move quickly without sacrificing control.
+                  to move quickly without sacrificing control.
                 </p>
 
               </div>
@@ -266,8 +264,8 @@
                 </ul>
 
                 <p class="portfolio__callout">
-                  "M&ouml;bius is repeatedly being commended for its intuitive and ergonomic user-centricity by
-                  professional-level CAE engineers."
+                  &ldquo;M&ouml;bius is repeatedly being commended for its intuitive and ergonomic user-centricity by
+                  professional-level CAE engineers.&rdquo;
                 </p>
 
                 <p>&ndash; Andr&eacute; A.R. Wilmes, PhD. CEO &ndash; Rafinex SARL</p>
@@ -280,8 +278,8 @@
 
                 <p>
                   This work focused on making complex simulation workflows usable without reducing their technical
-                  depth.
-                  The emphasis was on structuring interaction patterns, improving clarity, and supporting efficient
+                  depth. The emphasis was on structuring interaction patterns, improving clarity, and supporting
+                  efficient
                   workflows within a specialised domain.
                 </p>
 
@@ -308,17 +306,14 @@
 
       <!-- FOOTER -->
       <section class="section section--highlight section__footer" id="contact">
-        <div class="section__grid">
+        <div class="container">
           <div class="section__inner">
             <footer>
-              <h2>Contact Me</h2>
+              <h2>Contact me</h2>
               <p>
-                🌱 I'm always interested in thoughtful conversations.
-                <a href="mailto:johnnyraper@googlemail.com">Get in touch</a>.
-              </p>
-              <p>
-                Or find me on
-                <a href="https://www.linkedin.com/in/johnnyraper/" target="_blank">LinkedIn</a>.
+                I&rsquo;m always interested in thoughtful conversations. Please
+                <a href="mailto:johnnyraper@googlemail.com">get in touch</a> or reach out to me on <a
+                  href="https://www.linkedin.com/in/johnnyraper/" target="_blank">LinkedIn</a>.
               </p>
             </footer>
           </div>
@@ -327,6 +322,8 @@
 
     </main>
   </div>
+
+  <script src="js/scripts.js"></script>
 </body>
 
 </html>

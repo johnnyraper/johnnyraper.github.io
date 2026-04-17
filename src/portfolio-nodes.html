@@ -34,41 +34,47 @@
 
 <body>
   <div class="layout-rails">
-    <main>
+    <div class="layout-diagonals" aria-hidden="true"></div>
 
-      <!-- HEADER -->
-      <header class="header">
-        <div class="section__grid">
-          <div class="section__inner">
-            <div class="logo"></div>
+    <header class="header">
+      <div class="container">
+        <div class="header__inner">
+          <div class="logo"></div>
 
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation"
-              aria-label="Open menu">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-navigation"
+            aria-label="Open menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
 
-            <nav class="site-nav" id="site-navigation" aria-label="Primary">
-              <ul class="navigation">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#portfolio" class="is-active">Portfolio</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-              </ul>
-            </nav>
-          </div>
+          <nav class="site-nav" id="site-navigation" aria-label="Primary">
+            <ul class="navigation">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html#portfolio" class="is-active">Portfolio</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
         </div>
-      </header>
+      </div>
+    </header>
+
+    <main>
 
       <!-- HERO -->
       <section class="section section__hero">
-        <div class="section__grid">
+        <div class="container">
           <div class="section__inner">
             <div class="section__intro">
               <div class="u-reading">
 
-                <p class="eyebrow">Product Design</p>
+                <p class="eyebrow">Product design</p>
 
                 <h1 class="display-xl">
                   Nodes &amp; Links
@@ -87,7 +93,7 @@
 
       <!-- CASE STUDY -->
       <section class="section">
-        <div class="section__grid">
+        <div class="container">
           <div class="section__inner">
 
             <article class="portfolio__article">
@@ -203,18 +209,27 @@
               </div>
 
               <div class="portfolio__image-frame">
-                <img class="portfolio__article-image portfolio__article-image--1400w"
-                  src="assets/nodes/design-system-fields.png" alt="" />
+                <img
+                  class="portfolio__article-image portfolio__article-image--1400w"
+                  src="assets/nodes/design-system-fields.png"
+                  alt=""
+                />
               </div>
 
               <div class="portfolio__image-frame">
-                <img class="portfolio__article-image portfolio__article-image--1400w"
-                  src="assets/nodes/design-system-search.png" alt="" />
+                <img
+                  class="portfolio__article-image portfolio__article-image--1400w"
+                  src="assets/nodes/design-system-search.png"
+                  alt=""
+                />
               </div>
 
               <div class="portfolio__image-frame">
-                <img class="portfolio__article-image portfolio__article-image--small"
-                  src="assets/nodes/design-system-date.png" alt="" />
+                <img
+                  class="portfolio__article-image portfolio__article-image--small"
+                  src="assets/nodes/design-system-date.png"
+                  alt=""
+                />
               </div>
 
               <div class="u-reading">
@@ -257,17 +272,14 @@
 
       <!-- FOOTER -->
       <section class="section section--highlight section__footer" id="contact">
-        <div class="section__grid">
+        <div class="container">
           <div class="section__inner">
             <footer>
-              <h2>Contact Me</h2>
+              <h2>Contact me</h2>
               <p>
-                🌱 I'm always interested in thoughtful conversations.
-                <a href="mailto:johnnyraper@googlemail.com">Get in touch</a>.
-              </p>
-              <p>
-                Or find me on
-                <a href="https://www.linkedin.com/in/johnnyraper/" target="_blank">LinkedIn</a>.
+                I&rsquo;m always interested in thoughtful conversations. Please
+                <a href="mailto:johnnyraper@googlemail.com">get in touch</a> or reach out to me on <a
+                  href="https://www.linkedin.com/in/johnnyraper/" target="_blank">LinkedIn</a>.
               </p>
             </footer>
           </div>
@@ -276,6 +288,8 @@
 
     </main>
   </div>
+
+  <script src="js/scripts.js"></script>
 </body>
 
 </html>

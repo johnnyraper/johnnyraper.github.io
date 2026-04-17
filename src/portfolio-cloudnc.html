@@ -34,40 +34,46 @@
 
 <body>
   <div class="layout-rails">
-    <main>
+    <div class="layout-diagonals" aria-hidden="true"></div>
 
-      <!-- HEADER -->
-      <header class="header">
-        <div class="section__grid">
-          <div class="section__inner">
-            <div class="logo"></div>
+    <header class="header">
+      <div class="container">
+        <div class="header__inner">
+          <div class="logo"></div>
 
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation"
-              aria-label="Open menu">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-navigation"
+            aria-label="Open menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
 
-            <nav class="site-nav" id="site-navigation" aria-label="Primary">
-              <ul class="navigation">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#portfolio" class="is-active">Portfolio</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-              </ul>
-            </nav>
-          </div>
+          <nav class="site-nav" id="site-navigation" aria-label="Primary">
+            <ul class="navigation">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html#portfolio" class="is-active">Portfolio</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
         </div>
-      </header>
+      </div>
+    </header>
+
+    <main>
 
       <!-- HERO -->
       <section class="section section__hero">
-        <div class="section__grid">
+        <div class="container">
           <div class="section__inner">
             <div class="section__intro">
               <div class="u-reading">
-                <p class="eyebrow">Product Design</p>
+                <p class="eyebrow">Product design</p>
 
                 <h1 class="display-xl">
                   CloudNC
@@ -85,7 +91,7 @@
 
       <!-- CASE STUDY -->
       <section class="section">
-        <div class="section__grid">
+        <div class="container">
           <div class="section__inner">
 
             <article class="portfolio__article">
@@ -134,8 +140,7 @@
                 <h2>Team and environment</h2>
 
                 <ul>
-                  <li>Worked within a cross-functional team of frontend and backend engineers alongside a UX designer.
-                  </li>
+                  <li>Worked within a cross-functional team of frontend and backend engineers alongside a UX designer.</li>
                   <li>Collaborated closely with engineering in an Agile environment with two-week sprints and continuous
                     iteration.</li>
                 </ul>
@@ -171,13 +176,19 @@
               </div>
 
               <div class="portfolio__image-frame">
-                <img class="portfolio__article-image portfolio__article-image--1400w"
-                  src="assets/cloudnc/website-header.png" alt="" />
+                <img
+                  class="portfolio__article-image portfolio__article-image--1400w"
+                  src="assets/cloudnc/website-header.png"
+                  alt=""
+                />
               </div>
 
               <div class="portfolio__image-frame">
-                <img class="portfolio__article-image portfolio__article-image--1400w"
-                  src="assets/cloudnc/website-all-pages.png" alt="" />
+                <img
+                  class="portfolio__article-image portfolio__article-image--1400w"
+                  src="assets/cloudnc/website-all-pages.png"
+                  alt=""
+                />
               </div>
 
               <div class="u-reading">
@@ -192,8 +203,7 @@
                   <li>Supported complex workflows involving geometry interpretation, tooling constraints, and
                     optimisation outputs.</li>
                   <li>Structured information and interaction patterns to improve clarity and usability.</li>
-                  <li>Maintained visual consistency while working within technical constraints of the underlying system.
-                  </li>
+                  <li>Maintained visual consistency while working within technical constraints of the underlying system.</li>
                 </ul>
               </div>
 
@@ -262,8 +272,11 @@
               </div>
 
               <div class="portfolio__image-frame portfolio__image-frame--adjusted">
-                <img class="portfolio__article-image portfolio__article-image--adjusted"
-                  src="assets/cloudnc/dpd-design-adjusted.png" alt="" />
+                <img
+                  class="portfolio__article-image portfolio__article-image--adjusted"
+                  src="assets/cloudnc/dpd-design-adjusted.png"
+                  alt=""
+                />
               </div>
 
               <div class="u-reading">
@@ -292,17 +305,14 @@
 
       <!-- FOOTER -->
       <section class="section section--highlight section__footer" id="contact">
-        <div class="section__grid">
+        <div class="container">
           <div class="section__inner">
             <footer>
-              <h2>Contact Me</h2>
+              <h2>Contact me</h2>
               <p>
-                🌱 I'm always interested in thoughtful conversations.
-                <a href="mailto:johnnyraper@googlemail.com">Get in touch</a>.
-              </p>
-              <p>
-                Or find me on
-                <a href="https://www.linkedin.com/in/johnnyraper/" target="_blank">LinkedIn</a>.
+                I&rsquo;m always interested in thoughtful conversations. Please
+                <a href="mailto:johnnyraper@googlemail.com">get in touch</a> or reach out to me on <a
+                  href="https://www.linkedin.com/in/johnnyraper/" target="_blank">LinkedIn</a>.
               </p>
             </footer>
           </div>
@@ -311,6 +321,8 @@
 
     </main>
   </div>
+
+  <script src="js/scripts.js"></script>
 </body>
 
 </html>

@@ -28,16 +28,15 @@
   position: absolute;
   inset: 0;
 
-  font-size: 13px;
+  font-size: 13px; // controlled for this element only
   letter-spacing: 0.1em;
-  opacity: 0.6;
   fill: $text;
 
   animation: rotateText 14s linear infinite;
 }
 
 .projects-badge__arrow {
-  font-size: 28px;
+  font-size: 28px; // controlled for this element only
   transform: translateY(2px);
   transition: transform $transition-base;
 }

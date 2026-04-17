@@ -115,31 +115,41 @@ a.logo__link {
    LOGO
    ========================================================= */
 
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.logo__link {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  line-height: 1;
-}
-
-.logo__name {
-  font-size: $text-md;
-  font-weight: $font-semibold;
+a.site-mark {
   color: $text;
-  letter-spacing: -0.01em;
+  text-decoration: none;
+  border-bottom: none;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
 }
 
-.logo__role {
-  margin-top: 2px;
-  font-size: $text-xs;
-  color: $text-subtle;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+.site-mark--font {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: $text-3xl; // your base size
+  letter-spacing: -0.17em;
+
+  color: $text;
+
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.4;
+  }
+}
+
+.site-mark span:first-child {
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.site-mark span:last-child {
+  font-weight: 400;
+  opacity: 0.6;
 }
 
 

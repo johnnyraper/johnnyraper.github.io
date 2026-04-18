@@ -1,0 +1,46 @@
+.projects-badge {
+  display: none;
+
+  @include mq(lg) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    position: relative;
+    overflow: hidden; // 🔥 critical
+
+    width: 140px;
+    height: 140px;
+
+    margin-top: $grid-8x;
+    align-self: flex-start;
+
+    text-decoration: none;
+    border: none;
+
+    transition: transform $transition-base, opacity $transition-base;
+
+    opacity: 0.7;
+  }
+}
+
+.projects-badge__svg {
+  position: absolute;
+  inset: 0;
+
+  font-size: 13px; // controlled for this element only
+  letter-spacing: 0.1em;
+  fill: $text;
+
+  animation: rotateText 14s linear infinite;
+}
+
+.projects-badge__arrow {
+  font-size: 28px; // controlled for this element only
+  transform: translateY(2px);
+  transition: transform $transition-base;
+}
+
+.projects-badge:hover .projects-badge__arrow {
+  transform: translateY(8px);
+}

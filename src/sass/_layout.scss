@@ -1,0 +1,98 @@
+/* =========================================================
+   LAYOUT DIAGONALS
+   ========================================================= */
+
+.layout-diagonals {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.layout-diagonals::before,
+.layout-diagonals::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: max(0px, calc((100% - #{$layout-max-width}) / 2));
+  opacity: 0.3;
+}
+
+.layout-diagonals::before {
+  left: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    $grid-line-strong,
+    $grid-line-strong 2px,
+    transparent 2px,
+    transparent 12px
+  );
+}
+
+.layout-diagonals::after {
+  right: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    $grid-line-strong,
+    $grid-line-strong 2px,
+    transparent 2px,
+    transparent 12px
+  );
+}
+
+/* =========================================================
+   SECTION BASE
+   ========================================================= */
+
+.section {
+  position: relative;
+}
+
+/* =========================================================
+   CONTENT WRAPPER
+   ========================================================= */
+
+.section__inner {
+  position: relative;
+  z-index: 1;
+  padding-block: var(--section-space, #{$grid-5x});
+}
+
+
+/* =========================================================
+   SECTION VARIANTS
+   ========================================================= */
+
+.section--highlight {
+  border-bottom: 1px solid $border-subtle;
+}
+
+
+/* =========================================================
+   LAYOUT MODIFIERS
+   ========================================================= */
+
+.section__wide {
+  @include mq(md) {
+    display: grid;
+    justify-content: center;
+  }
+}
+
+
+/* =========================================================
+   COLUMNS
+   ========================================================= */
+
+.column {
+  @include mq(md) {
+    max-width: 50%;
+  }
+}
+
+.column__content {
+  @include mq(md) {
+    max-width: 700px;
+  }
+}

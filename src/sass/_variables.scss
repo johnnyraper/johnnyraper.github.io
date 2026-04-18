@@ -1,29 +1,296 @@
-/* -------------------------------
-    GRID
-------------------------------- */
+/* =========================================================
+   ROOT TOKENS (SOURCE OF TRUTH)
+   ========================================================= */
+
+:root {
+   /* =========================
+     BACKGROUND / SURFACE
+     ========================= */
+
+   --bg: #070a12;
+   --surface: #0b0f17;
+   --surface-elevated: #0f1623;
+
+   --surface-glass: rgba(255, 255, 255, 0.02);
+   --surface-glass-strong: rgba(255, 255, 255, 0.04);
+
+   --overlay: rgba(255, 255, 255, 0.04);
+
+   /* =========================
+     TEXT
+     ========================= */
+
+   --text: #e2e7ed;
+   --text-muted: #95a5bc;
+   --text-subtle: #6b7a90;
+
+   /* =========================
+     ACCENT
+     ========================= */
+
+   --accent: #429af8;
+   --accent-hover: #327ac8;
+
+   --accent-soft: rgba(59, 130, 246, 0.14);
+   --accent-subtle: rgba(59, 130, 246, 0.22);
+   --accent-soft-hover: rgba(59, 130, 246, 0.18);
+
+   /* =========================
+     BORDER
+     ========================= */
+
+   --border-subtle: rgba(120, 160, 255, 0.08);
+   --border-strong: rgba(120, 160, 255, 0.18);
+   --border-emphasis: rgba(120, 160, 255, 0.6);
+
+   /* =========================
+     GRID / LINES
+     ========================= */
+
+   --grid-line-strong: rgba(255, 255, 255, 0.05);
+
+   /* =========================
+     TYPOGRAPHY
+     ========================= */
+
+   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+   --text-xs: 12px;
+   --text-sm: 14px;
+   --text-md: 16px;
+   --text-lg: 18px;
+   --text-xl: 24px;
+   --text-2xl: 32px;
+   --text-3xl: 44px;
+   --text-4xl: 56px;
+   --text-5xl: 68px;
+
+   /* Line Height */
+   --leading-tight: 1.1;
+   --leading-normal: 1.5;
+   --leading-relaxed: 1.6;
+
+   /* Font Weight */
+   --font-regular: 400;
+   --font-medium: 500;
+   --font-semibold: 600;
+
+   /* =========================
+     RADIUS
+     ========================= */
+
+   --radius-sm: 8px;
+   --radius-md: 12px;
+   --radius-lg: 16px;
+
+   /* =========================
+     SHADOW
+     ========================= */
+
+   --shadow-subtle: 0 12px 30px rgba(0, 0, 0, 0.4);
+   --shadow-strong: 0 20px 50px rgba(0, 0, 0, 0.5);
+
+   /* =========================
+     MOTION
+     ========================= */
+
+   --transition-base: 0.25s ease;
+
+   /* =========================
+     BACKGROUND GRADIENTS
+     ========================= */
+
+   --gradient-bg-primary:
+  radial-gradient(1400px 900px at 20% 25%,
+    var(--accent-soft),
+    transparent 60%);
+
+--gradient-bg-secondary:
+  radial-gradient(1200px 800px at 80% 75%,
+    var(--accent-subtle),
+    transparent 65%);
+}
+
+/* =========================
+   SPACING SYSTEM
+   ========================= */
 
 $grid: 8px;
-$grid-half: $grid * 0.5; // 4px
-$grid-2x: $grid * 2; // 16px
-$grid-3x: $grid * 3; // 24px
-$grid-4x: $grid * 4; // 32px
-$grid-5x: $grid * 5; // 40px
-$grid-6x: $grid * 6; // 48px
-$grid-7x: $grid * 7; // 56px
-$grid-8x: $grid * 8; // 64px
-$grid-9x: $grid * 9; // 72px
-$grid-10x: $grid * 10; // 80px
-$grid-11x: $grid * 11; // 88px
-$grid-12x: $grid * 12; // 96px
-$grid-13x: $grid * 13; // 104px
 
-// ACTUAL COLOURS
+$grid-0_5x: $grid / 2;
+$grid-1_5x: $grid * 1.5;
+$grid-2x: $grid * 2;
+$grid-3x: $grid * 3;
+$grid-4x: $grid * 4;
+$grid-5x: $grid * 5;
+$grid-6x: $grid * 6;
+$grid-7x: $grid * 7;
+$grid-8x: $grid * 8;
+$grid-9x: $grid * 9;
+$grid-10x: $grid * 10;
+$grid-12x: $grid * 12;
 
-$color-white: #fff;
-$color-accent: #5e0ede;
-$color-primary: #333;
+/* =========================
+   BREAKPOINTS (STANDARDISED)
+   ========================= */
 
-$transition: 0.3s all;
+$bp-sm: 640px; // mobile → large mobile
+$bp-md: 768px; // tablet
+$bp-lg: 1024px; // small desktop
+$bp-xl: 1280px; // desktop
+$bp-2xl: 1536px; // large screens
 
-$font-fancy: "El Messiri", sans-serif;
-$font-body: "Rosario", serif;
+@mixin mq($bp) {
+   @if $bp ==sm {
+      @media (min-width: $bp-sm) {
+         @content;
+      }
+   }
+
+   @if $bp ==md {
+      @media (min-width: $bp-md) {
+         @content;
+      }
+   }
+
+   @if $bp ==lg {
+      @media (min-width: $bp-lg) {
+         @content;
+      }
+   }
+
+   @if $bp ==xl {
+      @media (min-width: $bp-xl) {
+         @content;
+      }
+   }
+
+   @if $bp ==2xl {
+      @media (min-width: $bp-2xl) {
+         @content;
+      }
+   }
+}
+
+@mixin mq-max($bp) {
+   @if $bp ==lg {
+      @media (max-width: $bp-lg) {
+         @content;
+      }
+   }
+}
+
+/* =========================
+   SURFACE
+   ========================= */
+
+$bg: var(--bg);
+$surface: var(--surface);
+$surface-elevated: var(--surface-elevated);
+
+$surface-glass: var(--surface-glass);
+$surface-glass-strong: var(--surface-glass-strong);
+
+$overlay: var(--overlay);
+
+
+/* =========================
+   TEXT
+   ========================= */
+
+$text: var(--text);
+$text-muted: var(--text-muted);
+$text-subtle: var(--text-subtle);
+
+
+/* =========================
+   ACCENT
+   ========================= */
+
+$accent: var(--accent);
+$accent-hover: var(--accent-hover);
+
+$accent-subtle: var(--accent-subtle);
+$accent-soft: var(--accent-soft);
+$accent-soft-hover: var(--accent-soft-hover);
+
+
+/* =========================
+   BORDER
+   ========================= */
+
+$border-subtle: var(--border-subtle);
+$border-strong: var(--border-strong);
+$border-emphasis: var(--border-emphasis);
+
+
+/* =========================
+   GRID / LINES
+   ========================= */
+
+$grid-line-strong: var(--grid-line-strong);
+
+/* =========================
+   LAYOUT COLUMNS
+   ========================= */
+
+$layout-max-width-columns: 150;
+$layout-max-width: $grid * $layout-max-width-columns;
+
+
+/* =========================
+   TYPOGRAPHY
+   ========================= */
+
+$font-body: var(--font-sans);
+
+$text-xs: var(--text-xs);
+$text-sm: var(--text-sm);
+$text-md: var(--text-md);
+$text-lg: var(--text-lg);
+$text-xl: var(--text-xl);
+$text-2xl: var(--text-2xl);
+$text-3xl: var(--text-3xl);
+$text-4xl: var(--text-4xl);
+$text-5xl: var(--text-5xl);
+
+
+$leading-tight: var(--leading-tight);
+$leading-normal: var(--leading-normal);
+$leading-relaxed: var(--leading-relaxed);
+
+$font-regular: var(--font-regular);
+$font-medium: var(--font-medium);
+$font-semibold: var(--font-semibold);
+
+
+/* =========================
+   RADIUS
+   ========================= */
+
+$radius-sm: var(--radius-sm);
+$radius-md: var(--radius-md);
+$radius-lg: var(--radius-lg);
+
+
+/* =========================
+   SHADOW
+   ========================= */
+
+$shadow-subtle: var(--shadow-subtle);
+$shadow-strong: var(--shadow-strong);
+
+
+/* =========================
+   MOTION
+   ========================= */
+
+$transition-base: var(--transition-base);
+
+
+/* =========================
+   BACKGROUNDS
+   ========================= */
+
+$gradient-bg-primary: var(--gradient-bg-primary);
+$gradient-bg-secondary: var(--gradient-bg-secondary);

@@ -1,35 +1,55 @@
+/* =========================================================
+   GUTTER
+   ========================================================= */
+
 .u-gutter {
-  padding-right: $grid-4x;
-  padding-left: $grid-4x;
+  padding-inline: $grid-4x;
 
-  @media only screen and (min-width: 768px) {
-    padding-right: $grid-6x;
-    padding-left: $grid-6x;
+  @include mq(md) {
+    padding-inline: $grid-6x;
   }
 
-  @media only screen and (min-width: 1024px) {
-    padding-right: 100px;
-    padding-left: 100px;
+  @include mq(lg) {
+    padding-inline: $grid * 12.5; // 100px → tokenised
   }
 }
 
-.u-border-soft {
-  border: 1px solid #eee;
-  box-shadow: 0 5px 5px 0 rgba(51, 51, 51, 0.1);
+
+/* =========================================================
+   BORDERS
+   ========================================================= */
+
+.u-border-top {
+  border-top: 1px solid $border-subtle;
 }
+
+
+/* =========================================================
+   READING WIDTH
+   ========================================================= */
 
 .u-reading {
-  max-width: 700px;
+  max-width: 700px; // layout-bound
   margin: auto;
   position: relative;
   z-index: 15;
 }
 
+
+/* =========================================================
+   FLEX HELPERS
+   ========================================================= */
+
 .u-stacked-flex {
-  @media only screen and (min-width: 1024px) {
+  @include mq(lg) {
     display: flex;
   }
 }
+
+
+/* =========================================================
+   SPACING UTILITIES
+   ========================================================= */
 
 .u-margin-top-3x {
   margin-top: $grid-3x;
@@ -47,15 +67,20 @@
   margin-bottom: 0;
 }
 
-.u-separator {
-  padding: 0 $grid;
-  font-size: 20px;
+.u-buffer-space {
+  margin-top: $grid-4x;
 }
 
 .u-unlinked {
   margin-bottom: $grid-6x;
 }
 
-.u-buffer-space {
-  margin-top: $grid-4x;
+
+/* =========================================================
+   MISC
+   ========================================================= */
+
+.u-separator {
+  padding-inline: $grid;
+  font-size: $text-md; // 20px → tokenised
 }

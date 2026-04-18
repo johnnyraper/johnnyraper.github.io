@@ -1,19 +1,226 @@
+/* =========================================================
+   HEADER / NAVIGATION
+   ========================================================= */
+
+.header {
+  position: sticky;
+  top: $grid-2x;
+  z-index: 100;
+  width: 100%;
+}
+
+.header__inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $grid-3x;
+  min-height: $grid-10x;
+}
+
+.site-nav {
+  margin-left: auto;
+
+  @include mq-max(lg) {
+    position: absolute;
+    top: calc(100% + #{$grid-2x});
+    right: 0;
+    left: 0;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+
+    transition:
+      opacity $transition-base,
+      visibility $transition-base,
+      transform $transition-base;
+  }
+}
+
+.site-nav.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   NAV LIST
+   ========================================================= */
+
 .navigation {
-  @media screen and (min-width: 500px) {
-    display: flex;
+  display: flex;
+  align-items: center;
+  gap: $grid-2x;
+  margin: 0;
+  padding: 0;
+
+  @include mq-max(lg) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: $grid-1_5x;
+
+    padding: $grid-2x;
+
+    border: 1px solid $border-subtle;
+    border-radius: $radius-lg;
+
+    background:
+      linear-gradient(180deg, $surface-glass-strong, rgba(255, 255, 255, 0.02)),
+      $surface;
+
+    box-shadow: $shadow-strong;
+    backdrop-filter: blur(12px);
+  }
+}
+
+.navigation li {
+  margin: 0;
+  list-style: none;
+}
+
+.navigation a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 40px;
+  padding: 0 $grid-2x;
+
+  border: 1px solid transparent;
+  border-radius: $radius-md;
+
+  color: $text-muted;
+  background: transparent;
+
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  line-height: 1;
+  text-decoration: none;
+
+  transition:
+    color $transition-base,
+    background-color $transition-base,
+    border-color $transition-base,
+    box-shadow $transition-base,
+    transform $transition-base;
+
+  @include mq-max(lg) {
+    justify-content: flex-start;
+    min-height: 44px;
+    padding: 0 $grid-2x;
+    background: transparent;
+    border-color: transparent;
+  }
+}
+
+.navigation a:hover {
+  color: $text;
+  background: $surface-glass;
+  border-color: $border-subtle;
+}
+
+.navigation a:focus-visible {
+  outline: none;
+  color: $text;
+  background: $surface-glass-strong;
+  border-color: $border-emphasis;
+  box-shadow: 0 0 0 3px $accent-subtle;
+}
+
+.navigation a:active {
+  transform: translateY(1px);
+}
+
+.navigation a.is-active {
+  color: $text;
+  background: $accent-soft;
+  border-color: $border-strong;
+}
+
+
+/* =========================================================
+   MOBILE TOGGLE
+   ========================================================= */
+
+.nav-toggle {
+  display: none;
+  position: relative;
+  z-index: 30;
+
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  margin-left: auto;
+
+  border: 1px solid $border-subtle;
+  border-radius: $radius-md;
+  background: $surface-glass;
+  box-shadow: $shadow-subtle;
+
+  appearance: none;
+  cursor: pointer;
+
+  transition:
+    background-color $transition-base,
+    border-color $transition-base,
+    box-shadow $transition-base;
+
+  @include mq-max(lg) {
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
   }
+}
 
-  li {
-    margin: $grid-2x 0;
-    list-style: none;
+.nav-toggle:hover {
+  background: $surface-glass-strong;
+  border-color: $border-strong;
+}
 
-    @media screen and (min-width: 500px) {
-      margin: 0 $grid-2x;
-    }
+.nav-toggle:focus-visible {
+  outline: none;
+  border-color: $border-emphasis;
+  box-shadow: 0 0 0 3px $accent-subtle;
+}
 
-    @media screen and (min-width: 600px) {
-      margin: 0 $grid-3x;
-    }
-  }
+.nav-toggle span {
+  position: absolute;
+  left: 11px;
+  right: 11px;
+  height: 2px;
+  border-radius: 999px;
+  background: $text;
+
+  transition:
+    transform $transition-base,
+    opacity $transition-base,
+    top $transition-base;
+}
+
+.nav-toggle span:nth-child(1) {
+  top: 14px;
+}
+
+.nav-toggle span:nth-child(2) {
+  top: 21px;
+}
+
+.nav-toggle span:nth-child(3) {
+  top: 28px;
+}
+
+.nav-toggle.is-open span:nth-child(1) {
+  top: 21px;
+  transform: rotate(45deg);
+}
+
+.nav-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.is-open span:nth-child(3) {
+  top: 21px;
+  transform: rotate(-45deg);
 }

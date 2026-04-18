@@ -1,8 +1,21 @@
-@import "reset";
 @import "variables";
+@import "mixins";
+
+/* 1. Foundations */
+@import "reset";
 @import "typography";
 @import "utils";
+
+/* 2. Structural layout */
+@import "layout";
+
+/* 3. Global styles */
+@import "backgrounds";
 @import "animations";
+@import "interactions";
 @import "main";
+
+/* 4. Components */
 @import "navigation";
+@import "hero";
 @import "portfolio";

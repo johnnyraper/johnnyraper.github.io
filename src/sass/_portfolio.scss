@@ -1,266 +1,404 @@
-.portfolio {
-  &__group {
-    justify-content: center;
+/* =========================================================
+   FEATURED
+   ========================================================= */
 
-    &:last-of-type {
-      margin-bottom: $grid-7x;
-    }
+.portfolio-feature {
+  display: flex;
+  flex-direction: column;
+  gap: $grid-6x;
+}
 
-    @media screen and (min-width: 1024px) {
-      display: flex;
-      margin-bottom: 160px;
-    }
+.portfolio-feature__item {
+  display: flex;
+  flex-direction: column;
+  gap: $grid-4x;
 
-    @media screen and (max-width: 1024px) {
-      display: flex;
-      flex-direction: column;
-    }
-
-    &--increased-spacing-mobile {
-      margin-top: $grid-10x;
-
-      @media screen and (min-width: 1024px) {
-        margin-top: 0;
-      }
-    }
+  @include mq(lg) {
+    flex-direction: row;
+    align-items: stretch;
+    gap: $grid-6x;
   }
+}
 
-  &__image-title {
-    margin: $grid-8x 0 $grid-4x;
+
+/* =========================================================
+   FEATURED IMAGE
+   ========================================================= */
+
+.portfolio-feature__image {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 1 auto;
+
+  min-height: 320px;
+  padding: $grid-3x;
+
+  border-radius: $radius-lg;
+  border: 1px solid $border-subtle;
+  background: $surface;
+
+  overflow: hidden;
+
+  @include interactive-surface($lift: $grid-0_5x);
+
+  @include mq(lg) {
+    flex: 0 0 60%;
+    min-height: 360px;
   }
+}
 
-  &__image {
-    padding: $grid-2x;
-    border: 1px dotted $color-accent;
+.portfolio-feature__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  flex: 1 1 auto;
 
-    @media screen and (min-width: 1024px) {
-      position: relative;
-    }
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: $radius-md;
+}
+
+
+/* =========================================================
+   FEATURED CONTENT
+   ========================================================= */
+
+.portfolio-feature__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.portfolio-feature__content h3 {
+  margin-top: $grid-4x;
+  margin-bottom: $grid-0_5x;
+
+  font-size: $text-xl;
+  font-weight: $font-medium;
+  color: $text;
+
+  @include mq(lg) {
+    margin-top: 0;
   }
+}
 
-  &__image-container {
-    @media screen and (min-width: 1024px) {
-      display: flex;
-      position: relative;
-      flex-direction: column;
-      justify-content: space-between;
-      max-width: 60%;
-    }
+.portfolio-feature__content p {
+  max-width: 48ch;
+  line-height: $leading-normal;
+  color: $text-muted;
+}
 
-    @media screen and (max-width: 1024px) {
-      order: 2;
-    }
+.portfolio-feature__content a {
+  margin-top: $grid-8x;
+}
 
-    &--reduced {
-      @media screen and (min-width: 1024px) {
-        max-width: 60%;
-      }
-    }
 
-    &:hover {
-      .portfolio__overlay {
-        border: 1px dotted $color-accent;
-        opacity: 0.95;
-      }
-    }
+/* =========================================================
+   TOKEN DIAGRAM
+   ========================================================= */
 
-    a {
-      border-bottom: none;
-    }
+.token-diagram {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $grid-6x;
+  flex: 1 1 auto;
+
+  width: 100%;
+  padding: $grid-6x;
+
+  @include mq-max(lg) {
+    gap: $grid-4x;
+    padding: $grid-4x;
   }
+}
 
-  &__overlay {
-    display: none;
+.token-group {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: $grid-2x;
+  min-width: 0;
+}
 
-    @media screen and (min-width: 1024px) {
-      display: flex;
-      position: absolute;
-      top: 0;
-      left: 0;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      transition: $transition;
-      background: #fafafa;
-      opacity: 0;
+.token-group__label {
+  color: $text;
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  line-height: $leading-normal;
 
-      p {
-        display: inline-block;
-        padding: $grid-4x;
-        color: $color-accent;
-        font-size: 20px;
-        line-height: 1.55;
-
-        @media screen and (min-width: 1200px) {
-          max-width: 80%;
-          font-size: 28px;
-        }
-      }
-    }
+  @include mq-max(lg) {
+    font-size: $text-xs;
   }
+}
 
-  &__summary {
-    font-family: $font-body;
+.token-list {
+  display: flex;
+  flex-direction: column;
+  gap: $grid-1_5x;
 
-    @media screen and (min-width: 1024px) {
-      width: 40%;
-    }
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
-    @media screen and (max-width: 1024px) {
-      order: 1;
-    }
+.token-list li {
+  display: flex;
+  align-items: center;
+  gap: $grid-1_5x;
+}
 
-    &--left {
-      @media screen and (min-width: 1024px) {
-        padding-right: $grid-7x;
-      }
-    }
+.token-connector {
+  position: relative;
+  width: $grid-3x;
+  height: 2px;
+  flex: 0 0 auto;
 
-    &--right {
-      @media screen and (min-width: 1024px) {
-        padding-left: $grid-7x;
-      }
-    }
+  background: $border-strong;
+}
 
-    h2 {
-      margin: $grid-4x 0;
-      color: $color-accent;
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 1.55;
-    }
+.token-connector::before {
+  content: "";
+  position: absolute;
+  top: -$grid-1_5x;
+  left: 0;
 
-    p {
-      font-size: 20px;
-      line-height: 1.55;
+  width: 1px;
+  height: $grid-3x;
 
-      @media screen and (min-width: 1024px) {
-        max-width: 80%;
-      }
-    }
+  background: $border-subtle;
+}
 
-    a {
-      display: inline-block;
-      margin: $grid-4x 0 $grid-6x;
-      padding: 0;
-      transform: translate(0, 0);
-      transition: $transition;
-      font-size: 20px;
+.token {
+  color: $text-muted;
+  font-size: $text-sm;
+  line-height: 1.2;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-      @media screen and (min-width: 1024px) {
-        margin: $grid-12x 0 0;
-      }
-
-      &:hover {
-        display: inline-block;
-        padding-left: $grid-3x;
-      }
-    }
+  @include mq-max(lg) {
+    font-size: $text-xs;
   }
+}
 
-  &__article {
-    display: flex;
-    flex-direction: column;
+.token-diagram__footer {
+  margin-top: auto;
+  padding: 0 $grid-6x $grid-4x;
 
-    @media screen and (min-width: 768px) {
-      padding-top: $grid-6x;
-    }
+  color: $text-subtle;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: $text-xs;
+  text-align: center;
+  line-height: $leading-normal;
+  letter-spacing: 0.02em;
 
-    h4 {
-      color: $color-accent;
-    }
-
-    h3 {
-      margin: $grid-5x 0 $grid-2x;
-      color: $color-accent;
-      font-size: 26px;
-
-      @media screen and (min-width: 768px) {
-        margin: $grid-8x 0 $grid-4x;
-      }
-    }
-
-    h2 {
-      margin: 0;
-
-      @media screen and (min-width: 768px) {
-        margin: $grid-6x 0;
-      }
-    }
+  @include mq-max(lg) {
+    padding: 0 $grid-4x $grid-3x;
   }
+}
 
-  &__article-image {
-    max-width: 100%;
-    margin: $grid-4x auto;
 
-    @media screen and (min-width: 768px) {
-      margin: $grid-5x auto;
-    }
+/* =========================================================
+   ARTICLE IMAGES
+   ========================================================= */
 
-    @media screen and (min-width: 1200px) {
-      margin: $grid-8x auto;
-    }
+.portfolio__article-image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  margin: $grid-4x auto;
 
-    @media screen and (min-width: 1800px) {
-      max-width: 1600px;
-    }
+  border-radius: $radius-md;
+}
 
-    &--1400w {
-      max-width: 100%;
+.portfolio__image-frame {
+  max-width: 100%;
+  margin: $grid-5x auto;
+  padding: $grid-4x;
 
-      @media screen and (min-width: 1600px) {
-        max-width: 1400px;
-      }
-    }
+  border-radius: $radius-lg;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
 
-    &--small {
-      width: 50%;
-    }
+.portfolio__image-frame--adjusted {
+  max-width: 700px;
+}
 
-    &--50 {
-      @media screen and (min-width: 1600px) {
-        max-width: 50%;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: $grid-8x;
-      }
-    }
+.portfolio__image-frame .portfolio__article-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+
+  border-radius: $radius-md;
+  transform-origin: center;
+}
+
+
+/* =========================================================
+   GRID
+   ========================================================= */
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $grid-6x;
+
+  @include mq(md) {
+    grid-template-columns: repeat(2, 1fr);
   }
+}
 
-  &__introduction {
-    @media screen and (min-width: 1024px) {
-      max-width: 700px;
-    }
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.portfolio-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: $grid-3x;
+  padding: $grid-3x;
+
+  border-radius: $radius-md;
+  border: 1px solid $border-subtle;
+  background: $surface;
+
+  overflow: hidden;
+
+  @include interactive-surface();
+}
+
+.portfolio-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom right,
+    $surface-glass,
+    transparent
+  );
+
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.portfolio-card__image {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 220px;
+  overflow: hidden;
+  border-radius: $radius-md;
+}
+
+.portfolio-card__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    transparent 40%,
+    rgba(0, 0, 0, 0.35)
+  );
+
+  opacity: 0;
+  transition: opacity $transition-base;
+  pointer-events: none;
+}
+
+.portfolio-card:hover .portfolio-card__image::after {
+  opacity: 1;
+}
+
+.portfolio-card__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: $radius-sm;
+
+  transition:
+    filter $transition-base,
+    transform $transition-base;
+}
+
+.portfolio-card__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: $grid_1-5x;
+  padding-bottom: $grid;
+}
+
+.portfolio-card__content .button {
+  margin-top: auto;
+}
+
+.portfolio-card h4 {
+  font-size: $text-md;
+  font-weight: $font-medium;
+  color: $text;
+}
+
+.portfolio-card p {
+  font-size: $text-md;
+  line-height: $leading-normal;
+  color: $text-muted;
+}
+
+
+/* =========================================================
+   WEB VARIANT
+   ========================================================= */
+
+.section__web .portfolio-grid {
+  grid-template-columns: 1fr;
+  gap: $grid-5x;
+  padding: $grid-4x 0 $grid-8x;
+
+  @include mq(md) {
+    grid-template-columns: repeat(3, 1fr);
   }
+}
 
-  &__two-columns {
-    display: flex;
-    align-items: flex-start;
-    max-width: 1600px;
-    margin: auto;
+.section__web .portfolio-card {
+  gap: $grid-2x;
+  padding: $grid-3x;
+}
 
-    .portfolio__article-image {
-      width: 40%;
-    }
+.section__web .portfolio-card__image {
+  min-height: 180px;
+}
 
-    &--hero-left {
-      .portfolio__article-image {
-        &:first-of-type {
-          width: 50%;
-        }
+.section__web .portfolio-card__content h4 {
+  font-size: $text-md;
+  font-weight: $font-semibold;
+}
 
-        &:last-of-type {
-          width: 25%;
-        }
-      }
-    }
-  }
+.section__web .portfolio-card__content p {
+  max-width: 48ch;
+  font-size: $text-md;
+  line-height: $leading-normal;
+}
 
-  &__callout {
-    margin: $grid-7x auto;
-    color: $color-accent;
-    font-family: $font-fancy;
-    font-size: 32px;
-  }
+.section__web .portfolio-card__content .button {
+  margin-top: auto;
+  align-self: flex-start;
 }

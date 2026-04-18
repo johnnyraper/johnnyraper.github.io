@@ -1,3 +1,7 @@
+/* =========================================================
+   RESET
+   ========================================================= */
+
 html,
 body {
   margin: 0;
@@ -8,69 +12,258 @@ html {
   scroll-behavior: smooth;
 }
 
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
 body {
-  background-color: $color-white;
-  color: $color-primary;
+  background: $bg;
+  color: $text;
   font-family: $font-body;
+  font-weight: $font-regular;
+  line-height: $leading-normal;
 }
 
-a {
-  display: inline-block;
-  transition: $transition;
-  border-bottom: 1px solid lighten($color-accent, 40%);
-  color: $color-accent;
-  line-height: 1.5;
-  text-decoration: none;
-
-  &:active,
-  &:visited {
-    color: $color-accent;
-  }
-
-  &:hover {
-    transition: $transition;
-    color: lighten($color-accent, 20%);
-  }
-
-  &.logo__link {
-    border: none;
-  }
+.layout-rails {
+  position: relative;
+  min-height: 100vh;
+  z-index: 0;
 }
 
 main {
-  max-width: 2560px;
+  position: relative;
+  z-index: 1;
+}
+
+
+/* =========================================================
+   DECORATIVE RAILS
+   ========================================================= */
+
+.layout-rails::before,
+.layout-rails::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: $grid-line-strong;
+  pointer-events: none;
+}
+
+.layout-rails::before {
+  left: calc((100% - #{$layout-max-width}) / 2);
+}
+
+.layout-rails::after {
+  right: calc((100% - #{$layout-max-width}) / 2);
+}
+
+
+/* =========================================================
+   LAYOUT PRIMITIVES
+   ========================================================= */
+
+.container {
+  width: 100%;
+  max-width: $layout-max-width;
   margin: 0 auto;
+  padding-inline: $grid-4x;
+
+  @include mq(md) {
+    padding-inline: $grid-6x;
+  }
 }
 
-header {
-  display: flex;
+.section__inner,
+.section__inner-content {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+  display: inline-block;
+  border-bottom: 1px solid $border-subtle;
+  color: $accent;
+  text-decoration: none;
+  line-height: $leading-normal;
+  font-weight: $font-medium;
+  transition: color $transition-base;
+}
+
+a:hover {
+  color: $accent-hover;
+}
+
+a:visited,
+a:active {
+  color: $accent;
+}
+
+a.logo__link {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+a.site-mark {
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: none;
+  color: color-mix(in srgb, $text 80%, transparent);
+  opacity: 0.8;
+}
+
+.site-mark--styled span {
+  font-family: "Kotta One";
+  font-size: $text-2xl;
+  font-style: italic;
+
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+
+/* =========================================================
+   ELEMENTS
+   ========================================================= */
+
+hr {
+  border: none;
+  border-top: 1px solid $border-subtle;
+  margin: $grid-5x auto;
+}
+
+.frame {
+  border: 1px solid $border-subtle;
+  background: $surface;
+}
+
+.button {
+  display: inline-flex;
+  width: fit-content;
   align-items: center;
-  justify-content: space-between;
-  padding: $grid-2x $grid-2x 0;
+  gap: $grid-0_5x;
+  padding: $grid $grid-2x;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: #ffffff;
+  color: #000000;
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform $transition-base,
+    background $transition-base,
+    box-shadow $transition-base,
+    border-color $transition-base;
 
-  @media screen and (min-width: 500px) {
-    padding: $grid-4x;
-  }
-
-  @media screen and (min-width: 768px) {
-    position: fixed;
-    width: 100%;
-    padding: $grid-6x;
-    z-index: 10;
-  }
-
-  @media screen and (min-width: 1024px) {
-    position: fixed;
-    padding: $grid-8x;
-    z-index: 10;
-  }
-
-  a {
-    font-size: 20px;
+  &:hover,
+  &:visited,
+  &:active {
+    color: #000000;
   }
 }
+
+.button:hover {
+  border-color: $border-strong;
+  transform: translateY(-$grid-0_5x);
+  background: #c8d1ef;
+  box-shadow: $shadow-subtle;
+}
+
+
+/* =========================================================
+   SECTION VARIANTS
+   ========================================================= */
+
+.section__hero {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border-bottom: 1px solid $border-subtle;
+
+  @include mq(md) {
+    padding: 0;
+  }
+}
+
+
+/* =========================================================
+   PAGE SECTIONS
+   ========================================================= */
+
+.section__portfolio {
+  @include mq(md) {
+    min-height: 100vh;
+  }
+}
+
+.section__about {
+  @include mq(lg) {
+    min-height: 50vh;
+    padding-top: $grid * 25; // 200px
+  }
+
+  @include mq(xl) {
+    min-height: 100vh;
+    padding-top: $grid * 12.5; // 100px
+  }
+}
+
+.section__about h1 {
+  font-size: $text-2xl;
+  line-height: $leading-tight;
+
+  @include mq(xl) {
+    font-size: $text-3xl;
+    line-height: $leading-tight;
+  }
+}
+
+.about-image-frame {
+  max-width: 480px;
+  margin: 0 auto $grid-5x;
+  aspect-ratio: 3 / 4;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: $radius-lg;
+  }
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.section__footer {
+  border-top: 1px solid $border-subtle;
+}
+
+.section__footer a {
+  display: inline;
+}
+
+
+/* =========================================================
+   MEDIA
+   ========================================================= */
 
 video {
+  display: block;
   margin: auto;
   cursor: pointer;
 }
@@ -80,283 +273,64 @@ video {
   margin: $grid-10x auto;
 }
 
-.section {
-  padding-top: $grid-3x;
-  padding-bottom: $grid-3x;
 
-  @media screen and (min-width: 768px) {
-    min-height: 100vh;
-    padding-top: $grid-10x;
-    padding-bottom: $grid-10x;
-  }
-
-  @media screen and (min-width: 1024px) {
-    min-height: 100vh;
-  }
-
-  &__hero {
-    background: linear-gradient(45deg, #ffffff 25%, transparent 25%), linear-gradient(315deg, #ffffff 25%, transparent 25%), linear-gradient(45deg, transparent 24%, #F4EEFD 25%, #F4EEFD 30%, transparent 31%, transparent 39%, #F4EEFD 40%, #F4EEFD 45%, transparent 45%), linear-gradient(315deg, transparent 24%, #F4EEFD 25%, #F4EEFD 30%, transparent 31%, transparent 39%, #F4EEFD 40%, #F4EEFD 45%, transparent 45%);
-    background-size: 1em 1em;
-    background-color: #ffffff;
-
-    @media screen and (min-width: 768px) {
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-  }
-
-  &--highlight {
-    border-top: 1px dotted $color-accent;
-    background: $color-white;
-  }
-
-  &__intro {
-    display: grid;
-    align-items: stretch;
-    justify-content: center;
-    max-width: 1200px;
-    margin: $grid-4x auto $grid-7x;
-    color: $color-primary;
-
-    @media screen and (min-width: 768px) {
-      align-items: center;
-      min-height: 100vh;
-      margin: 0 auto;
-    }
-
-    h1 {
-      font-family: $font-body;
-      font-size: 36px;
-      font-weight: 700;
-
-      @media screen and (min-width: 768px) {
-        font-size: 56px;
-      }
-    }
-  }
-
-  &__intro-content {
-    background: $color-white;
-    padding: $grid-5x;
-
-    @media screen and (min-width: 768px) and (orientation: landscape) {
-      margin-top: $grid-9x;
-      padding: $grid-8x $grid-8x $grid-6x;
-      border-radius: $grid-5x;
-      background-color: rgba(255, 255, 255, 0.6);
-    }
-
-    p {
-      color: #666;
-      font-family: $font-body;
-      font-size: 28px;
-      font-weight: 100;
-      line-height: 1.35;
-
-      @media screen and (min-width: 768px) {
-        max-width: 800px;
-        line-height: 1.35;
-      }
-    }
-  }
-
-  &__portfolio {
-    @media screen and (min-width: 768px) {
-      min-height: 100vh;
-    }
-  }
-
-  &__about {
-    @media screen and (min-width: 1024px) {
-      min-height: 50vh;
-      padding-top: 200px;
-    }
-
-    @media screen and (min-width: 1200px) {
-      min-height: 100vh;
-      padding-top: 100px;
-    }
-
-    h1 {
-      font-family: $font-body;
-      font-size: 50px;
-      line-height: 1.2;
-
-      @media screen and (min-width: 1200px) {
-        font-size: 80px;
-        line-height: 1.1;
-      }
-    }
-  }
-
-  &__tight {
-    padding-top: 0;
-    padding-bottom: 0;
-
-    >p {
-      max-width: 700px;
-      margin: 40px 0;
-    }
-  }
-
-  &__wide {
-    @media screen and (min-width: 768px) {
-      display: grid;
-      justify-content: center;
-    }
-
-    h3 {
-      color: $color-accent;
-    }
-  }
-
-  .column {
-    @media screen and (min-width: 768px) {
-      max-width: 50%;
-    }
-
-    &__content {
-      @media screen and (min-width: 768px) {
-        max-width: 700px;
-      }
-    }
-  }
-
-  &__footer {
-    margin-top: 100px;
-    padding-top: 170px;
-    background: lighten($color-accent, 50%);
-    background-image: repeating-linear-gradient(135deg,
-        lighten($color-accent, 47%) 0,
-        lighten($color-accent, 47%) 1px,
-        lighten($color-accent, 50%) 0,
-        lighten($color-accent, 50%) 50%);
-    background-size: 10px 10px;
-    color: $color-white;
-
-    @media screen and (min-width: 768px) {
-      min-height: 100vh;
-    }
-
-    h2,
-    p {
-      max-width: 600px;
-      color: $color-primary;
-    }
-
-    p {
-      font-size: 20px;
-    }
-
-    a {
-      display: inline;
-    }
-  }
-}
+/* =========================================================
+   MISC
+   ========================================================= */
 
 .disciplines {
   max-width: 700px;
-  padding: 0;
   column-count: 2;
-  list-style-type: none;
+  list-style: none;
+  padding: 0;
+  margin: $grid-4x auto;
+}
 
-  li {
-    margin: $grid-2x 0;
-
-    &:first-of-type {
-      margin-top: 0;
-    }
-  }
+.disciplines li {
+  padding: $grid 0;
 }
 
 .about-image {
   max-height: 600px;
 }
 
-.scrollarrow {
-  display: block;
-  height: 13px;
-  width: 13px;
-  border: 11px solid transparent;
-  transform: rotate(45deg);
-  position: relative;
-  margin: 30px auto;
 
-  &:before,
-  &:after {
-    content: "";
-    display: block;
-    height: inherit;
-    width: inherit;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  a {
-    display: block;
-    width: 42px;
-    height: 42px;
-    border-bottom: 0;
-    position: absolute;
-    top: -20px;
-    left: -20px;
-  }
-}
-
-.scrollarrow:after {
-  border-bottom: 3px solid $color-accent;
-  border-right: 3px solid $color-accent;
-  top: 0;
-  left: 0;
-  opacity: 1;
-  animation: bottom-arrow 1.65s infinite;
-}
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
 
 @keyframes bottom-arrow {
   0% {
     opacity: 1;
     transform: translate(0, 0);
   }
+
   45% {
     opacity: 0;
     transform: translate(12px, 12px);
   }
+
   46% {
     opacity: 0;
     transform: translate(-16px, -16px);
   }
-  90% {
-    opacity: 1;
-    transform: translate(-6px, -6px);
-  }
+
   100% {
     opacity: 1;
     transform: translate(-6px, -6px);
   }
-}
-
-.scrollarrow:before {
-  top: 0;
-  left: 0;
-  border-bottom: 3px solid $color-accent;
-  border-right: 3px solid $color-accent;
-  animation: top-arrow 1.65s infinite;
 }
 
 @keyframes top-arrow {
   0% {
     transform: translate(-6px, -6px);
   }
+
   35% {
     transform: translate(0, 0);
   }
-  90% {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
+
   100% {
-    opacity: 1;
     transform: translate(0, 0);
   }
 }

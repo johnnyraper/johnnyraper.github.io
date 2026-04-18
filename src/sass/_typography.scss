@@ -1,59 +1,119 @@
-h1 {
-  color: $color-accent;
-  font-size: 64px;
+/* =========================================================
+   TYPOGRAPHY — HEADINGS
+   ========================================================= */
 
-  @media only screen and (min-width: 768px) {
-    font-size: 80px;
+h1 {
+  font-size: $text-3xl;
+  line-height: $leading-tight;
+  font-weight: $font-semibold;
+  letter-spacing: -0.02em;
+
+  @include mq(md) {
+    font-size: $text-3xl; // keep scale consistent (was 72px)
   }
 }
 
 h2 {
-  margin: $grid-6x 0;
-  font-family: $font-body;
-  font-size: 40px;
+  margin: $grid-4x 0 $grid-2x;
 
-  span {
-    font-size: 30px;
-    font-weight: 100;
-    letter-spacing: -1px;
-  }
-
-  &.heading--extra-spacing {
-    margin: $grid-6x 0 $grid-12x;
-    color: $color-accent;
-  }
+  font-size: $text-xl;
+  line-height: $leading-normal;
+  font-weight: $font-medium;
+  letter-spacing: -0.01em;
 }
+
+/* =========================================================
+   DISPLAY TYPOGRAPHY
+   ========================================================= */
+
+.display-xl {
+  font-size: clamp($text-3xl, 5vw, $text-4xl);
+  line-height: $leading-tight;
+  letter-spacing: -0.03em;
+}
+
+.display-lg {
+  font-size: clamp($text-2xl, 4vw, $text-3xl);
+  line-height: 1;
+}
+
+.display-md {
+  font-size: clamp($text-lg, 3vw, $text-xl);
+  line-height: 1.05;
+}
+
+
+/* =========================================================
+   H2 VARIANTS
+   ========================================================= */
+
+h2.heading--extra-spacing {
+  margin: $grid-6x 0 $grid-12x;
+  color: $accent;
+}
+
+
+/* =========================================================
+   H2 INLINE ELEMENTS
+   ========================================================= */
+
+h2 span {
+  font-size: $text-sm;
+  font-weight: $font-regular;
+  letter-spacing: 0;
+  color: $text-muted;
+}
+
 
 h3 {
   margin: $grid-8x 0 $grid-4x;
-  font-family: $font-body;
-  font-size: 32px;
+
+  font-size: $text-lg;
+  line-height: $leading-normal;
+  font-weight: $font-medium;
 }
+
 
 h4 {
   margin: $grid-5x 0 $grid-2x;
-  font-family: $font-body;
-  font-size: 20px;
+
+  font-size: $text-sm;
+  font-weight: $font-medium;
 }
+
+
+/* =========================================================
+   BODY TEXT
+   ========================================================= */
 
 p,
 ol,
 li {
-  font-size: 20px;
-  line-height: 1.55;
-
-  @media screen and (min-width: 768px) {
-    font-size: 20px;
-    line-height: 1.55;
-  }
+  font-size: $text-md;
+  line-height: $leading-relaxed;
+  font-weight: $font-regular;
 }
+
+
+/* =========================================================
+   CAPTION
+   ========================================================= */
 
 .caption-text {
-  font-size: 16px;
+  margin: 0 0 $grid-2x;
+
+  font-size: $text-sm;
   font-style: italic;
-  color: #666;
+  color: $text-muted;
 }
+
+
+/* =========================================================
+   LISTS
+   ========================================================= */
 
 ol {
   margin: $grid-5x 0;
 }
+
+

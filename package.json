@@ -12,7 +12,7 @@
     "watch:sass": "sass --watch src/sass:docs/css",
     "watch:js": "onchange 'src/js/*.js' -- npm run copy:js",
     "watch": "npm-run-all --parallel watch:*",
-    "serve": "browser-sync start --server docs --files docs --port 1337",
+    "serve": "browser-sync start --server docs --files 'docs/**/*' --port 1337 --reload-delay 100 --reload-debounce 200",
     "start": "npm-run-all copy:* scss --parallel watch serve",
     "build": "npm-run-all copy:* scss css",
     "lint": "stylelint 'src/sass/**/*.scss' 'src/sass/**/**/*.scss' 'src/sass/**/**/**/*.scss'",

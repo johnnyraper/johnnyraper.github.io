@@ -1,0 +1,14 @@
+/* =========================================================
+   GLOBAL BACKGROUND
+   ========================================================= */
+
+body {
+  background-color: $bg;
+
+  background-image:
+    $gradient-bg-primary,
+    $gradient-bg-secondary;
+
+  background-repeat: no-repeat;
+  background-attachment: fixed; // stabilises gradients during scroll
+}

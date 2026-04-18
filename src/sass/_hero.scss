@@ -156,6 +156,7 @@
   flex-direction: column;
   transition: transform $transition-base;
   will-change: transform;
+  padding-top: 0.05em;
 }
 
 .rotating-text__track span {

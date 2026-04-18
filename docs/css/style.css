@@ -789,19 +789,15 @@ a.site-mark {
   text-decoration: none;
   border-bottom: none;
   color: color-mix(in srgb, var(--text) 80%, transparent);
+  opacity: 0.8;
 }
 
-.site-mark--font span {
-  font-family: "Inter Tight", sans-serif;
+.site-mark--styled span {
+  font-family: "Kotta One";
   font-size: var(--text-2xl);
   font-style: italic;
-  font-weight: 500;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.04em;
   line-height: 1;
-  display: inline-block;
-  transform: translateY(1px);
-  color: rgba(var(--text), 0.1);
-  -webkit-text-stroke: 1px rgba(var(--text), 0.65);
 }
 
 /* =========================================================
@@ -1310,6 +1306,7 @@ video {
   flex-direction: column;
   transition: transform var(--transition-base);
   will-change: transform;
+  padding-top: 0.05em;
 }
 
 .rotating-text__track span {

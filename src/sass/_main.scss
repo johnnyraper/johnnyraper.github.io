@@ -25,6 +25,22 @@ body {
   line-height: $leading-normal;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    135deg,
+    transparent calc(50% - 1px),
+    rgba(0, 0, 0, 0.08),
+    transparent calc(50% + 1px)
+  );
+
+  z-index: 0;
+}
+
 .layout-rails {
   position: relative;
   min-height: 100vh;

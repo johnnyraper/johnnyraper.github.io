@@ -49,22 +49,47 @@ if (navToggle && siteNav) {
 }
 
 
-
-
 // ------------------------------------
 // ROTATING TEXT ANIMATION
 // ------------------------------------
 
-const el = document.querySelector('.rotating-text__track');
-const items = el.children;
-let index = 0;
+const el = document.querySelector(".rotating-text__track");
 
-const step = () => {
-  index = (index + 1) % items.length;
-  el.style.transform = `translateY(-${index * 1.25}em)`;
-};
+if (el) {
+  const items = el.children;
+  let index = 0;
+  let intervalId = null;
 
-setInterval(step, 5000);
+  const startRotation = () => {
+    if (window.innerWidth < 768) {
+      el.style.transform = "none";
+      if (intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+      }
+      return;
+    }
+
+    if (intervalId) {
+      clearInterval(intervalId);
+    }
+
+    index = 0;
+    el.style.transform = "translateY(0)";
+
+    intervalId = setInterval(() => {
+      index = (index + 1) % items.length;
+      el.style.transform = `translateY(-${index * 1.25}em)`;
+    }, 5000);
+  };
+
+  startRotation();
+
+  window.addEventListener("resize", startRotation);
+}
+
+
+
 
 
 // ------------------------------------

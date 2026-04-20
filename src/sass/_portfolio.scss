@@ -107,7 +107,6 @@
   margin-top: $grid-3x;
 
   @include mq(lg) {
-    margin-top: auto;
     align-self: flex-start;
   }
 }

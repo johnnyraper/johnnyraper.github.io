@@ -1333,74 +1333,102 @@ video {
 }
 
 /* =========================================================
-   ROTATING TEXT (mobile-first: static)
+   ROTATING TEXT
    ========================================================= */
 .rotating-text {
   display: inline;
-  margin-left: 0px;
-  line-height: var(--leading-tight);
+  margin-left: 4px;
+  line-height: inherit;
   vertical-align: baseline;
   position: relative;
   top: 0;
 }
-@media (min-width: 768px) {
-  .rotating-text {
-    display: inline-block;
-    overflow: hidden;
-    margin-left: 4px;
-    height: 1.05em;
-    line-height: 1;
-    top: -0.03em;
-  }
-}
 
 .rotating-text__track {
   display: inline;
-  transform: none !important;
+  transform: none;
   padding-top: 0;
-}
-@media (min-width: 768px) {
-  .rotating-text__track {
-    display: flex;
-    flex-direction: column;
-    transition: transform var(--transition-base);
-    will-change: transform;
-    padding-top: 0.05em;
-  }
 }
 
 .rotating-text__track span {
-  display: none;
   white-space: nowrap;
-  /* MOBILE: use standard font */
+  line-height: inherit;
   font-family: inherit;
   font-style: normal;
   font-weight: inherit;
-  line-height: inherit;
 }
-@media (min-width: 768px) {
+
+/* MOBILE ONLY: show one static phrase in standard font */
+@media (max-width: 767px) {
+  .rotating-text__track {
+    transform: none !important;
+  }
   .rotating-text__track span {
-    display: flex;
-    align-items: center;
-    height: 1.25em;
-    line-height: 1.25em;
-    /* DESKTOP: restore serif styling */
-    font-family: "DM Serif Display", serif;
-    font-style: italic;
-    font-weight: 400;
+    display: none;
   }
-}
-
-/* Mobile: lock to strongest phrase */
-.rotating-text__track span:nth-child(5) {
-  display: inline;
-}
-@media (min-width: 768px) {
   .rotating-text__track span:nth-child(5) {
-    display: flex;
+    display: inline;
   }
 }
+/* =========================================================
+   ROTATING TEXT
+   ========================================================= */
+.rotating-text {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  height: 1.2em;
+  margin-left: 4px;
+  line-height: 1;
+}
 
+.rotating-text__track {
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-base);
+  will-change: transform;
+  padding-top: 0.05em;
+}
+
+.rotating-text__track span {
+  display: flex;
+  align-items: center;
+  height: 1.25em;
+  line-height: 1.25em;
+  white-space: nowrap;
+  font-family: "DM Serif Display", serif;
+  font-style: italic;
+}
+
+/* =========================================================
+   MOBILE ONLY
+   ========================================================= */
+@media (max-width: 767px) {
+  .rotating-text {
+    display: inline;
+    overflow: visible;
+    vertical-align: baseline;
+    height: auto;
+    margin-left: 4px;
+    line-height: inherit;
+  }
+  .rotating-text__track {
+    display: inline;
+    transform: none !important;
+    padding-top: 0;
+  }
+  .rotating-text__track span {
+    display: none;
+    height: auto;
+    line-height: inherit;
+    font-family: inherit;
+    font-style: normal;
+    white-space: normal;
+  }
+  .rotating-text__track span:nth-child(5) {
+    display: inline;
+  }
+}
 /* =========================================================
    FEATURED
    ========================================================= */
@@ -1438,7 +1466,7 @@ video {
   justify-content: space-between;
   flex: 1 1 auto;
   min-height: 260px;
-  padding: 0;
+  padding: 16px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-subtle);
   background: var(--surface);
@@ -1463,7 +1491,7 @@ video {
 @media (min-width: 768px) {
   .portfolio-feature__image {
     min-height: 300px;
-    padding: 16px;
+    padding: 24px;
   }
 }
 @media (min-width: 1024px) {
@@ -1519,7 +1547,6 @@ video {
 }
 @media (min-width: 1024px) {
   .portfolio-feature__content a {
-    margin-top: auto;
     align-self: flex-start;
   }
 }

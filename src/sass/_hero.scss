@@ -25,7 +25,12 @@
   @include mq-max(lg) {
     flex-direction: column;
     align-items: flex-start;
+    gap: $grid-4x;
+
     min-height: auto;
+
+    padding-top: $grid-3x;
+    padding-bottom: $grid-5x;
   }
 }
 
@@ -52,18 +57,36 @@
 .hero__content {
   max-width: 680px;
   margin-bottom: $grid-6x;
+
+  @include mq-max(lg) {
+    max-width: 100%;
+    margin-bottom: $grid-4x;
+  }
 }
 
 .section__hero h1 {
   margin-bottom: $grid-2x;
   font-size: clamp(#{$text-3xl}, 4.5vw, #{$text-4xl});
   line-height: $leading-tight;
+
+  @include mq-max(lg) {
+    max-width: 11ch;
+    font-size: clamp(44px, 12vw, 64px);
+    line-height: 0.96;
+    letter-spacing: -0.04em;
+    margin-bottom: $grid-3x;
+  }
 }
 
 .section__hero p {
   max-width: 650px;
   margin-bottom: $grid-3x;
   color: $text-muted;
+
+  @include mq-max(lg) {
+    max-width: 32ch;
+    margin-bottom: $grid-3x;
+  }
 }
 
 
@@ -73,6 +96,10 @@
 
 .hero__actions {
   margin-top: $grid-4x;
+
+  @include mq-max(lg) {
+    margin-top: $grid-3x;
+  }
 }
 
 
@@ -138,33 +165,71 @@
     $surface;
 }
 
+
 /* =========================================================
-   ROTATING TEXT
+   ROTATING TEXT (mobile-first: static)
    ========================================================= */
 
 .rotating-text {
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: bottom;
-  height: 1.2em;
-  margin-left: 4px;
-  line-height: 1;
+  display: inline;
+  margin-left: 0px;
+  line-height: $leading-tight;
+  vertical-align: baseline;
+  position: relative;
+  top: 0;
+
+  @include mq(md) {
+    display: inline-block;
+    overflow: hidden;
+    margin-left: 4px;
+    height: 1.05em;
+    line-height: 1;
+    top: -0.03em;
+  }
 }
 
 .rotating-text__track {
-  display: flex;
-  flex-direction: column;
-  transition: transform $transition-base;
-  will-change: transform;
-  padding-top: 0.05em;
+  display: inline;
+  transform: none !important;
+  padding-top: 0;
+
+  @include mq(md) {
+    display: flex;
+    flex-direction: column;
+    transition: transform $transition-base;
+    will-change: transform;
+    padding-top: 0.05em;
+  }
 }
 
 .rotating-text__track span {
-  display: flex;
-  align-items: center;
-  height: 1.25em;
-  line-height: 1.25em;
+  display: none;
   white-space: nowrap;
-  font-family: "DM Serif Display", serif;
-  font-style: italic;
+
+  /* MOBILE: use standard font */
+  font-family: inherit;
+  font-style: normal;
+  font-weight: inherit;
+  line-height: inherit;
+
+  @include mq(md) {
+    display: flex;
+    align-items: center;
+    height: 1.25em;
+    line-height: 1.25em;
+
+    /* DESKTOP: restore serif styling */
+    font-family: "DM Serif Display", serif;
+    font-style: italic;
+    font-weight: 400;
+  }
+}
+
+/* Mobile: lock to strongest phrase */
+.rotating-text__track span:nth-child(5) {
+  display: inline;
+
+  @include mq(md) {
+    display: flex;
+  }
 }

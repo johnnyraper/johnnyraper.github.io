@@ -3,8 +3,6 @@
    ========================================================= */
 
 .layout-diagonals {
-  position: absolute;
-  inset: 0;
   pointer-events: none;
   z-index: 0;
 }
@@ -12,11 +10,13 @@
 .layout-diagonals::before,
 .layout-diagonals::after {
   content: "";
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
-  width: max(0px, calc((100% - #{$layout-max-width}) / 2));
+  width: max(0px, calc((100vw - #{$layout-max-width}) / 2));
   opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .layout-diagonals::before {

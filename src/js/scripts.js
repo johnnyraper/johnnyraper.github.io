@@ -60,36 +60,37 @@ if (el) {
   let index = 0;
   let intervalId = null;
 
+  const STEP = 1.25;
+  const BREAKPOINT = 1024;
+
   const startRotation = () => {
-    if (window.innerWidth < 768) {
+    // Kill animation below lg
+    if (window.innerWidth < BREAKPOINT) {
       el.style.transform = "none";
+
       if (intervalId) {
         clearInterval(intervalId);
         intervalId = null;
       }
+
       return;
     }
 
-    if (intervalId) {
-      clearInterval(intervalId);
-    }
+    // Restart cleanly
+    if (intervalId) clearInterval(intervalId);
 
     index = 0;
     el.style.transform = "translateY(0)";
 
     intervalId = setInterval(() => {
       index = (index + 1) % items.length;
-      el.style.transform = `translateY(-${index * 1.25}em)`;
+      el.style.transform = `translateY(-${index * STEP}em)`;
     }, 5000);
   };
 
   startRotation();
-
   window.addEventListener("resize", startRotation);
 }
-
-
-
 
 
 // ------------------------------------

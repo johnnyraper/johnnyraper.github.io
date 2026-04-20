@@ -72,7 +72,7 @@
   @include mq-max(lg) {
     max-width: 11ch;
     font-size: clamp(44px, 12vw, 64px);
-    line-height: 0.96;
+    line-height: $leading-tight;
     letter-spacing: -0.04em;
     margin-bottom: $grid-3x;
   }
@@ -89,6 +89,34 @@
   }
 }
 
+
+/* =========================================================
+   HERO TITLE
+   ========================================================= */
+
+.hero-title--mobile {
+  display: block;
+}
+
+.hero-title--desktop {
+  display: none;
+}
+
+@include mq(lg) {
+  .hero-title--mobile {
+    display: none;
+  }
+
+  .hero-title--desktop {
+    display: block;
+  }
+}
+
+.hero-title--mobile {
+  max-width: 11ch;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+}
 
 /* =========================================================
    CTA
@@ -165,110 +193,39 @@
     $surface;
 }
 
-
 /* =========================================================
    ROTATING TEXT
    ========================================================= */
 
 .rotating-text {
-  display: inline;
-  margin-left: 4px;
-  line-height: inherit;
-  vertical-align: baseline;
-  position: relative;
-  top: 0;
+  display: none;
 }
 
-.rotating-text__track {
-  display: inline;
-  transform: none;
-  padding-top: 0;
-}
-
-.rotating-text__track span {
-  white-space: nowrap;
-  line-height: inherit;
-  font-family: inherit;
-  font-style: normal;
-  font-weight: inherit;
-}
-
-/* MOBILE ONLY: show one static phrase in standard font */
-@media (max-width: 767px) {
-  .rotating-text__track {
-    transform: none !important;
-  }
-
-  .rotating-text__track span {
-    display: none;
-  }
-
-  .rotating-text__track span:nth-child(5) {
-    display: inline;
-  }
-}
-
-/* =========================================================
-   ROTATING TEXT
-   ========================================================= */
-
-.rotating-text {
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: bottom;
-  height: 1.2em;
-  margin-left: 4px;
-  line-height: 1;
-}
-
-.rotating-text__track {
-  display: flex;
-  flex-direction: column;
-  transition: transform $transition-base;
-  will-change: transform;
-  padding-top: 0.05em;
-}
-
-.rotating-text__track span {
-  display: flex;
-  align-items: center;
-  height: 1.25em;
-  line-height: 1.25em;
-  white-space: nowrap;
-  font-family: "DM Serif Display", serif;
-  font-style: italic;
-}
-
-/* =========================================================
-   MOBILE ONLY
-   ========================================================= */
-
-@media (max-width: 767px) {
+@include mq(lg) {
   .rotating-text {
-    display: inline;
-    overflow: visible;
-    vertical-align: baseline;
-    height: auto;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    height: 1.2em;
     margin-left: 4px;
-    line-height: inherit;
+    line-height: 1;
   }
 
   .rotating-text__track {
-    display: inline;
-    transform: none !important;
-    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    transition: transform $transition-base;
+    will-change: transform;
+    padding-top: 0.05em;
   }
 
   .rotating-text__track span {
-    display: none;
-    height: auto;
-    line-height: inherit;
-    font-family: inherit;
-    font-style: normal;
-    white-space: normal;
-  }
-
-  .rotating-text__track span:nth-child(5) {
-    display: inline;
+    display: flex;
+    align-items: center;
+    height: 1.25em;
+    line-height: 1.25em;
+    white-space: nowrap;
+    font-family: "DM Serif Display", serif;
+    font-style: italic;
   }
 }

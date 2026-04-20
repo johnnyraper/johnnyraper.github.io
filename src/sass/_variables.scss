@@ -173,11 +173,35 @@ $bp-2xl: 1536px; // large screens
 }
 
 @mixin mq-max($bp) {
-   @if $bp ==lg {
-      @media (max-width: $bp-lg) {
-         @content;
-      }
-   }
+  @if $bp ==sm {
+    @media (max-width: #{$bp-sm - 1px}) {
+      @content;
+    }
+  }
+
+  @if $bp ==md {
+    @media (max-width: #{$bp-md - 1px}) {
+      @content;
+    }
+  }
+
+  @if $bp ==lg {
+    @media (max-width: #{$bp-lg - 1px}) {
+      @content;
+    }
+  }
+
+  @if $bp ==xl {
+    @media (max-width: #{$bp-xl - 1px}) {
+      @content;
+    }
+  }
+
+  @if $bp ==2xl {
+    @media (max-width: #{$bp-2xl - 1px}) {
+      @content;
+    }
+  }
 }
 
 /* =========================

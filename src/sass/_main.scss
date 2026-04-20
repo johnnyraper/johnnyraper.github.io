@@ -25,28 +25,6 @@ body {
   line-height: $leading-normal;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-
-  background: linear-gradient(
-    135deg,
-    transparent calc(50% - 1px),
-    rgba(0, 0, 0, 0.08),
-    transparent calc(50% + 1px)
-  );
-
-  z-index: 0;
-}
-
-.layout-rails {
-  position: relative;
-  min-height: 100vh;
-  z-index: 0;
-}
-
 main {
   position: relative;
   z-index: 1;
@@ -60,20 +38,28 @@ main {
 .layout-rails::before,
 .layout-rails::after {
   content: "";
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   width: 1px;
   background: $grid-line-strong;
   pointer-events: none;
+  z-index: 0;
 }
 
 .layout-rails::before {
-  left: calc((100% - #{$layout-max-width}) / 2);
+  left: max(0px, calc((100vw - #{$layout-max-width}) / 2));
 }
 
 .layout-rails::after {
-  right: calc((100% - #{$layout-max-width}) / 2);
+  right: max(0px, calc((100vw - #{$layout-max-width}) / 2));
+}
+
+@include mq-max(lg) {
+  .layout-rails::before,
+  .layout-rails::after {
+    display: none;
+  }
 }
 
 

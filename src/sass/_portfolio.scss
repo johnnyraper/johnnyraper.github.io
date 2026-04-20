@@ -5,13 +5,17 @@
 .portfolio-feature {
   display: flex;
   flex-direction: column;
-  gap: $grid-6x;
+  gap: $grid-5x;
+
+  @include mq(lg) {
+    gap: $grid-6x;
+  }
 }
 
 .portfolio-feature__item {
   display: flex;
   flex-direction: column;
-  gap: $grid-4x;
+  gap: $grid-3x;
 
   @include mq(lg) {
     flex-direction: row;
@@ -32,8 +36,8 @@
   justify-content: space-between;
   flex: 1 1 auto;
 
-  min-height: 320px;
-  padding: $grid-3x;
+  min-height: 260px;
+  padding: $grid-2x;
 
   border-radius: $radius-lg;
   border: 1px solid $border-subtle;
@@ -42,6 +46,11 @@
   overflow: hidden;
 
   @include interactive-surface($lift: $grid-0_5x);
+
+  @include mq(md) {
+    min-height: 300px;
+    padding: $grid-3x;
+  }
 
   @include mq(lg) {
     flex: 0 0 60%;
@@ -69,22 +78,18 @@
 .portfolio-feature__content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   flex: 1 1 0;
   min-width: 0;
 }
 
 .portfolio-feature__content h3 {
-  margin-top: $grid-4x;
-  margin-bottom: $grid-0_5x;
+  margin-top: 0;
+  margin-bottom: $grid-1_5x;
 
   font-size: $text-xl;
   font-weight: $font-medium;
   color: $text;
-
-  @include mq(lg) {
-    margin-top: 0;
-  }
 }
 
 .portfolio-feature__content p {
@@ -94,7 +99,12 @@
 }
 
 .portfolio-feature__content a {
-  margin-top: $grid-8x;
+  margin-top: $grid-3x;
+
+  @include mq(lg) {
+    margin-top: auto;
+    align-self: flex-start;
+  }
 }
 
 
@@ -104,16 +114,23 @@
 
 .token-diagram {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: $grid-6x;
+  flex-direction: column;
+  align-items: stretch;
+  gap: $grid-4x;
   flex: 1 1 auto;
 
   width: 100%;
-  padding: $grid-6x;
+  padding: $grid-4x;
+
+  @include mq(md) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: $grid-6x;
+    padding: $grid-6x;
+  }
 
   @include mq-max(lg) {
-    gap: $grid-4x;
     padding: $grid-4x;
   }
 }
@@ -131,6 +148,10 @@
   font-size: $text-sm;
   font-weight: $font-medium;
   line-height: $leading-normal;
+
+  @include mq(md) {
+    font-size: $text-sm;
+  }
 
   @include mq-max(lg) {
     font-size: $text-xs;
@@ -151,6 +172,7 @@
   display: flex;
   align-items: center;
   gap: $grid-1_5x;
+  min-width: 0;
 }
 
 .token-connector {
@@ -180,14 +202,23 @@
   line-height: 1.2;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
+  min-width: 0;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: normal;
+
+  @include mq(md) {
+    font-size: $text-sm;
+  }
+
   @include mq-max(lg) {
     font-size: $text-xs;
   }
 }
 
 .token-diagram__footer {
-  margin-top: auto;
-  padding: 0 $grid-6x $grid-4x;
+  margin-top: 0;
+  padding: 0 $grid-4x $grid-4x;
 
   color: $text-subtle;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -196,11 +227,15 @@
   line-height: $leading-normal;
   letter-spacing: 0.02em;
 
+  @include mq(md) {
+    margin-top: auto;
+    padding: 0 $grid-6x $grid-4x;
+  }
+
   @include mq-max(lg) {
     padding: 0 $grid-4x $grid-3x;
   }
 }
-
 
 /* =========================================================
    ARTICLE IMAGES
@@ -361,44 +396,4 @@
   font-size: $text-md;
   line-height: $leading-normal;
   color: $text-muted;
-}
-
-
-/* =========================================================
-   WEB VARIANT
-   ========================================================= */
-
-.section__web .portfolio-grid {
-  grid-template-columns: 1fr;
-  gap: $grid-5x;
-  padding: $grid-4x 0 $grid-8x;
-
-  @include mq(md) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.section__web .portfolio-card {
-  gap: $grid-2x;
-  padding: $grid-3x;
-}
-
-.section__web .portfolio-card__image {
-  min-height: 180px;
-}
-
-.section__web .portfolio-card__content h4 {
-  font-size: $text-md;
-  font-weight: $font-semibold;
-}
-
-.section__web .portfolio-card__content p {
-  max-width: 48ch;
-  font-size: $text-md;
-  line-height: $leading-normal;
-}
-
-.section__web .portfolio-card__content .button {
-  margin-top: auto;
-  align-self: flex-start;
 }

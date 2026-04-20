@@ -56,9 +56,12 @@
 .section__inner {
   position: relative;
   z-index: 1;
-  padding-block: var(--section-space, #{$grid-5x});
-}
+  padding-block: var(--section-space, #{$grid-2x});
 
+  @include mq(md) {
+    padding-block: var(--section-space, #{$grid-5x});
+  }
+}
 
 /* =========================================================
    SECTION VARIANTS

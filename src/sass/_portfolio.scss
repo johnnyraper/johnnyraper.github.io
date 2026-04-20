@@ -55,6 +55,7 @@
   @include mq(lg) {
     flex: 0 0 60%;
     min-height: 360px;
+    padding: $grid-3x; // 👈 full desktop padding
   }
 }
 
@@ -67,7 +68,11 @@
   object-fit: cover;
   object-position: center;
 
-  border-radius: $radius-md;
+  border-radius: 0;
+
+  @include mq(md) {
+    border-radius: $radius-md;
+  }
 }
 
 

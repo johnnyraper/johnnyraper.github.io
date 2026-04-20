@@ -1438,7 +1438,7 @@ video {
   justify-content: space-between;
   flex: 1 1 auto;
   min-height: 260px;
-  padding: 16px;
+  padding: 0;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-subtle);
   background: var(--surface);
@@ -1463,13 +1463,14 @@ video {
 @media (min-width: 768px) {
   .portfolio-feature__image {
     min-height: 300px;
-    padding: 24px;
+    padding: 16px;
   }
 }
 @media (min-width: 1024px) {
   .portfolio-feature__image {
     flex: 0 0 60%;
     min-height: 360px;
+    padding: 24px;
   }
 }
 
@@ -1480,7 +1481,12 @@ video {
   flex: 1 1 auto;
   object-fit: cover;
   object-position: center;
-  border-radius: var(--radius-md);
+  border-radius: 0;
+}
+@media (min-width: 768px) {
+  .portfolio-feature__image img {
+    border-radius: var(--radius-md);
+  }
 }
 
 /* =========================================================

@@ -32,38 +32,6 @@ main {
 
 
 /* =========================================================
-   DECORATIVE RAILS
-   ========================================================= */
-
-.layout-rails::before,
-.layout-rails::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: $grid-line-strong;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.layout-rails::before {
-  left: max(0px, calc((100vw - #{$layout-max-width}) / 2));
-}
-
-.layout-rails::after {
-  right: max(0px, calc((100vw - #{$layout-max-width}) / 2));
-}
-
-@include mq-max(lg) {
-  .layout-rails::before,
-  .layout-rails::after {
-    display: none;
-  }
-}
-
-
-/* =========================================================
    LAYOUT PRIMITIVES
    ========================================================= */
 

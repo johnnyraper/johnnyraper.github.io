@@ -1,44 +1,85 @@
 /* =========================================================
+   DECORATIVE RAILS
+   ========================================================= */
+
+.layout-rails {
+  &::before,
+  &::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: $grid-line-strong;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &::before {
+    left: max(0px, calc((100vw - #{$layout-max-width}) / 2));
+  }
+
+  &::after {
+    right: max(0px, calc((100vw - #{$layout-max-width}) / 2));
+  }
+
+  @include mq-max(xl) {
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+}
+
+
+/* =========================================================
    LAYOUT DIAGONALS
    ========================================================= */
 
 .layout-diagonals {
   pointer-events: none;
   z-index: 0;
-}
 
-.layout-diagonals::before,
-.layout-diagonals::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: max(0px, calc((100vw - #{$layout-max-width}) / 2));
-  opacity: 0.3;
-  pointer-events: none;
-  z-index: 0;
-}
+  &::before,
+  &::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: max(0px, calc((100vw - #{$layout-max-width}) / 2));
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
+  }
 
-.layout-diagonals::before {
-  left: 0;
-  background: repeating-linear-gradient(
-    45deg,
-    $grid-line-strong,
-    $grid-line-strong 2px,
-    transparent 2px,
-    transparent 12px
-  );
-}
+  &::before {
+    left: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      $grid-line-strong,
+      $grid-line-strong 2px,
+      transparent 2px,
+      transparent 12px
+    );
+  }
 
-.layout-diagonals::after {
-  right: 0;
-  background: repeating-linear-gradient(
-    -45deg,
-    $grid-line-strong,
-    $grid-line-strong 2px,
-    transparent 2px,
-    transparent 12px
-  );
+  &::after {
+    right: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      $grid-line-strong,
+      $grid-line-strong 2px,
+      transparent 2px,
+      transparent 12px
+    );
+  }
+
+  @include mq-max(xl) {
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
 }
 
 /* =========================================================

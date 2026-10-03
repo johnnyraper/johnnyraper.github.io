@@ -1,0 +1,255 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1600"
+     height="900"
+     viewBox="0 0 1600 900"
+     role="img"
+     aria-labelledby="px-title px-desc">
+  <title id="px-title">Conceptual access and product behaviour model</title>
+  <desc id="px-desc">
+    Illustrative conceptual model showing relationships between identity, membership,
+    role, permissions, scope, ownership, visibility, states, person, responsibility,
+    context, and possible actions.
+  </desc>
+
+  <style>
+    /*
+      PhysicsX illustration tokens.
+      These mirror the site's existing root tokens exactly.
+      The SVG is standalone, so the values are declared here rather than inherited
+      from the page when loaded as an external image.
+    */
+    :root {
+      --bg: #070a12;
+      --surface: #0b0f17;
+      --surface-elevated: #0f1623;
+
+      --surface-glass: rgba(255, 255, 255, 0.02);
+      --surface-glass-strong: rgba(255, 255, 255, 0.04);
+      --overlay: rgba(255, 255, 255, 0.04);
+
+      --text: #e2e7ed;
+      --text-muted: #95a5bc;
+      --text-subtle: #6b7a90;
+
+      --accent: #429af8;
+      --accent-hover: #327ac8;
+      --accent-soft: rgba(59, 130, 246, 0.14);
+      --accent-subtle: rgba(59, 130, 246, 0.22);
+      --accent-soft-hover: rgba(59, 130, 246, 0.18);
+
+      --border-subtle: rgba(120, 160, 255, 0.08);
+      --border-strong: rgba(120, 160, 255, 0.18);
+      --border-emphasis: rgba(120, 160, 255, 0.6);
+
+      --font-sans: Inter, system-ui, -apple-system, sans-serif;
+
+      --text-xs: 12px;
+      --text-sm: 14px;
+      --text-md: 16px;
+      --text-lg: 18px;
+      --text-xl: 24px;
+      --text-2xl: 32px;
+
+      --font-regular: 400;
+      --font-medium: 500;
+      --font-semibold: 600;
+
+      --radius-lg: 16px;
+    }
+
+    .px-node {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .px-connector,
+    .px-arrow {
+      fill: none;
+      stroke: var(--text-subtle);
+      stroke-width: 1;
+      stroke-opacity: 0.42;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .px-icon {
+      fill: none;
+      stroke: var(--text-muted);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .px-icon--central {
+      stroke: var(--text);
+    }
+
+    .px-label {
+      fill: var(--text);
+      font-family: var(--font-sans);
+      font-size: var(--text-2xl);
+      font-weight: var(--font-medium);
+      letter-spacing: -0.01em;
+    }
+
+    .px-label--side {
+      fill: var(--text-muted);
+      font-size: var(--text-2xl);
+    }
+
+    .px-caption {
+      fill: var(--text-muted);
+      font-family: var(--font-sans);
+      font-size: var(--text-xl);
+      font-weight: var(--font-regular);
+      letter-spacing: 0;
+    }
+  </style>
+
+  <defs>
+    <marker id="px-arrowhead"
+            markerWidth="8"
+            markerHeight="8"
+            refX="6.5"
+            refY="4"
+            orient="auto"
+            markerUnits="strokeWidth">
+      <path d="M 0 0 L 8 4 L 0 8"
+            fill="none"
+            stroke="#6b7a90"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            opacity="0.42"/>
+    </marker>
+  </defs>
+
+  <!-- Connecting lines -->
+  <g aria-hidden="true">
+    <path class="px-connector" d="M 470 170 H 620"/>
+    <path class="px-connector" d="M 980 170 H 1130"/>
+    <path class="px-connector" d="M 470 350 H 620"/>
+    <path class="px-connector" d="M 980 350 H 1130"/>
+    <path class="px-connector" d="M 470 530 H 620"/>
+    <path class="px-connector" d="M 980 530 H 1130"/>
+    <path class="px-connector" d="M 470 710 H 620"/>
+    <path class="px-connector" d="M 980 710 H 1130"/>
+
+    <path class="px-arrow" d="M 800 230 V 286" marker-end="url(#px-arrowhead)"/>
+    <path class="px-arrow" d="M 800 410 V 466" marker-end="url(#px-arrowhead)"/>
+    <path class="px-arrow" d="M 800 590 V 646" marker-end="url(#px-arrowhead)"/>
+  </g>
+
+  <!-- Row 1 -->
+  <rect class="px-node" x="110" y="120" width="360" height="100" rx="50"/>
+  <rect class="px-node" x="620" y="110" width="360" height="120" rx="28"/>
+  <rect class="px-node" x="1130" y="120" width="360" height="100" rx="50"/>
+
+  <g class="px-icon" transform="translate(160 143)">
+    <rect x="0" y="0" width="46" height="54" rx="5"/>
+    <circle cx="23" cy="17" r="7"/>
+    <path d="M 12 42 C 14 31, 32 31, 34 42"/>
+  </g>
+  <text class="px-label px-label--side" x="245" y="170" dominant-baseline="middle">Identity</text>
+
+  <g class="px-icon px-icon--central" transform="translate(660 136)">
+    <circle cx="26" cy="14" r="10"/>
+    <path d="M 6 54 C 8 34, 44 34, 46 54"/>
+  </g>
+  <text class="px-label" x="745" y="170" dominant-baseline="middle">Person</text>
+
+  <g class="px-icon" transform="translate(1175 141)">
+    <circle cx="26" cy="14" r="8"/>
+    <circle cx="8" cy="21" r="6"/>
+    <circle cx="44" cy="21" r="6"/>
+    <path d="M 12 52 C 13 34, 39 34, 40 52"/>
+    <path d="M -2 49 C -1 36, 13 35, 16 41"/>
+    <path d="M 36 41 C 39 35, 53 36, 54 49"/>
+  </g>
+  <text class="px-label px-label--side" x="1260" y="170" dominant-baseline="middle">Membership</text>
+
+  <!-- Row 2 -->
+  <rect class="px-node" x="110" y="300" width="360" height="100" rx="50"/>
+  <rect class="px-node" x="620" y="290" width="360" height="120" rx="28"/>
+  <rect class="px-node" x="1130" y="300" width="360" height="100" rx="50"/>
+
+  <g class="px-icon" transform="translate(165 322)">
+    <circle cx="22" cy="13" r="9"/>
+    <path d="M 2 51 C 4 31, 40 31, 42 51"/>
+  </g>
+  <text class="px-label px-label--side" x="245" y="350" dominant-baseline="middle">Role</text>
+
+  <g class="px-icon px-icon--central" transform="translate(660 316)">
+    <path d="M 26 0 L 48 9 V 27 C 48 43 38 55 26 62 C 14 55 4 43 4 27 V 9 Z"/>
+  </g>
+  <text class="px-label" x="745" y="350" dominant-baseline="middle">Responsibility</text>
+
+  <g class="px-icon" transform="translate(1175 321)">
+    <circle cx="18" cy="15" r="11"/>
+    <path d="M 26 23 L 51 48"/>
+    <path d="M 40 37 L 34 43"/>
+    <path d="M 47 44 L 41 50"/>
+  </g>
+  <text class="px-label px-label--side" x="1260" y="350" dominant-baseline="middle">Permissions</text>
+
+  <!-- Row 3 -->
+  <rect class="px-node" x="110" y="480" width="360" height="100" rx="50"/>
+  <rect class="px-node" x="620" y="470" width="360" height="120" rx="28"/>
+  <rect class="px-node" x="1130" y="480" width="360" height="100" rx="50"/>
+
+  <g class="px-icon" transform="translate(160 503)">
+    <path d="M 0 18 L 24 4 L 48 18 L 24 32 Z"/>
+    <path d="M 4 29 L 24 41 L 44 29"/>
+    <path d="M 4 40 L 24 52 L 44 40"/>
+  </g>
+  <text class="px-label px-label--side" x="245" y="530" dominant-baseline="middle">Scope</text>
+
+  <g class="px-icon px-icon--central" transform="translate(660 496)">
+    <path d="M 0 18 L 26 3 L 52 18 L 26 33 Z"/>
+    <path d="M 4 31 L 26 44 L 48 31"/>
+    <path d="M 4 44 L 26 57 L 48 44"/>
+  </g>
+  <text class="px-label" x="745" y="530" dominant-baseline="middle">Context</text>
+
+  <g class="px-icon" transform="translate(1175 503)">
+    <ellipse cx="24" cy="7" rx="18" ry="7"/>
+    <path d="M 6 7 V 43 C 6 50 42 50 42 43 V 7"/>
+    <path d="M 6 19 C 6 26 42 26 42 19"/>
+    <path d="M 6 31 C 6 38 42 38 42 31"/>
+  </g>
+  <text class="px-label px-label--side" x="1260" y="530" dominant-baseline="middle">Ownership</text>
+
+  <!-- Row 4 -->
+  <rect class="px-node" x="110" y="660" width="360" height="100" rx="50"/>
+  <rect class="px-node" x="620" y="650" width="360" height="120" rx="28"/>
+  <rect class="px-node" x="1130" y="660" width="360" height="100" rx="50"/>
+
+  <g class="px-icon" transform="translate(160 682)">
+    <path d="M 0 28 C 11 9, 37 9, 48 28 C 37 47, 11 47, 0 28 Z"/>
+    <circle cx="24" cy="28" r="8"/>
+  </g>
+  <text class="px-label px-label--side" x="245" y="710" dominant-baseline="middle">Visibility</text>
+
+  <g class="px-icon px-icon--central" transform="translate(660 675)">
+    <path d="M 29 0 L 5 34 H 24 L 15 64 L 49 24 H 29 Z"/>
+  </g>
+  <text class="px-label" x="745" y="710" dominant-baseline="middle">Actions</text>
+
+  <g class="px-icon" transform="translate(1175 687)">
+    <circle cx="2" cy="38" r="4"/>
+    <circle cx="20" cy="17" r="4"/>
+    <circle cx="37" cy="29" r="4"/>
+    <circle cx="54" cy="8" r="4"/>
+    <path d="M 5 35 L 17 20 L 33 27 L 51 11"/>
+  </g>
+  <text class="px-label px-label--side" x="1260" y="710" dominant-baseline="middle">States</text>
+
+  <text class="px-caption"
+        x="800"
+        y="875"
+        text-anchor="middle">
+    Conceptual model for reasoning about access and product behaviour — illustrative context only
+  </text>
+</svg>

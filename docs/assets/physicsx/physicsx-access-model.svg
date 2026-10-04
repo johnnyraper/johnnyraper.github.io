@@ -60,7 +60,8 @@
     .px-node {
       fill: none;
       stroke: var(--accent);
-      stroke-width: 1;
+      stroke-width: 1.5;
+      stroke-opacity: 0.7;
       vector-effect: non-scaling-stroke;
     }
 
@@ -68,7 +69,7 @@
     .px-arrow {
       fill: none;
       stroke: var(--text-subtle);
-      stroke-width: 1;
+      stroke-width: 1.5;
       stroke-opacity: 0.42;
       vector-effect: non-scaling-stroke;
     }
@@ -76,7 +77,7 @@
     .px-icon {
       fill: none;
       stroke: var(--text-muted);
-      stroke-width: 2;
+      stroke-width: 5;
       stroke-linecap: round;
       stroke-linejoin: round;
       vector-effect: non-scaling-stroke;
@@ -154,7 +155,7 @@
   </g>
   <text class="px-label px-label--side" x="245" y="170" dominant-baseline="middle">Identity</text>
 
-  <g class="px-icon px-icon--central" transform="translate(660 136)">
+  <g class="px-icon px-icon--central" transform="translate(660 140)">
     <circle cx="26" cy="14" r="10"/>
     <path d="M 6 54 C 8 34, 44 34, 46 54"/>
   </g>
@@ -179,12 +180,12 @@
     <circle cx="22" cy="13" r="9"/>
     <path d="M 2 51 C 4 31, 40 31, 42 51"/>
   </g>
-  <text class="px-label px-label--side" x="245" y="350" dominant-baseline="middle">Role</text>
+  <text class="px-label px-label--side" x="245" y="352" dominant-baseline="middle">Role</text>
 
-  <g class="px-icon px-icon--central" transform="translate(660 316)">
+  <g class="px-icon px-icon--central" transform="translate(660 320)">
     <path d="M 26 0 L 48 9 V 27 C 48 43 38 55 26 62 C 14 55 4 43 4 27 V 9 Z"/>
   </g>
-  <text class="px-label" x="745" y="350" dominant-baseline="middle">Responsibility</text>
+  <text class="px-label" x="745" y="352" dominant-baseline="middle">Responsibility</text>
 
   <g class="px-icon" transform="translate(1175 321)">
     <circle cx="18" cy="15" r="11"/>
@@ -192,7 +193,7 @@
     <path d="M 40 37 L 34 43"/>
     <path d="M 47 44 L 41 50"/>
   </g>
-  <text class="px-label px-label--side" x="1260" y="350" dominant-baseline="middle">Permissions</text>
+  <text class="px-label px-label--side" x="1260" y="352" dominant-baseline="middle">Permissions</text>
 
   <!-- Row 3 -->
   <rect class="px-node" x="110" y="480" width="360" height="100" rx="50"/>
@@ -206,14 +207,14 @@
   </g>
   <text class="px-label px-label--side" x="245" y="530" dominant-baseline="middle">Scope</text>
 
-  <g class="px-icon px-icon--central" transform="translate(660 496)">
+  <g class="px-icon px-icon--central" transform="translate(660 500)">
     <path d="M 0 18 L 26 3 L 52 18 L 26 33 Z"/>
     <path d="M 4 31 L 26 44 L 48 31"/>
     <path d="M 4 44 L 26 57 L 48 44"/>
   </g>
   <text class="px-label" x="745" y="530" dominant-baseline="middle">Context</text>
 
-  <g class="px-icon" transform="translate(1175 503)">
+  <g class="px-icon" transform="translate(1175 505)">
     <ellipse cx="24" cy="7" rx="18" ry="7"/>
     <path d="M 6 7 V 43 C 6 50 42 50 42 43 V 7"/>
     <path d="M 6 19 C 6 26 42 26 42 19"/>
@@ -232,7 +233,7 @@
   </g>
   <text class="px-label px-label--side" x="245" y="710" dominant-baseline="middle">Visibility</text>
 
-  <g class="px-icon px-icon--central" transform="translate(660 675)">
+  <g class="px-icon px-icon--central" transform="translate(660 678)">
     <path d="M 29 0 L 5 34 H 24 L 15 64 L 49 24 H 29 Z"/>
   </g>
   <text class="px-label" x="745" y="710" dominant-baseline="middle">Actions</text>

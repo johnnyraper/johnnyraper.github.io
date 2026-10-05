@@ -91,6 +91,12 @@ a.site-mark {
   border-bottom: none;
   color: color-mix(in srgb, $text 80%, transparent);
   opacity: 0.8;
+  transition: $transition-base;
+
+  &:hover {
+    color: $text;
+    opacity: 1;
+  }
 }
 
 .site-mark--styled span {
@@ -126,8 +132,8 @@ hr {
   padding: $grid $grid-2x;
   border-radius: 999px;
   border: 1px solid transparent;
-  background: #ffffff;
-  color: #000000;
+  background: $white;
+  color: $black;
   font-size: $text-sm;
   font-weight: $font-medium;
   text-decoration: none;
@@ -141,7 +147,7 @@ hr {
   &:hover,
   &:visited,
   &:active {
-    color: #000000;
+    color: $black;
   }
 }
 

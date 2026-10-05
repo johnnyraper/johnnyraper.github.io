@@ -101,14 +101,22 @@
      ========================= */
 
    --gradient-bg-primary:
-  radial-gradient(1400px 900px at 20% 25%,
-    var(--accent-soft),
-    transparent 60%);
+      radial-gradient(1400px 900px at 20% 25%,
+         var(--accent-soft),
+         transparent 60%);
 
---gradient-bg-secondary:
-  radial-gradient(1200px 800px at 80% 75%,
-    var(--accent-subtle),
-    transparent 65%);
+   --gradient-bg-secondary:
+      radial-gradient(1200px 800px at 80% 75%,
+         var(--accent-subtle),
+         transparent 65%);
+
+   /* =========================
+     REUSABLE UTILITY COLORS
+     ========================= */
+
+   --white: #ffffff;
+   --black: #000000;
+   --off-white: #c8d1ef;
 }
 
 /* =========================
@@ -173,35 +181,35 @@ $bp-2xl: 1536px; // large screens
 }
 
 @mixin mq-max($bp) {
-  @if $bp ==sm {
-    @media (max-width: #{$bp-sm - 1px}) {
-      @content;
-    }
-  }
+   @if $bp ==sm {
+      @media (max-width: #{$bp-sm - 1px}) {
+         @content;
+      }
+   }
 
-  @if $bp ==md {
-    @media (max-width: #{$bp-md - 1px}) {
-      @content;
-    }
-  }
+   @if $bp ==md {
+      @media (max-width: #{$bp-md - 1px}) {
+         @content;
+      }
+   }
 
-  @if $bp ==lg {
-    @media (max-width: #{$bp-lg - 1px}) {
-      @content;
-    }
-  }
+   @if $bp ==lg {
+      @media (max-width: #{$bp-lg - 1px}) {
+         @content;
+      }
+   }
 
-  @if $bp ==xl {
-    @media (max-width: #{$bp-xl - 1px}) {
-      @content;
-    }
-  }
+   @if $bp ==xl {
+      @media (max-width: #{$bp-xl - 1px}) {
+         @content;
+      }
+   }
 
-  @if $bp ==2xl {
-    @media (max-width: #{$bp-2xl - 1px}) {
-      @content;
-    }
-  }
+   @if $bp ==2xl {
+      @media (max-width: #{$bp-2xl - 1px}) {
+         @content;
+      }
+   }
 }
 
 /* =========================
@@ -318,3 +326,11 @@ $transition-base: var(--transition-base);
 
 $gradient-bg-primary: var(--gradient-bg-primary);
 $gradient-bg-secondary: var(--gradient-bg-secondary);
+
+/* =========================
+   REUSABLE UTILITY COLORS
+   ========================= */
+
+$white: var(--white);
+$black: var(--black);
+$off-white: var(--off-white);

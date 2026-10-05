@@ -76,13 +76,19 @@
     BACKGROUND GRADIENTS
     ========================= */
   --gradient-bg-primary:
-  radial-gradient(1400px 900px at 20% 25%,
-    var(--accent-soft),
-    transparent 60%);
+     radial-gradient(1400px 900px at 20% 25%,
+        var(--accent-soft),
+        transparent 60%);
   --gradient-bg-secondary:
-    radial-gradient(1200px 800px at 80% 75%,
-      var(--accent-subtle),
-      transparent 65%);
+     radial-gradient(1200px 800px at 80% 75%,
+        var(--accent-subtle),
+        transparent 65%);
+  /* =========================
+    REUSABLE UTILITY COLORS
+    ========================= */
+  --white: #ffffff;
+  --black: #000000;
+  --off-white: #c8d1ef;
 }
 
 /* =========================
@@ -123,6 +129,9 @@
    ========================= */
 /* =========================
    BACKGROUNDS
+   ========================= */
+/* =========================
+   REUSABLE UTILITY COLORS
    ========================= */
 /* 1. Foundations */
 /*
@@ -787,6 +796,11 @@ a.site-mark {
   border-bottom: none;
   color: color-mix(in srgb, var(--text) 80%, transparent);
   opacity: 0.8;
+  transition: var(--transition-base);
+}
+a.site-mark:hover {
+  color: var(--text);
+  opacity: 1;
 }
 
 .site-mark--styled span {
@@ -819,8 +833,8 @@ hr {
   padding: 8px 16px;
   border-radius: 999px;
   border: 1px solid transparent;
-  background: #ffffff;
-  color: #000000;
+  background: var(--white);
+  color: var(--black);
   font-size: var(--text-sm);
   font-weight: var(--font-medium);
   text-decoration: none;
@@ -828,7 +842,7 @@ hr {
   transition: transform var(--transition-base), background var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
 }
 .button:hover, .button:visited, .button:active {
-  color: #000000;
+  color: var(--black);
 }
 
 .button:hover {
